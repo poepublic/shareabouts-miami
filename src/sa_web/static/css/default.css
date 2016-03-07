@@ -190,6 +190,7 @@ input[type=text],
 input[type=time],
 input[type=url],
 input[type=week],
+select,
 textarea {
   outline: 0;
   border: 0.25em solid #a3c7d9;
@@ -202,12 +203,16 @@ textarea {
           box-sizing: border-box;
 }
 input:focus,
+select:focus,
 textarea:focus {
   outline: 2px solid #007fbf;
 }
 textarea {
   height: 6.5em;
   resize: none;
+}
+select {
+  background-color: #fff;
 }
 
 /* Old IE does not like this to be combine with :invalid rules.
@@ -731,6 +736,11 @@ a.close-btn span {
   font-size: 1em;
   padding-left: 22px;
   color: #007fbf;
+}
+.user-support.disabled:hover,
+.user-support.disabled:hover label {
+  cursor: default;
+  background-color: #a3c7d9;
 }
 .user-support input[type=checkbox]:checked ~ label {
   background-image: url(images/heart.png);
