@@ -52,7 +52,7 @@
           {{#each_place_item "title" "submitter_name" "location_type" "infolink"}}
           <div class="place-item place-item-{{ name }}">
             <span class="place-label place-label-{{ name }}">{{ label }}</span>
-            <p class="place-value place-value-{{ name }}">{{ newLineToBr value }}</p>
+            <p class="place-value place-value-{{ name }}">{{nlToBr value }}</p>
           </div>
           {{/each_place_item }}
           <div class="place-item place-item-infolink">
@@ -63,5 +63,5 @@
         <div class="ioby-details"></div>
 
         {{#if survey_config}}
-        <section class="survey"></section>
+        <section class="survey" id="survey"></section>
         {{/if}}

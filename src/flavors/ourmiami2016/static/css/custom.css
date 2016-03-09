@@ -747,28 +747,6 @@ input[name="optout_reason"]:disabled {
 }
 
 
-/* hiding comment fields */
-
-div #reply {
-  display: none;
-}
-
-a.reply-link.btn.btn-small {
-  display: none;
-}
-
-.support .user-support:hover {
-  background-color: #dbef16;
-  color: #000;
-  cursor: default;
-}
-
-.support .user-support:hover label {
-  background-color: transparent;
-  color: #000;
-}
-
-
 /* hiding auth */
 
 /*
