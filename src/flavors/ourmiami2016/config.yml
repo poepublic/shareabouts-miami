@@ -426,9 +426,9 @@ pages:
   # - title: _(Finalists)
   #   slug: finalists
   #   name: finalists
-  - title: _(Winners)
-    slug: winners
-    name: winners
+  # - title: _(Winners)
+  #   slug: winners
+  #   name: winners
 
 notifications:
   on_new_place: true
