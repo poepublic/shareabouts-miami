@@ -6,8 +6,13 @@
 body, select, input, textarea {
   font-family: 'Open Sans', sans-serif;
 }
-.openplans-logo {
+#colophon .shareabouts-logo {
+  color: #02AEDE;
+}
+#colophon .openplans-logo,
+#colophon .poepublic-logo {
   font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  color: #666;
 }
 
 /* Links */
