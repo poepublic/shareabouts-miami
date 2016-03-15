@@ -501,6 +501,7 @@ button.star.is-full:disabled {
           animation: pulse 1s infinite ease-in-out;
 }
 
+/* =Year marker */
 #auth-nav-container img {
   height: 2.5em;
   float: right;

@@ -514,6 +514,11 @@ input[name="optout_reason"]:disabled {
   display: none;
 }
 
+/* =Year marker */
+#auth-nav-container img {
+  height: 2.5em;
+  float: right;
+}
 
 /* =Media Queries
 -------------------------------------------------------------- */
@@ -536,6 +541,11 @@ input[name="optout_reason"]:disabled {
 }
 
 @media only screen and (min-width: 60em) {
+  #auth-nav-container img {
+    height: 4em;
+    float: right;
+  }
+
   .hide-for-medium-up {
     display: none;
   }

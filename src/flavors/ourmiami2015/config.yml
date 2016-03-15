@@ -221,7 +221,7 @@ place_types:
           iconAnchor: [12, 41]
 
 activity:
-  enabled: true
+  enabled: false
   interval: 30000
 
 place:
@@ -381,16 +381,9 @@ support:
   anonymous_name: _(Someone)
 
 pages:
-  - title: _(About)
-    slug: about
-    name: overview
-    start_page: true
-  - title: _(FAQ)
-    slug: faq
-    name: faq
-  - title: _(Contact us)
-    slug: contact
-    name: features
+  - title: _(Go to the current challenge)
+    external: true
+    url: //ideas.ourmiami.org/
   - title: Filter Places
     slug: filter-type
     pages:
@@ -424,9 +417,10 @@ pages:
   # - title: _(Finalists)
   #   slug: finalists
   #   name: finalists
-  - title: _(Winners)
+  - title: _(2015 Winners)
     slug: winners
     name: winners
+    start_page: true
 
 notifications:
   on_new_place: true

@@ -381,7 +381,7 @@ support:
   anonymous_name: _(Someone)
 
 pages:
-  - title: _(Go to the 2015 challenge)
+  - title: _(Go to the current challenge)
     external: true
     url: //ideas.ourmiami.org/
   - title: _(2014 Winners)
