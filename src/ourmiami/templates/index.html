@@ -447,3 +447,24 @@ Handlebars.registerHelper('isJudging', function(options) {
 </script>
 {% endif %}
 {% endblock %}
+
+{% block cdn_load %}
+{% if settings.SENTRY_DSN %}
+<script src="https://cdn.ravenjs.com/2.2.0/raven.min.js"></script>
+<script>Raven.config('{{ settings.SENTRY_DSN }}').install()</script>
+<script>
+  $(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+    Raven.captureMessage(thrownError || jqXHR.statusText, {
+      extra: {
+        type: ajaxSettings.type,
+        url: ajaxSettings.url,
+        data: ajaxSettings.data,
+        status: jqXHR.status,
+        error: thrownError || jqXHR.statusText,
+        response: jqXHR.responseText.substring(0, 100)
+      }
+    });
+  });
+</script>
+{% endif %}
+{% endblock %}
