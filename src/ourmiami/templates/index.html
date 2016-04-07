@@ -454,13 +454,15 @@ Handlebars.registerHelper('isJudging', function(options) {
 <script>Raven.config('{{ settings.SENTRY_DSN }}').install()</script>
 <script>
   $(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
-    Raven.captureMessage('Ajax: (' + jqXHR.status + ') "' + thrownError || jqXHR.statusText + '" at ' + ajaxSettings.url, {
+    var statusText = thrownError || jqXHR.statusText;
+    var messageTitle = 'Ajax: (' + jqXHR.status + ') "' + statusText + '" at ' + ajaxSettings.url;
+    Raven.captureMessage(messageTitle, {
       extra: {
         type: ajaxSettings.type,
         url: ajaxSettings.url,
         data: ajaxSettings.data,
         status: jqXHR.status,
-        error: thrownError || jqXHR.statusText,
+        error: statusText,
         response: jqXHR.responseText.substring(0, 2048)
       }
     });
