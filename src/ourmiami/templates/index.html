@@ -432,7 +432,13 @@ Handlebars.registerHelper('isJudging', function(options) {
   } else {
     return options.inverse(this);
   }
-})
+});
+
+Handlebars.registerHelper('ensureScheme', function(url) {
+  var schemePattern = /^(https?:)?\/\//;
+  var urlStartsWithScheme = (schemePattern.test(url));
+  return (urlStartsWithScheme ? url : 'http://' + url);
+});
 
 </script>
 
