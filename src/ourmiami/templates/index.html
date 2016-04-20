@@ -46,6 +46,11 @@
   {% endif%}
 {% endblock %}
 
+{% block post_auth_nav %}
+<div class="place-list-ratings-summary-toggle"></div>
+<div class="place-list-ratings-summary-wrapper hidden"></div>
+{% endblock %}
+
 
 <!--
   This will place content at the top of the side bar
@@ -68,9 +73,39 @@
  -->
 {% block includes %}
 <script src="{{STATIC_URL}}js/views/rating-view.js"></script>
+<script src="{{STATIC_URL}}js/views/ratings-summary-view.js"></script>
 <script>
 (function(S) {
   S.bootstrapped.datasetUrl = '{{DATASET_ROOT|slice:":-1"}}';
+
+  /*
+   * Patch AppView.initialize to construct a ratings summary view.
+   */
+  var initializeRatingsSummaryView = function() {
+    // Only initialize the view if the user is in a judging group.
+    if (S.Config.userJudgeGroup) {
+      $('.place-list-ratings-summary-wrapper').removeClass('hidden');
+      this.ratingsSummaryView = new Shareabouts.RatingsSummaryView({
+        el: '.place-list-ratings-summary-wrapper',
+        collection: this.collection,  // PlaceCollection
+        userToken: S.Config.userToken,
+        userJudgeGroups: S.Config.userJudgeGroup,
+        categories: _.keys(S.Config.placeTypes)
+      });
+    }
+  }
+
+  var appViewInitialize = Shareabouts.AppView.prototype.initialize;
+  Shareabouts.AppView.prototype.initialize = function() {
+    appViewInitialize.call(this);
+    initializeRatingsSummaryView.call(this);
+
+    // All the app-view's subviews are rendered in initialize (yeah, does't seem
+    // right, but now's not the time to fix it).
+    if (this.ratingsSummaryView) {
+      this.ratingsSummaryView.render();
+    }
+  }
 
   /*
    * Patch initializers to construct a rating view.
@@ -438,6 +473,10 @@ Handlebars.registerHelper('ensureScheme', function(url) {
   var schemePattern = /^(https?:)?\/\//;
   var urlStartsWithScheme = (schemePattern.test(url));
   return (urlStartsWithScheme ? url : 'http://' + url);
+});
+
+Handlebars.registerHelper('toLowerCase', function(s) {
+  if (s.toLowerCase) return s.toLowerCase();
 });
 
 </script>

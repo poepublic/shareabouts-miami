@@ -520,6 +520,11 @@ input[name="optout_reason"]:disabled {
 }
 
 
+.place-list-ratings-summary-wrapper {
+  display: none;
+}
+
+
 /* =Media Queries
 -------------------------------------------------------------- */
 
@@ -541,6 +546,87 @@ input[name="optout_reason"]:disabled {
 }
 
 @media only screen and (min-width: 60em) {
+  .place-list-ratings-summary-wrapper {
+    /* Position */
+    left: 0;
+    position: absolute;
+    top: 5em;
+    z-index: 1;
+
+    /* Box */
+    border: 3px solid #00AFDB;
+    border-width: 0 3px 3px 3px;
+    box-shadow: 0 5px 10px rgba(85, 85, 85, 0.5);
+    box-sizing: border-box;
+    display: block;
+    padding: 1em;
+    width: 100%;
+
+    background-color: white;
+  }
+
+  .ratings-chart-label {
+    font-size: 1.5em;
+  }
+
+  .ratings-chart-segment {
+    display: inline-block;
+    vertical-align: top;
+    height: 0.5em;
+    width: 0%;
+    transition: width 0.2s linear;
+    -webkit-transition: width 0.2s linear;
+  }
+
+  .beautificationart-segment { background-color: #DBEF16; }
+  .childidea-segment { background-color: #86AD11; }
+  .gardenfarmersmarket-segment { background-color: #7D4199; }
+  .physicalactivity-segment { background-color: #E85BFF; }
+  .shadepubliccomfort-segment { background-color: #00AEDB; }
+  .communitygatheringspace-segment { background-color: #6DF8FF; }
+  .safestreets-segment { background-color: #EF7300; }
+  .signagewayfinding-segment { background-color: #DF4662; }
+
+  .ratings-chart-bars {
+    width: 20em;
+    display: inline-block;
+    height: 0.5em;
+    border: 1px solid #BCC1C5;
+    border-radius: 0.2em;
+    overflow: hidden;
+  }
+
+  .ratings-chart-category-label {
+    font-style: italic;
+    font-size: 0.8em;
+    text-align: right;
+    width: 5em;
+    display: inline-block;
+  }
+
+  #site-header.clearfix.has-pages
+  .ratings-count-wrapper,
+  .ratings-chart-wrapper {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .ratings-count-wrapper {
+    padding-left: 1em;
+    padding-right: 2em;
+    border-right: 1px solid #BBC0C4;
+    font-size: 1.5em;
+  }
+
+  .ratings-count-wrapper span {
+    display: block;
+    text-align: center;
+  }
+
+  .ratings-count {
+    font-size: 2.5em;
+  }
+
   .hide-for-medium-up {
     display: none;
   }

@@ -1,0 +1,12 @@
+<span class="ratings-chart-label">Your Rating Distribution</span>
+
+{{#each ratingOptions}}
+<div class="ratings-chart-bars-wrapper">
+  <span class="ratings-chart-category-label">{{.}}</span>
+  <div class="ratings-chart-bars" data-rating="{{.}}">
+    {{~#each ../categoryOptions~}}
+    <span class="ratings-chart-segment {{toLowerCase .}}-segment" data-category="{{.}}" data-tooltip="{{.}}"></span>
+    {{~/each~}} {{! categoryOptions }}
+  </div>
+</div>
+{{/each}} {{! ratingOptions }}
