@@ -47,8 +47,10 @@
 {% endblock %}
 
 {% block post_auth_nav %}
-<div class="place-list-ratings-summary-toggle"></div>
-<div class="place-list-ratings-summary-wrapper hidden"></div>
+<div class="place-list-ratings-summary-container hidden">
+  <div class="place-list-ratings-summary-toggle"><a href="#">Ratings Summary</a></div>
+  <div class="place-list-ratings-summary-wrapper"></div>
+</div>
 {% endblock %}
 
 
@@ -84,7 +86,7 @@
   var initializeRatingsSummaryView = function() {
     // Only initialize the view if the user is in a judging group.
     if (S.Config.userJudgeGroup) {
-      $('.place-list-ratings-summary-wrapper').removeClass('hidden');
+      $('.place-list-ratings-summary-container').removeClass('hidden');
       this.ratingsSummaryView = new Shareabouts.RatingsSummaryView({
         el: '.place-list-ratings-summary-wrapper',
         collection: this.collection,  // PlaceCollection
@@ -222,14 +224,17 @@
     var self = this;
     var S = Shareabouts;
 
+    // Set up the user's judging group, if there is one
     if (S.bootstrapped.currentUser) {
       S.Config.userJudgeGroup = S.getJudgeGroup(S.bootstrapped.currentUser);
     }
 
+    // Add a route handler for filtering by category
     this.route('filter/:locationtype', 'filterMap');
 
     appInitialize.call(this, options);
 
+    // Handle the category filter route
     this.bind('route', function(route) {
       if (route === 'filterMap' || route === 'viewPlace' || route === 'showList' || route === 'viewMap') {
         // Don't clear the filter
@@ -238,6 +243,11 @@
       }
     }, this);
 
+    // Handle the show/hide of the ratings summary
+    $('.place-list-ratings-summary-toggle').on('click', function(evt) {
+      evt.preventDefault();
+      $('.place-list-ratings-summary-container').toggleClass('open');
+    });
 
     $(document).on('click', 'a[href^="/"]', function(evt) {
       var $link = $(evt.currentTarget),
