@@ -90,7 +90,7 @@
    */
   var initializeRatingsSummaryView = function() {
     // Only initialize the view if the user is in a judging group.
-    if (S.Config.userJudgeGroup) {
+    if (S.Config.userJudgeGroup && S.Config.userJudgeGroup.length > 0) {
       $('.place-list-ratings-summary-container').removeClass('hidden');
       this.ratingsSummaryView = new Shareabouts.RatingsSummaryView({
         el: '.place-list-ratings-summary-wrapper',
