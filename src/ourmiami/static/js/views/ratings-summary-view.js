@@ -112,7 +112,7 @@ var Shareabouts = Shareabouts || {};
 
           if (rating.get('user_token') === userToken) {
             cat = place.get('location_type');
-            rat = (rating.get('optout') ? 'optout' : rating.get('rating'));
+            rat = (rating.get('optout') ? 'opt-out' : rating.get('rating'));
             if (!rat) return;
 
             ++total;
@@ -152,7 +152,7 @@ var Shareabouts = Shareabouts || {};
 
     render: function() {
       var self = this;
-      var ratingOptions = [1, 2, 3, 4, 5, 'optout'];
+      var ratingOptions = [1, 2, 3, 4, 5, 'opt-out'];
       var categoryOptions = this.options.categories;
 
       // I don't understand why we need to redelegate the event here, but they
@@ -170,7 +170,7 @@ var Shareabouts = Shareabouts || {};
     },
 
     updateRatingsDisplays: _.throttle(function() {
-      var ratingOptions = [1, 2, 3, 4, 5, 'optout'];
+      var ratingOptions = [1, 2, 3, 4, 5, 'opt-out'];
       var categoryOptions = this.options.categories;
       var ratingsCounts = this.getRatingsCounts(ratingOptions, categoryOptions);
       var judgeGroupCount = this.getJudgeGroupCount(ratingOptions);
@@ -222,8 +222,10 @@ var Shareabouts = Shareabouts || {};
         var ratShare = 1.0 * ratTotal / countMax;
         $(bar).find('.ratings-chart-segment').each(function(segIndex, segment) {
           var cat = $(segment).attr('data-category');
-          var value = countByRatingCategory[rat][cat] || 0;
-          $(segment).css('width', (ratTotal ? value * 100.0 / ratTotal * ratShare : 0) + '%');
+          var count = countByRatingCategory[rat][cat] || 0;
+          $(segment)
+            .css('width', (ratTotal ? count * 100.0 / ratTotal * ratShare : 0) + '%')
+            .attr('title', '# of ' + cat + ' ideas with rating ' + rat + ': ' + count);
         });
       });
     }

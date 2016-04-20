@@ -48,7 +48,12 @@
 
 {% block post_auth_nav %}
 <div class="place-list-ratings-summary-container hidden">
-  <div class="place-list-ratings-summary-toggle"><a href="#">Ratings Summary</a></div>
+  <div class="place-list-ratings-summary-toggle">
+    <a href="#">
+      Ratings Summary
+      <small class="ratings-summary-toggle-note hidden">(Click to toggle)</small>
+    </a>
+  </div>
   <div class="place-list-ratings-summary-wrapper"></div>
 </div>
 {% endblock %}

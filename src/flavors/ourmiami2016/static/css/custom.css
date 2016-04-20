@@ -555,7 +555,7 @@ input[name="optout_reason"]:disabled {
   }
   .open .place-list-ratings-summary-wrapper {
     /* Position */
-    left: 0;
+    left: 2.5%;
     position: absolute;
     top: 5em;
     z-index: 1;
@@ -567,19 +567,21 @@ input[name="optout_reason"]:disabled {
     box-sizing: border-box;
     display: block;
     padding: 1em;
-    width: 100%;
+    width: 95%;
 
     background-color: white;
   }
 
   .ratings-chart-label {
     font-size: 1.5em;
+    margin: 0 0 0.3em 1em;
+    display: block;
   }
 
   .ratings-chart-segment {
     display: inline-block;
     vertical-align: top;
-    height: 0.5em;
+    height: 2em;
     width: 0%;
     transition: width 0.2s linear;
     -webkit-transition: width 0.2s linear;
@@ -595,12 +597,13 @@ input[name="optout_reason"]:disabled {
   .signagewayfinding-segment { background-color: #DF4662; }
 
   .ratings-chart-bars {
-    width: 20em;
+    width: 30em;
     display: inline-block;
-    height: 0.5em;
+    height: 0.8em;
     border: 1px solid #BCC1C5;
     border-radius: 0.2em;
     overflow: hidden;
+    margin-left: 0.5em;
   }
 
   .ratings-chart-category-label {
@@ -629,6 +632,7 @@ input[name="optout_reason"]:disabled {
 
     line-height: 3.6em;
     font-weight: bold;
+    text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0.5em 1.5em 0.5em 3.5em;
@@ -641,6 +645,14 @@ input[name="optout_reason"]:disabled {
     color: white;
     background-color: #02ACD7;
     background-image: url(/static/css/images/chart-menu-white.png);
+  }
+
+  .ratings-summary-toggle-note {
+    line-height: 1em;
+    margin-top: -1.6em;
+    display: block;
+    font-weight: normal;
+    text-transform: lowercase;
   }
 
   #site-header.clearfix.has-pages
