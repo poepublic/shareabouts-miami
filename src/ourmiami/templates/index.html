@@ -97,7 +97,12 @@
         collection: this.collection,  // PlaceCollection
         userToken: S.Config.userToken,
         userJudgeGroups: S.Config.userJudgeGroup,
-        categories: _.keys(S.Config.placeTypes)
+        categories: _.map(
+          S.Config.placeTypes,
+          function(config, key) {
+            return {'option': key, 'label': config.label};
+          }
+        )
       });
     }
   }

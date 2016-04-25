@@ -152,8 +152,13 @@ var Shareabouts = Shareabouts || {};
 
     render: function() {
       var self = this;
+      var ratingLabels = ['\u2605', '\u2605\u2605', '\u2605\u2605\u2605', '\u2605\u2605\u2605\u2605', '\u2605\u2605\u2605\u2605\u2605', 'Opt-out']
       var ratingOptions = [1, 2, 3, 4, 5, 'opt-out'];
-      var categoryOptions = this.options.categories;
+      var ratingsConfig = this.options.ratings = _.map(
+        _.zip(ratingLabels, ratingOptions),
+        function(l_o) { return {label: l_o[0], option: l_o[1]}; }
+      );
+      var categoriesConfig = this.options.categories;
 
       // I don't understand why we need to redelegate the event here, but they
       // are definitely unbound after the first render.
@@ -161,7 +166,7 @@ var Shareabouts = Shareabouts || {};
       this.$el.html(Handlebars.templates['place-list-ratings-summary']());
 
       // Set up the initial values and templates
-      this.initRatingsChart(ratingOptions, categoryOptions);
+      this.initRatingsChart(ratingsConfig, categoriesConfig);
 
       // Count ratings and projects in each category
       this.updateRatingsDisplays();
@@ -170,8 +175,8 @@ var Shareabouts = Shareabouts || {};
     },
 
     updateRatingsDisplays: _.throttle(function() {
-      var ratingOptions = [1, 2, 3, 4, 5, 'opt-out'];
-      var categoryOptions = this.options.categories;
+      var ratingOptions = _.pluck(this.options.ratings, 'option');
+      var categoryOptions = _.pluck(this.options.categories, 'option');
       var ratingsCounts = this.getRatingsCounts(ratingOptions, categoryOptions);
       var judgeGroupCount = this.getJudgeGroupCount(ratingOptions);
 
@@ -189,11 +194,11 @@ var Shareabouts = Shareabouts || {};
     },
 
     // Initialize the structure for the ratings stacked bar chart
-    initRatingsChart: function(ratingOptions, categoryOptions) {
+    initRatingsChart: function(ratingsConfig, categoryConfig) {
       var chartTemplate = Handlebars.templates['place-list-ratings-chart'];
       this.$el.find('.ratings-chart-wrapper').html(chartTemplate({
-        ratingOptions: ratingOptions,
-        categoryOptions: categoryOptions
+        ratings: ratingsConfig,
+        categories: categoryConfig
       }));
     },
 
@@ -214,9 +219,19 @@ var Shareabouts = Shareabouts || {};
     //
     updateRatingsChart: function(countByRatingCategory, countByRating, countTotal) {
       var countMax = _.max(_.values(countByRating));
-      if (!countMax) return;
 
-      this.$el.find('.ratings-chart-bars').each(function(barIndex, bar) {
+      // Scale the chart appropriately, but in increments so as to not be too
+      // jarring
+      var scaleFactor = 1.0;
+      var tickStep = 3;
+           if (countMax > 80) { scaleFactor = 0.1;   tickStep = 30; }
+      else if (countMax > 60) { scaleFactor = 0.25;  tickStep = 12; }
+      else if (countMax > 40) { scaleFactor = 0.333; tickStep = 10; }
+      else if (countMax > 30) { scaleFactor = 0.5;   tickStep = 6; }
+      else if (countMax > 20) { scaleFactor = 0.667; tickStep = 5; }
+
+      // First resize all of the chart bar segments
+      this.$el.find('.ratings-chart-bar').each(function(barIndex, bar) {
         var rat = $(bar).attr('data-rating');
         var ratTotal = countByRating[rat];
         var ratShare = 1.0 * ratTotal / countMax;
@@ -224,9 +239,34 @@ var Shareabouts = Shareabouts || {};
           var cat = $(segment).attr('data-category');
           var count = countByRatingCategory[rat][cat] || 0;
           $(segment)
-            .css('width', (ratTotal ? count * 100.0 / ratTotal * ratShare : 0) + '%')
-            .attr('title', '# of ' + cat + ' ideas with rating ' + rat + ': ' + count);
+            .css('width', (count * scaleFactor) + 'em')
+            .attr('title', count + ' ' + $(segment).attr('data-category-label') + ' idea(s) with rating of ' + rat)
         });
+      });
+
+      // Update the rating totals
+      this.$el.find('.ratings-chart-rating-total').each(function(index, label) {
+        var rat = $(label).attr('data-rating');
+        var ratTotal = countByRating[rat];
+        $(label)
+          .html(ratTotal ? ratTotal : '');
+      });
+
+      // Set the initial margin before the tick labels
+      this.$el.find('.ratings-chart-tick-labels-wrapper')
+        .css('margin-left', ((tickStep * scaleFactor) / 2.0 + 4.7) + 'em');
+
+      // Set the spacing between tick labels
+      this.$el.find('.ratings-chart-tick-label').each(function(labelIndex, label) {
+        $(label)
+          .html(tickStep * (labelIndex + 1))
+          .css('width', (tickStep * scaleFactor * 1.5) + 'em');
+      });
+
+      // Set the spacing between ticks
+      this.$el.find('.ratings-chart-tick').each(function(tickIndex, tick) {
+        $(tick)
+          .css('width', (tickStep * scaleFactor) + 'em');
       });
     }
   });

@@ -524,6 +524,21 @@ input[name="optout_reason"]:disabled {
   display: none;
 }
 
+.ratings-chart-rating-label[data-rating="1"],
+.ratings-chart-rating-label[data-rating="2"],
+.ratings-chart-rating-label[data-rating="3"],
+.ratings-chart-rating-label[data-rating="4"],
+.ratings-chart-rating-label[data-rating="5"] {
+  color: #F5C400;
+  font-style: normal;
+}
+
+.ratings-chart-rating-total {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+
 
 /* =Media Queries
 -------------------------------------------------------------- */
@@ -572,7 +587,7 @@ input[name="optout_reason"]:disabled {
     background-color: white;
   }
 
-  .ratings-chart-label {
+  .ratings-chart-title {
     font-size: 1.5em;
     margin: 0 0 0.3em 1em;
     display: block;
@@ -596,23 +611,96 @@ input[name="optout_reason"]:disabled {
   .safestreets-segment { background-color: #EF7300; }
   .signagewayfinding-segment { background-color: #DF4662; }
 
-  .ratings-chart-bars {
-    width: 30em;
+  .ratings-chart-bar {
+    /*width: 30em;*/
     display: inline-block;
     height: 0.8em;
-    border: 1px solid #BCC1C5;
+    /*border: 1px solid #BCC1C5;*/
     border-radius: 0.2em;
     overflow: hidden;
     margin-left: 0.5em;
   }
 
-  .ratings-chart-category-label {
+  .ratings-chart-rating-label {
     font-style: italic;
     font-size: 0.8em;
     text-align: right;
     width: 5em;
     display: inline-block;
   }
+
+  .ratings-chart-main {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .ratings-chart-bars-wrapper {
+  }
+
+  .ratings-chart-ticks-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7.6em;
+    margin-left: 4.8em;
+    pointer-events: none;
+  }
+
+  .ratings-chart-tick {
+    width: 3em;
+    box-sizing: border-box;
+    border-right: 1px solid silver;
+    border-right-color: rgba(0, 0, 0, 0.15);
+    height: 100%;
+    display: inline-block;
+  }
+  .ratings-chart-tick-labels-wrapper {
+    margin-left: 6.2em;
+  }
+  .ratings-chart-tick-label {
+    font-size: 0.6667em;
+    font-style: italic;
+    color: gray;
+    display: inline-block;
+    width: 4.5em;
+    text-align: center;
+  }
+
+  .ratings-chart-legend {
+    display: inline-block;
+  }
+  .ratings-legend-labels-wrapper {
+    list-style: none;
+    font-size: 0.8em;
+    margin: 0;
+    margin-top: 0;
+  }
+  .ratings-legend-labels-wrapper li {
+    padding-bottom: 0.2em;
+  }
+  .ratings-legend-labels-wrapper li:before {
+    content: ' ';
+    display: inline-block;
+    height: 0.9em;
+    width: 1em;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: -2em;
+    margin-right: 1em;
+    box-sizing: border-box;
+    border: 1px solid silver;
+    border-color: rgba(0,0,0,0.15);
+  }
+  .ratings-legend-label-beautificationart:before { background-color: #DBEF16; }
+  .ratings-legend-label-childidea:before { background-color: #86AD11; }
+  .ratings-legend-label-gardenfarmersmarket:before { background-color: #7D4199; }
+  .ratings-legend-label-physicalactivity:before { background-color: #E85BFF; }
+  .ratings-legend-label-shadepubliccomfort:before { background-color: #00AEDB; }
+  .ratings-legend-label-communitygatheringspace:before { background-color: #6DF8FF; }
+  .ratings-legend-label-safestreets:before { background-color: #EF7300; }
+  .ratings-legend-label-signagewayfinding:before { background-color: #DF4662; }
 
   .place-list-ratings-summary-toggle {
   }
@@ -663,9 +751,11 @@ input[name="optout_reason"]:disabled {
   }
 
   .ratings-count-wrapper {
-    padding-left: 1em;
-    padding-right: 2em;
+    padding: 0;
+    margin: 0;
+    width: 14em;
     border-right: 1px solid #BBC0C4;
+    box-sizing: border-box;
     font-size: 1.5em;
   }
 
