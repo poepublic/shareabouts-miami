@@ -72,6 +72,9 @@ a.why-sign-in {
   background-color: #00afdb;
   color: #fff;
 }
+.user-support.disabled:hover {
+  background-color: #dbef16;
+}
 
 /* Forms */
 input[type=date],
