@@ -75,6 +75,7 @@ a.why-sign-in {
 .user-support.disabled:hover,
 .user-support.disabled:hover label {
   background-color: #dbef16;
+  color: #000;
 }
 
 /* Forms */
