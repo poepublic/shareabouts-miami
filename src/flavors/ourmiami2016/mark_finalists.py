@@ -19,7 +19,7 @@ password = sys.argv[2]
 for finalist in finalists:
     url = url_tmp.format(**finalist)
 
-    update = {'type': 'Feature', 'properties': {'ff': 1}}
+    update = {'type': 'Feature', 'properties': {'ff': '1'}}
     changed_name = finalist['Title Name Change']
     changed_submitter = finalist['Submitter Name Change']
     if changed_name:
