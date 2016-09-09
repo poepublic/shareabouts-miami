@@ -22,7 +22,7 @@ place_types:
   BeautificationArt:
     label: _(Beautification/Art)
     rules:
-      - condition: '"{{location_type}}" === "BeautificationArt" & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "BeautificationArt" && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-yellow.png
           iconSize: [20, 20]
@@ -47,7 +47,7 @@ place_types:
   ChildIdea:
     label: _(Child/Senior Citizen Focused)
     rules:
-      - condition: '"{{location_type}}" === "ChildIdea" & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "ChildIdea" && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-green.png
           iconSize: [20, 20]
@@ -72,7 +72,7 @@ place_types:
   GardenFarmersMarket:
     label: _(Garden/Farmers' Market/Healthy Eating)
     rules:
-      - condition: '"{{location_type}}" === "GardenFarmersMarket"  & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "GardenFarmersMarket"  && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-purple.png
           iconSize: [18, 18]
@@ -97,7 +97,7 @@ place_types:
   PhysicalActivity:
     label: _(Physical Activity/Exercise)
     rules:
-      - condition: '"{{location_type}}" === "PhysicalActivity" & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "PhysicalActivity" && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-pink.png
           iconSize: [20, 20]
@@ -122,7 +122,7 @@ place_types:
   ShadePublicComfort:
     label: _(Public Comfort (shade, seating, etc.))
     rules:
-      - condition: '"{{location_type}}" === "ShadePublicComfort" & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "ShadePublicComfort" && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-blue.png
           iconSize: [20, 20]
@@ -147,7 +147,7 @@ place_types:
   CommunityGatheringSpace:
     label: _(Gathering Space)
     rules:
-      - condition: '"{{location_type}}" === "CommunityGatheringSpace"  & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "CommunityGatheringSpace"  && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-teal.png
           iconSize: [20, 20]
@@ -172,7 +172,7 @@ place_types:
   SafeStreets:
     label: _(Safety)
     rules:
-      - condition: '"{{location_type}}" === "SafeStreets" & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "SafeStreets" && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-orange.png
           iconSize: [20, 20]
@@ -197,7 +197,7 @@ place_types:
   SignageWayfinding:
     label: _(Signage/Wayfinding)
     rules:
-      - condition: '"{{location_type}}" === "SignageWayfinding" & "{{ff}}" === "1"'
+      - condition: '"{{location_type}}" === "SignageWayfinding" && ("{{ff}}" === "1" || "{{ff}}" === "2")'
         icon:
           iconUrl: /static/css/images/markers/dot-red.png
           iconSize: [20, 20]
