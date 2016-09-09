@@ -153,12 +153,15 @@
   var placeRender = Shareabouts.PlaceDetailView.prototype.render;
   Shareabouts.PlaceDetailView.prototype.render = function() {
     var view = placeRender.call(this),
-        iobyId = this.model.get('ioby_id');
+        iobyId = this.model.get('ioby_id'),
+        judgeGroup = Shareabouts.getJudgeGroup(Shareabouts.bootstrapped.currentUser);
 
-    // Render the rating view, as we do the support and survey views
-    this.$('.rating').html(this.ratingView.render().$el);
-    // Fetch for submissions and automatically update the element
-    this.model.submissionSets['ratings'].fetchAllPages();
+    if (judgeGroup && judgeGroup.length > 0) {
+      // Render the rating view, as we do the support and survey views
+      this.$('.rating').html(this.ratingView.render().$el);
+      // Fetch for submissions and automatically update the element
+      this.model.submissionSets['ratings'].fetchAllPages();
+    }
 
     // Render the associated data from ioby
     if (iobyId) {
@@ -224,8 +227,8 @@
   };
 
   Shareabouts.getJudgeGroup = function(user) {
-    var judgeGroups = _.where(user.groups,
-      {'dataset': S.bootstrapped.datasetUrl});
+    var judgeGroups = user ? _.where(user.groups,
+      {'dataset': S.bootstrapped.datasetUrl}) : null;
     return _.pluck(judgeGroups, 'name');
   };
 
