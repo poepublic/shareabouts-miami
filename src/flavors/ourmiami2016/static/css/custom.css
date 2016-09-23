@@ -544,6 +544,17 @@ input[name="optout_reason"]:disabled {
 }
 
 
+/* =Finalists and Winners
+-------------------------------------------------------------- */
+
+h5 {
+    font-size: 1.25em;
+    border-bottom: 1px solid silver;
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5em;
+}
+
 
 /* =Media Queries
 -------------------------------------------------------------- */
