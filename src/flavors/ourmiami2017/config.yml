@@ -225,7 +225,7 @@ activity:
   interval: 30000
 
 place:
-  adding_supported: false
+  adding_supported: true
   add_button_label: _(Add an idea)
   # Labels for the buttons that toggle the map and list views
   show_list_button_label: _(List Ideas)
@@ -349,7 +349,7 @@ place:
 
 survey:
   submission_type: comments
-  adding_supported: false
+  adding_supported: true
 
   # Response config
   show_responses: true
@@ -375,7 +375,7 @@ survey:
 
 support:
   submission_type: support
-  adding_supported: false
+  adding_supported: true
   submit_btn_text: _(Like This!)
   response_name: _(like)
   response_plural_name: _(likes)
@@ -426,9 +426,9 @@ pages:
   # - title: _(Finalists)
   #   slug: finalists
   #   name: finalists
-  - title: _(2016 Winners)
-    slug: winners
-    name: winners
+  # - title: _(2016 Winners)
+  #   slug: winners
+  #   name: winners
 
 notifications:
   on_new_place: true
