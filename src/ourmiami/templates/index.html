@@ -517,9 +517,9 @@ Handlebars.registerHelper('toLowerCase', function(s) {
 {% endblock %}
 
 {% block cdn_load %}
-{% if settings.SENTRY_DSN %}
+{% if settings.RAVEN_CONFIG.public_dsn %}
 <script src="https://cdn.ravenjs.com/3.0.4/raven.min.js"></script>
-<script>Raven.config('{{ settings.SENTRY_DSN }}').install()</script>
+<script>Raven.config('{{ settings.RAVEN_CONFIG.public_dsn }}').install()</script>
 <script>
   $(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
     var statusText = thrownError || jqXHR.statusText;
