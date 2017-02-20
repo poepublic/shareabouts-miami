@@ -14,7 +14,7 @@ map:
     minZoom: 10
     maxZoom: 18
   layers:
-    - url: http://{s}.tiles.mapbox.com/v3/openplans.h7ab4o5f/{z}/{x}/{y}.png
+    - url: https://api.mapbox.com/styles/v1/miamipsc/ciz9puq2a00502rmuot3sxl0a/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
       attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
 
 place_types:
