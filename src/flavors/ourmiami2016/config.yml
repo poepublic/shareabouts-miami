@@ -385,7 +385,7 @@ support:
 pages:
   - title: _(About)
     slug: about
-    name: overview-done
+    name: overview-newyear
     start_page: true
   # - title: _(FAQ)
   #   slug: faq
