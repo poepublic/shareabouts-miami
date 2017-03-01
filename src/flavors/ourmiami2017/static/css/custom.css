@@ -164,6 +164,148 @@ form .signed-in-as {
   border-bottom: 0;
 }
 
+.radio-label-text,
+.checkbox-label-text {
+  border: none;
+  background-color: #ebebeb;
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.25);
+  border-radius: 6px;
+  color: #181818;
+}
+
+.radio-label-text:hover,
+.checkbox-label-text:hover {
+  background-color: #777;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5) inset;
+  color: #fff;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+}
+
+:checked + .radio-label-text,
+.radio-label-text.checked,
+:checked + .checkbox-label-text,
+.checkbox-label-text.checked {
+  background-color: #DBEF16;
+  border: none;
+}
+
+.place-location_type-field .radio-group {
+  border: 3px solid white;
+  font-size: 0;
+}
+
+.place-location_type-field .label-text {
+  box-sizing: content-box;
+  min-height: 2.5em;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-right: 2%;
+  margin-bottom: 0.5em;
+
+  text-align: center;
+  vertical-align: top;
+  font-size: 0.75rem;
+}
+
+/* Small */
+.place-location_type-field .label-text {
+  width: 47%;
+  padding-top: 80px;
+
+  background-size: 50px 60px;
+  background-position: 50% 10px;
+  background-repeat: no-repeat;
+}
+
+.place-location_type-field label:nth-child(even) .label-text {
+  margin-right: 0;
+}
+
+/* Medium */
+@media only screen and (min-width: 32rem) {
+  .place-location_type-field .label-text {
+    width: 21.5%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 2%;
+  }
+
+  .place-location_type-field label:last-child .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Bigger than a tablet */
+@media only screen and (min-width: 60rem) {
+  .place-location_type-field .label-text {
+    width: 47%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Pretty big */
+@media only screen and (min-width: 72rem) {
+  .place-location_type-field .label-text {
+    width: 21.5%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 2%;
+  }
+
+  .place-location_type-field label:last-child .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Full-sized in 2017 */
+@media only screen and (min-width: 80rem) {
+  .place-location_type-field .label-text {
+    width: 47%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 0;
+  }
+}
+
+/* BG Images */
+[value="ParksAndNaturalAreas"] + .label-text {
+  background-image: url("/static/css/images/markers/MiamiPSC_2017markers-05.png");
+}
+[value="GreenwaysAndBlueways"] + .label-text {
+  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-06.png");
+}
+[value="SafeRoutesToParks"] + .label-text {
+  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-08.png");
+}
+[value="PublicSpaces"] + .label-text {
+  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-05.png");
+}
+
+[value="ParksAndNaturalAreas"]:checked + .label-text {
+  background-color: #C3CE2F;
+  background-image: url("/static/css/images/markers/MiamiPSC_2017markers-05-noborder.png");
+}
+[value="GreenwaysAndBlueways"]:checked + .label-text {
+  background-color: #AA93CE;
+  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-06-noborder.png");
+}
+[value="SafeRoutesToParks"]:checked + .label-text {
+  background-color: #F4C040;
+  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-08-noborder.png");
+}
+[value="PublicSpaces"]:checked + .label-text {
+  background-color: #1490C1;
+  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-05-noborder.png");
+}
+
 /* =Header
 -------------------------------------------------------------- */
 

@@ -268,6 +268,22 @@ place:
           value: required
         - key: maxlength
           value: 100
+    - prompt: _(* My project will improve...)
+      label: _(Project type)
+      type: radiogroup
+      options:
+        - label: _(Parks & Natural Areas)
+          value: ParksAndNaturalAreas
+        - label: _(Greenways & Blueways)
+          value: GreenwaysAndBlueways
+        - label: _(Safe Routes to Parks)
+          value: SafeRoutesToParks
+        - label: _(Public Spaces)
+          value: PublicSpaces
+      attrs:
+      - key: required
+        value: required
+      name: location_type
     - prompt: _(* My idea to improve this place...)
       type: textarea
       name: description
@@ -292,32 +308,6 @@ place:
           value: required
         - key: maxlength
           value: 750
-    - prompt: _(* Idea type)
-      label: _(Idea type)
-      type: select
-      options:
-        - label: _(Please choose...)
-          value: ""
-        - label: _(Beautification/Art)
-          value: BeautificationArt
-        - label: _(Child/Senior Citizen Focused)
-          value: ChildIdea
-        - label: _(Garden/Farmers' Market/Healthy Eating)
-          value: GardenFarmersMarket
-        - label: _(Physical Activity/Exercise)
-          value: PhysicalActivity
-        - label: _(Public Comfort (shade, seating, etc.))
-          value: ShadePublicComfort
-        - label: _(Gathering Space)
-          value: CommunityGatheringSpace
-        - label: _(Safety)
-          value: SafeStreets
-        - label: _(Signage/Wayfinding)
-          value: SignageWayfinding
-      attrs:
-      - key: required
-        value: required
-      name: location_type
     - prompt: _(Your phone number)
       type: text
       name: private-phone
