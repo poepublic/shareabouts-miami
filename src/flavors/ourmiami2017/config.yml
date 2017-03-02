@@ -281,12 +281,12 @@ pages:
     slug: about
     name: overview
     start_page: true
-  # - title: _(FAQ)
-  #   slug: faq
-  #   name: faq
-  # - title: _(Contact us)
-  #   slug: contact
-  #   name: features
+  - title: _(FAQ)
+    slug: faq
+    name: faq
+  - title: _(Workshops & Resources)
+    slug: resources
+    name: resources
   - title: Filter Places
     slug: filter-type
     pages:
