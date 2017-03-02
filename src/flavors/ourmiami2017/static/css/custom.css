@@ -171,6 +171,7 @@ form .signed-in-as {
   box-shadow: inset 0px 0px 5px rgba(0,0,0,0.25);
   border-radius: 6px;
   color: #181818;
+  transition-property: background-color, background-image, color, box-shadow;
 }
 
 .radio-label-text:hover,
@@ -277,33 +278,33 @@ form .signed-in-as {
 
 /* BG Images */
 [value="ParksAndNaturalAreas"] + .label-text {
-  background-image: url("/static/css/images/markers/MiamiPSC_2017markers-05.png");
+  background-image: url("/static/css/images/markers/marker-ParksAndNaturalAreas.png");
 }
 [value="GreenwaysAndBlueways"] + .label-text {
-  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-06.png");
+  background-image: url("/static/css/images/markers/marker-GreenwaysAndBlueways.png");
 }
 [value="SafeRoutesToParks"] + .label-text {
-  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-08.png");
+  background-image: url("/static/css/images/markers/marker-SafeRoutesToParks.png");
 }
 [value="PublicSpaces"] + .label-text {
-  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-05.png");
+  background-image: url("/static/css/images/markers/marker-PublicSpaces.png");
 }
 
 [value="ParksAndNaturalAreas"]:checked + .label-text {
-  background-color: #C3CE2F;
-  background-image: url("/static/css/images/markers/MiamiPSC_2017markers-05-noborder.png");
+  background-color: #B7E029;
+  background-image: url("/static/css/images/markers/noborder-ParksAndNaturalAreas.png");
 }
 [value="GreenwaysAndBlueways"]:checked + .label-text {
-  background-color: #AA93CE;
-  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-06-noborder.png");
+  background-color: #B381CE;
+  background-image: url("/static/css/images/markers/noborder-GreenwaysAndBlueways.png");
 }
 [value="SafeRoutesToParks"]:checked + .label-text {
-  background-color: #F4C040;
-  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-08-noborder.png");
+  background-color: #F5CB35;
+  background-image: url("/static/css/images/markers/noborder-SafeRoutesToParks.png");
 }
 [value="PublicSpaces"]:checked + .label-text {
-  background-color: #1490C1;
-  background-image: url("/static/css/images/markers/MiamiPSC_markers_v2-05-noborder.png");
+  background-color: #0089C3;
+  background-image: url("/static/css/images/markers/noborder-PublicSpaces.png");
 }
 
 /* =Header
