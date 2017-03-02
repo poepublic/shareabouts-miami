@@ -50,7 +50,7 @@ place_types:
     rules:
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
         style:
-          fillColor: '#AA93CE'
+          fillColor: '#1490C1'
           fillOpacity: 1
           radius: 6
           color: 'black'
@@ -58,7 +58,7 @@ place_types:
           weight: 2
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && !{{layer.focused}}'
         style:
-          fillColor: '#AA93CE'
+          fillColor: '#1490C1'
           fillOpacity: 1
           radius: 5
           color: 'black'
@@ -102,7 +102,7 @@ place_types:
     rules:
       - condition: '"{{location_type}}" === "PublicSpaces" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
         style:
-          fillColor: '#1490C1'
+          fillColor: '#AA93CE'
           fillOpacity: 1
           radius: 6
           color: 'black'
@@ -110,7 +110,7 @@ place_types:
           weight: 2
       - condition: '"{{location_type}}" === "PublicSpaces" && !{{layer.focused}}'
         style:
-          fillColor: '#1490C1'
+          fillColor: '#AA93CE'
           fillOpacity: 1
           radius: 5
           color: 'black'

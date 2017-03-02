@@ -295,7 +295,7 @@ form .signed-in-as {
   background-image: url("/static/css/images/markers/noborder-ParksAndNaturalAreas.png");
 }
 [value="GreenwaysAndBlueways"]:checked + .label-text {
-  background-color: #AA93CE;
+  background-color: #1490C1;
   background-image: url("/static/css/images/markers/noborder-GreenwaysAndBlueways.png");
 }
 [value="SafeRoutesToParks"]:checked + .label-text {
@@ -303,7 +303,7 @@ form .signed-in-as {
   background-image: url("/static/css/images/markers/noborder-SafeRoutesToParks.png");
 }
 [value="PublicSpaces"]:checked + .label-text {
-  background-color: #1490C1;
+  background-color: #AA93CE;
   background-image: url("/static/css/images/markers/noborder-PublicSpaces.png");
 }
 
@@ -396,13 +396,13 @@ form .signed-in-as {
   background-color: #C3CE2F;  /* ParksAndNaturalAreas */
 }
 .access li ul li:nth-child(3) a::before {
-  background-color: #AA93CE;  /* GreenwaysAndBlueways */
+  background-color: #1490C1;  /* GreenwaysAndBlueways */
 }
 .access li ul li:nth-child(4) a::before {
   background-color: #F4C040;  /* SafeRoutesToParks */
 }
 .access li ul li:nth-child(5) a::before {
-  background-color: #1490C1;  /* PublicSpaces */
+  background-color: #AA93CE;  /* PublicSpaces */
 }
 
 #current-filter-type {
