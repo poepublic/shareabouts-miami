@@ -293,29 +293,17 @@ pages:
       - title: All
         external: true
         url: /filter/all
-      - title: _(Beautification/Art)
-        url: /filter/beautificationart
+      - title: _(Parks & Natural Areas)
+        url: /filter/ParksAndNaturalAreas
         external: true
-      - title: _(Child/Senior Citizen Focused)
-        url: /filter/childidea
+      - title: _(Greenways & Blueways)
+        url: /filter/GreenwaysAndBlueways
         external: true
-      - title: _(Garden/Farmers' Market/Healthy Eating)
-        url: /filter/gardenfarmersmarket
+      - title: _(Safe Routes to Parks)
+        url: /filter/SafeRoutesToParks
         external: true
-      - title: _(Physical Activity/Exercise)
-        url: /filter/physicalactivity
-        external: true
-      - title: _(Public Comfort (shade, seating, etc.))
-        url: /filter/shadepubliccomfort
-        external: true
-      - title: _(Gathering Space)
-        url: /filter/communitygatheringspace
-        external: true
-      - title: _(Safety)
-        url: /filter/safestreets
-        external: true
-      - title: _(Signage/Wayfinding)
-        url: /filter/signagewayfinding
+      - title: _(Public Spaces)
+        url: /filter/PublicSpaces
         external: true
   # - title: _(Finalists)
   #   slug: finalists

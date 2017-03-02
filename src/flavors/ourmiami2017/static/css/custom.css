@@ -365,29 +365,38 @@ form .signed-in-as {
 .access li ul li a:hover {
   background-color: #dbef16 !important;
 }
-.access li ul li:nth-child(2) a {
-  background-image: url(/static/css/images/markers/dot-yellow.png) !important;/* Beautification/Art */
+
+.access li ul li a::before {
+  position: absolute;
+  left: 0.5em;
+
+  display: block;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+
+  border: 3px solid black;
+  border-radius: 0.5rem;
+
+  content: ' ';
 }
-.access li ul li:nth-child(3) a {
-  background-image: url(/static/css/images/markers/dot-green.png) !important;/* Child/Senior Citizen Focused */
+
+.access li ul li:first-child a::before {
+  border: none;
+  background-color: transparent;
 }
-.access li ul li:nth-child(4) a {
-  background-image: url(/static/css/images/markers/dot-purple.png) !important;/* Garden/Farmers' Market/Healthy Eating */
+
+.access li ul li:nth-child(2) a::before {
+  background-color: #C3CE2F;  /* ParksAndNaturalAreas */
 }
-.access li ul li:nth-child(5) a {
-  background-image: url(/static/css/images/markers/dot-pink.png) !important;/* Physical Activity/Exercise */
+.access li ul li:nth-child(3) a::before {
+  background-color: #AA93CE;  /* GreenwaysAndBlueways */
 }
-.access li ul li:nth-child(6) a {
-  background-image: url(/static/css/images/markers/dot-blue.png) !important;/* Public Comfort (shade, seating, etc.)) */
+.access li ul li:nth-child(4) a::before {
+  background-color: #F4C040;  /* SafeRoutesToParks */
 }
-.access li ul li:nth-child(7) a {
-  background-image: url(/static/css/images/markers/dot-teal.png) !important;/* Gathering Space */
-}
-.access li ul li:nth-child(8) a {
-  background-image: url(/static/css/images/markers/dot-orange.png) !important;/* Safety */
-}
-.access li ul li:nth-child(9) a {
-  background-image: url(/static/css/images/markers/dot-red.png) !important;/* Signage/Wayfinding */
+.access li ul li:nth-child(5) a::before {
+  background-color: #1490C1;  /* PublicSpaces */
 }
 
 #current-filter-type {
