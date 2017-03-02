@@ -307,6 +307,12 @@ form .signed-in-as {
   background-image: url("/static/css/images/markers/noborder-PublicSpaces.png");
 }
 
+.preload-icons {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 /* =Header
 -------------------------------------------------------------- */
 
