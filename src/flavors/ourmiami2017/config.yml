@@ -172,7 +172,7 @@ place:
           value: required
         - key: maxlength
           value: 100
-    - prompt: _(* The approximate address or location of my project is...)
+    - prompt: _(The approximate address or location of my project is...)
       type: text
       name: address
       optional: false
@@ -180,8 +180,6 @@ place:
       attrs:
         - key: placeholder
           value: _(Let us know where you mean.)
-        - key: required
-          value: required
         - key: maxlength
           value: 160
     - prompt: _(* My project will improve...)
