@@ -299,7 +299,7 @@ pages:
   - title: _(Workshops & Resources)
     slug: resources
     name: resources
-  - title: Filter Places
+  - title: Filter Ideas
     slug: filter-type
     pages:
       - title: All
