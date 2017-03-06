@@ -702,6 +702,18 @@ input[name="optout_reason"]:disabled {
 }
 
 
+/* =FAQ
+------------------------------------------------------------- */
+
+dl.faq dt {
+  font-weight: bold;
+}
+
+dl.faq dd {
+  margin-left: 0.5em;
+}
+
+
 
 /* =Media Queries
 -------------------------------------------------------------- */
