@@ -85,6 +85,15 @@
 (function(S) {
   S.bootstrapped.datasetUrl = '{{DATASET_ROOT|slice:":-1"}}';
 
+  $(function() {
+    // Scroll panel to the top on show.
+    // TODO: move this diirectly into AppView.showPanel
+    $(S).on('panelshow', function() {
+      var $content = app.appView.$panel.find('article');
+      $content.scrollTop(0);
+    })
+  })
+
   /*
    * Patch AppView.initialize to construct a ratings summary view.
    */
