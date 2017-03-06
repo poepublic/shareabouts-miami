@@ -713,6 +713,40 @@ dl.faq dd {
   margin-left: 0.5em;
 }
 
+.workshops {
+  margin: 2em 0;
+}
+
+.workshops td {
+  display: block;
+  padding-left: 2rem;
+}
+
+.workshops td:nth-child(1) {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.workshops td:nth-child(1) a {
+  margin-left: -2rem;
+  padding-left: 2rem;
+  background-image: url(/static/css/images/blue-calendar-128.png);
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+}
+
+.workshops td:nth-child(2) {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.workshops td:nth-child(3) {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
 
 
 /* =Media Queries
