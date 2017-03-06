@@ -8,19 +8,22 @@
             <br />
             <p><img src="http://{{ request.get_host }}{{ config.static_url }}css/images/mf-challange.gif" alt="Public Space Challenge" width="290" height="99" border="0" /></p>
             <br />
-            <h3>We received your Public Space Challenge idea. Thank you!</h3>
+            <h3>Thank you for submitting your Public Space Challenge idea!</h3>
             <h2>Here is a link to your idea on the map: <br /><a href="http://{{ request.get_host }}/place/{{ place.id }}" target="_blank" style="color:#00a4d0;">{{ place.properties.title }}</a></h2>
             <br />
             <h2>What now?</h2>
-            <p><a href="http://{{ request.get_host }}/place/{{ place.id }}" style="border-radius:4px;font-weight:bold;text-decoration:none;padding:0.25em 0.4em;background-color:#a0af1e;color:#ffffff;">SHARE</a> your idea with your friends on social media (pssst&hellip; the idea that receives the most "likes" will get something special). Be sure to check out and comment on other ideas while you're at it.
+            <p><a href="http://{{ request.get_host }}/place/{{ place.id }}" style="border-radius:4px;font-weight:bold;text-decoration:none;padding:0.25em 0.4em;background-color:#a0af1e;color:#ffffff;">SHARE</a> your idea with your friends on social media. Be sure to check out and comment on other ideas while you're at it.
               <br />
               <a href="https://twitter.com/intent/tweet?source=webclient&text=http://{{ request.get_host }}/place/{{ place.id }}" target="_blank" style=""><img src="http://{{ request.get_host }}{{ config.static_url }}css/images/twitter-32.png" border="0" /></a>
               <a href="https://www.facebook.com/sharer/sharer.php?u=http://{{ request.get_host }}/place/{{ place.id }}" target="_blank" style=""><img src="http://{{ request.get_host }}{{ config.static_url }}css/images/facebook-32.png" border="0" /></a>
             </p>
-            <p><a href="http://{{ request.get_host }}" style="border-radius:4px;font-weight:bold;text-decoration:none;padding:0.25em 0.4em;background-color:#00a4d0;color:#ffffff;">&nbsp;SUBMIT&nbsp;</a> another idea. We know you have some more good ones! You have until April 21st to get ideas onto the map.</p>
+						<p><a href="http://www.miamidade.gov/parksmasterplan/" style="border-radius:4px;font-weight:bold;text-decoration:none;padding:0.25em 0.4em;background-color:#00a4d0;color:#ffffff;">&nbsp;EXPLORE&nbsp;</a> Miami Dade County’s Parks and Open Space Master Plan. It’s an important part of the long-term vision for Miami’s public spaces.</p>
+						<p><a href="http://{{ request.get_host }}/place/new" style="border-radius:4px;font-weight:bold;text-decoration:none;padding:0.25em 0.4em;background-color:#00a4d0;color:#ffffff;">&nbsp;SUBMIT&nbsp;</a> another idea. We know you have some more good ones! You can submit as many ideas as you’d like until the April 6 deadline.</p>
             <br />
+						<p>After the submission period closes, local experts and placemaking professionals will help us select a group of finalists. For more on how the Challenge works, visit our FAQs.</p>
+						<br />
             <p>If you have any questions, we'll be standing by at <a href="mailto:ourmiami@miamifoundation.org" target="_blank" style="color:#00a4d0;">ourmiami@miamifoundation.org</a>.</p>
-            <p>Thanks for your help in making Our Miami better!</p>
+            <p>Thanks for your help in making Greater Miami even better!</p>
             <p>Stuart Kennedy <br />Director of Program Strategy and Innovation <br />The Miami Foundation</p>
           </td>
         </tr>
@@ -34,10 +37,13 @@
           </td>
         </tr>
       </table>
+			<p>Thanks to our partners:</p>
       <table width="600" cellpadding="0" cellspacing="0" align="center" style="font-family:Helvetica,Arial,sans-serif;background-color:#ffffff;">
         <tr>
           <td valign="top">
-            <img src="http://{{ request.get_host }}{{ config.static_url }}css/images/ourmiami.gif" alt="The Miami Foundation" width="200" height="61" border="0" />
+						<img src="http://{{ request.get_host }}{{ config.static_url }}css/images/ourmiami.gif" alt="The Miami Foundation" width="200" height="61" border="0" />
+						<a class="footer-logo" href="http://www.target.com/" target="_blank"><img src="http://{{ request.get_host }}{{ config.static_url }}css/images/target-logo.png" height="61" border="0" alt="Target" /></a>
+						<a class="footer-logo" href="http://miamidade.gov/" target="_blank"><img src="http://{{ request.get_host }}{{ config.static_url }}css/images/miami-dade-logo.png" height="61" border="0" alt="Miami Dade County" /></a>
           </td>
           <td valign="top">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
