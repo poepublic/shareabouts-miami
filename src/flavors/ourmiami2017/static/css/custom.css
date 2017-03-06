@@ -591,12 +591,7 @@ a.shareabouts-logo:hover {
   display: block;
   margin: 1em auto;
 }
-.ourmiami-logo,
-.ioby-logo,
-.miamiherald-logo,
-.hfsf-logo,
-.bhsf-logo,
-.miamifnd-logo {
+.footer-logo img {
   height: 3em;
   width: auto;
 }
