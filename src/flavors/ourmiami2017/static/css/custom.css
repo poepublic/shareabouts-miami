@@ -645,7 +645,7 @@ a.shareabouts-logo:hover {
 .leaflet-control-legend-popup
 {
   position: absolute;
-  left: 40px;
+  right: 40px;
   bottom: 0;
   background-color: white;
   padding: 0.5rem;
@@ -656,6 +656,13 @@ a.shareabouts-logo:hover {
   cursor: auto;
   font-family: "ff-scala-sans-web", "calluna-sans", "Verdana", sans-serif;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 60rem) {
+  .leaflet-control-legend-popup {
+    right: auto;
+    left: 40px;
+  }
 }
 
 .leaflet-control-legend-popup .legend-visualization {

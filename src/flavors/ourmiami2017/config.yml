@@ -4,7 +4,7 @@ app:
   meta_description: _('The Miami Foundation and our partners created the Our Miami Public Space Challenge to discover the best ideas for improving, creating, and activating local public spaces.')
 
 map:
-  geolocation_enabled: false
+  geolocation_enabled: true
   geolocation_onload: false
   options:
     center:
