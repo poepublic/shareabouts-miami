@@ -140,26 +140,6 @@ place:
   anonymous_name: _(Someone)
   submit_button_label: _(Post it to the map)
   items:
-    - prompt: _(Your Name)
-      label: _(Suggested by)
-      type: text
-      name: submitter_name
-      attrs:
-        - key: placeholder
-          value: _(Person/Org to be credited for idea publicly)
-        - key: size
-          value: 30
-    - prompt: _(* Your email)
-      type: email
-      optional: false
-      name: private-email
-      attrs:
-        - key: placeholder
-          value: _(Your email will not be shown publicly)
-        - key: size
-          value: 30
-        - key: required
-          value: required
     - prompt: _(* The title of my project is...)
       type: textarea
       name: title
@@ -172,32 +152,6 @@ place:
           value: required
         - key: maxlength
           value: 100
-    - prompt: _(The approximate address or location of my project is...)
-      type: text
-      name: address
-      optional: false
-      label: _(The approximate address or location of my project is...)
-      attrs:
-        - key: placeholder
-          value: _(Let us know where you mean.)
-        - key: maxlength
-          value: 160
-    - prompt: _(* My project will improve...)
-      label: _(Project type)
-      type: radiogroup
-      options:
-        - label: _(Parks & Natural Areas)
-          value: ParksAndNaturalAreas
-        - label: _(Greenways & Blueways)
-          value: GreenwaysAndBlueways
-        - label: _(Safe Routes to Parks)
-          value: SafeRoutesToParks
-        - label: _(Public Spaces)
-          value: PublicSpaces
-      attrs:
-      - key: required
-        value: required
-      name: location_type
     - prompt: _(* My idea to improve this place...)
       type: textarea
       name: description
@@ -222,14 +176,32 @@ place:
           value: required
         - key: maxlength
           value: 750
-    - prompt: _(Your phone number)
+    - prompt: _(* My project will improve...)
+      label: _(Project type)
+      type: radiogroup
+      options:
+        - label: _(Parks & Natural Areas)
+          value: ParksAndNaturalAreas
+        - label: _(Greenways & Blueways)
+          value: GreenwaysAndBlueways
+        - label: _(Safe Routes to Parks)
+          value: SafeRoutesToParks
+        - label: _(Public Spaces)
+          value: PublicSpaces
+      attrs:
+      - key: required
+        value: required
+      name: location_type
+    - prompt: _(The approximate address or location of my project is...)
       type: text
-      name: private-phone
+      name: address
+      optional: false
+      label: _(The approximate address or location of my project is...)
       attrs:
         - key: placeholder
-          value: _(Your number will not be shown publicly)
-        - key: size
-          value: 30
+          value: _(Let us know where you mean.)
+        - key: maxlength
+          value: 160
     - prompt: _(Show us with a picture)
       inputfile_label: _(Upload an image)
       type: file
@@ -250,6 +222,34 @@ place:
       attrs:
         - key: value
           value: "Not sent"
+    - prompt: _(Your Name)
+      label: _(Suggested by)
+      type: text
+      name: submitter_name
+      attrs:
+        - key: placeholder
+          value: _(Person/Org to be credited for idea publicly)
+        - key: size
+          value: 30
+    - prompt: _(* Your email)
+      type: email
+      optional: false
+      name: private-email
+      attrs:
+        - key: placeholder
+          value: _(Your email will not be shown publicly)
+        - key: size
+          value: 30
+        - key: required
+          value: required
+    - prompt: _(Your phone number)
+      type: text
+      name: private-phone
+      attrs:
+        - key: placeholder
+          value: _(Your number will not be shown publicly)
+        - key: size
+          value: 30
 
 survey:
   submission_type: comments
