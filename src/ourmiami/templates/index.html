@@ -79,6 +79,7 @@
   Analytics, custom JS, and such go here
  -->
 {% block includes %}
+{% include '_legend_widget.html' %}
 <script src="{{STATIC_URL}}js/views/rating-view.js"></script>
 <script src="{{STATIC_URL}}js/views/ratings-summary-view.js"></script>
 <script>
@@ -511,6 +512,15 @@ Handlebars.registerHelper('toLowerCase', function(s) {
   if (s.toLowerCase) return s.toLowerCase();
 });
 
+// Initialize the legend, if one is configured.
+// TODO: Move this into sa_web.
+var originalMapViewInitialize = Shareabouts.MapView.prototype.initialize;
+Shareabouts.MapView.prototype.initialize = function() {
+  originalMapViewInitialize.apply(this, arguments);
+
+  // Add the legend toggle widget
+  this.map.addControl(L.control.legend());
+};
 </script>
 
 {% if settings.GOOGLE_ANALYTICS_ID %}
