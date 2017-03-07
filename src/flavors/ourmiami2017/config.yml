@@ -130,7 +130,7 @@ activity:
 
 place:
   adding_supported:
-    from: '2017-03-07 09:00 -0500'
+    from: '2017-03-07 08:30 -0500'
     until: '2017-04-07 00:00 -0400'
   add_button_label: _(Add an idea)
   # Labels for the buttons that toggle the map and list views
@@ -265,7 +265,7 @@ place:
 survey:
   submission_type: comments
   adding_supported:
-    from: '2017-03-07 09:00 -0500'
+    from: '2017-03-07 08:30 -0500'
     until: '2017-04-07 00:00 -0400'
 
   # Response config
@@ -293,7 +293,7 @@ survey:
 support:
   submission_type: support
   adding_supported:
-    from: '2017-03-07 09:00 -0500'
+    from: '2017-03-07 08:30 -0500'
     until: '2017-04-07 00:00 -0400'
   submit_btn_text: _(Like This!)
   response_name: _(like)
