@@ -603,10 +603,6 @@ a.shareabouts-logo:hover {
 /* =Leaflet Cegend Control
 -------------------------------------------------------------- */
 
-#map .leaflet-bottom.leaflet-left {
-  bottom: 2rem;
-}
-
 .leaflet-control-legend-interior
 {
   background-image: url(images/layers-empty.png);

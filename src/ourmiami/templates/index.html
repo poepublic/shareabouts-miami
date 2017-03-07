@@ -519,7 +519,9 @@ Shareabouts.MapView.prototype.initialize = function() {
   originalMapViewInitialize.apply(this, arguments);
 
   // Add the legend toggle widget
-  this.map.addControl(L.control.legend());
+  this.map.addControl(L.control.legend({
+    position: 'topleft'
+  }));
 };
 </script>
 
