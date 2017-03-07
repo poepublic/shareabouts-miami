@@ -233,6 +233,15 @@ place:
           value: _(Person/Org to be credited for idea publicly)
         - key: size
           value: 30
+    - prompt: _(Your organization)
+      label: _(Organization)
+      type: text
+      name: organization
+      attrs:
+        - key: placeholder
+          value: _(Your organization)
+        - key: size
+          value: 30
     - prompt: _(* Your email)
       type: email
       optional: false
