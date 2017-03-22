@@ -235,7 +235,7 @@ place:
       attrs:
         - key: value
           value: "Not sent"
-    - prompt: _(Your Name)
+    - prompt: _(* Your Name)
       label: _(Suggested by)
       type: text
       name: submitter_name
@@ -244,6 +244,8 @@ place:
           value: _(Person/Org to be credited for idea publicly)
         - key: size
           value: 30
+        - key: required
+          value: required
     - prompt: _(Your organization)
       label: _(Organization)
       type: text
