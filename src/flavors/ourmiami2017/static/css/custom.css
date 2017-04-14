@@ -431,14 +431,10 @@ form .signed-in-as {
 }
 
 #current-filter-type.unfiltered { background: none; border: none; }
-#current-filter-type.beautificationart { color: #DBEF16; }
-#current-filter-type.childidea { color: #86AD11; }
-#current-filter-type.gardenfarmersmarket { color: #7D4199; }
-#current-filter-type.physicalactivity { color: #E85BFF; }
-#current-filter-type.shadepubliccomfort { color: #00AEDB; }
-#current-filter-type.communitygatheringspace { color: #6DF8FF; }
-#current-filter-type.safestreets { color: #EF7300; }
-#current-filter-type.signagewayfinding { color: #DF4662; }
+#current-filter-type.parksandnaturalareas { color: #C3CE2F; }
+#current-filter-type.greenwaysandblueways { color: #1490C1; }
+#current-filter-type.saferoutestoparks { color: #F4C040; }
+#current-filter-type.publicspaces { color: #AA93CE; }
 
 .menu-item-finalists .btn.btn-block,
 .menu-item-winners .btn.btn-block {
@@ -926,14 +922,10 @@ dl.faq dd {
     -webkit-transition: width 0.2s linear;
   }
 
-  .beautificationart-segment { background-color: #DBEF16; }
-  .childidea-segment { background-color: #86AD11; }
-  .gardenfarmersmarket-segment { background-color: #7D4199; }
-  .physicalactivity-segment { background-color: #E85BFF; }
-  .shadepubliccomfort-segment { background-color: #00AEDB; }
-  .communitygatheringspace-segment { background-color: #6DF8FF; }
-  .safestreets-segment { background-color: #EF7300; }
-  .signagewayfinding-segment { background-color: #DF4662; }
+  .parksandnaturalareas-segment { background-color: #C3CE2F; }
+  .greenwaysandblueways-segment { background-color: #1490C1; }
+  .saferoutestoparks-segment { background-color: #F4C040; }
+  .publicspaces-segment { background-color: #AA93CE; }
 
   .ratings-chart-bar {
     /*width: 30em;*/
@@ -1017,14 +1009,10 @@ dl.faq dd {
     border: 1px solid silver;
     border-color: rgba(0,0,0,0.15);
   }
-  .ratings-legend-label-beautificationart:before { background-color: #DBEF16; }
-  .ratings-legend-label-childidea:before { background-color: #86AD11; }
-  .ratings-legend-label-gardenfarmersmarket:before { background-color: #7D4199; }
-  .ratings-legend-label-physicalactivity:before { background-color: #E85BFF; }
-  .ratings-legend-label-shadepubliccomfort:before { background-color: #00AEDB; }
-  .ratings-legend-label-communitygatheringspace:before { background-color: #6DF8FF; }
-  .ratings-legend-label-safestreets:before { background-color: #EF7300; }
-  .ratings-legend-label-signagewayfinding:before { background-color: #DF4662; }
+  .ratings-legend-label-parksandnaturalareas:before { background-color: #C3CE2F; }
+  .ratings-legend-label-greenwaysandblueways:before { background-color: #1490C1; }
+  .ratings-legend-label-saferoutestoparks:before { background-color: #F4C040; }
+  .ratings-legend-label-publicspaces:before { background-color: #AA93CE; }
 
   .place-list-ratings-summary-toggle a {
     display: block;
