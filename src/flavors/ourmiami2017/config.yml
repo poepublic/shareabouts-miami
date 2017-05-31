@@ -44,10 +44,10 @@ place_types:
       - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && !{{layer.focused}}'
         style:
           fillColor: '#C3CE2F'
-          fillOpacity: 1
-          radius: 5
+          fillOpacity: 0.7
+          radius: 3
           color: 'black'
-          opacity: 1
+          opacity: 0.2
           weight: 2
       - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && {{layer.focused}}'
         icon:
@@ -70,10 +70,10 @@ place_types:
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && !{{layer.focused}}'
         style:
           fillColor: '#1490C1'
-          fillOpacity: 1
-          radius: 5
+          fillOpacity: 0.7
+          radius: 3
           color: 'black'
-          opacity: 1
+          opacity: 0.2
           weight: 2
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && {{layer.focused}}'
         icon:
@@ -96,10 +96,10 @@ place_types:
       - condition: '"{{location_type}}" === "SafeRoutesToParks" && !{{layer.focused}}'
         style:
           fillColor: '#F4C040'
-          fillOpacity: 1
-          radius: 5
+          fillOpacity: 0.7
+          radius: 3
           color: 'black'
-          opacity: 1
+          opacity: 0.2
           weight: 2
       - condition: '"{{location_type}}" === "SafeRoutesToParks" && {{layer.focused}}'
         icon:
@@ -122,10 +122,10 @@ place_types:
       - condition: '"{{location_type}}" === "PublicSpaces" && !{{layer.focused}}'
         style:
           fillColor: '#AA93CE'
-          fillOpacity: 1
-          radius: 5
+          fillOpacity: 0.7
+          radius: 3
           color: 'black'
-          opacity: 1
+          opacity: 0.2
           weight: 2
       - condition: '"{{location_type}}" === "PublicSpaces" && {{layer.focused}}'
         icon:
@@ -343,9 +343,9 @@ pages:
       - title: _(Public Spaces)
         url: /filter/PublicSpaces
         external: true
-  # - title: _(Finalists)
-  #   slug: finalists
-  #   name: finalists
+  - title: _(Finalists)
+    slug: finalists
+    name: finalists
   # - title: _(2016 Winners)
   #   slug: winners
   #   name: winners
