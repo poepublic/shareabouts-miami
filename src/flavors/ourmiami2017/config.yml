@@ -47,7 +47,7 @@ place_types:
           fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.2
+          opacity: 0.3
           weight: 2
       - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && {{layer.focused}}'
         icon:
@@ -73,7 +73,7 @@ place_types:
           fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.2
+          opacity: 0.3
           weight: 2
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && {{layer.focused}}'
         icon:
@@ -99,7 +99,7 @@ place_types:
           fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.2
+          opacity: 0.3
           weight: 2
       - condition: '"{{location_type}}" === "SafeRoutesToParks" && {{layer.focused}}'
         icon:
@@ -125,7 +125,7 @@ place_types:
           fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.2
+          opacity: 0.3
           weight: 2
       - condition: '"{{location_type}}" === "PublicSpaces" && {{layer.focused}}'
         icon:
