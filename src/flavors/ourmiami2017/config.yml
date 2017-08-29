@@ -2,6 +2,7 @@ app:
   title: OurMiami
   name: OurMiami
   meta_description: _('The Miami Foundation and our partners created the Our Miami Public Space Challenge to discover the best ideas for improving, creating, and activating local public spaces.')
+  list_enabled: true
 
 map:
   geolocation_enabled: true
@@ -317,7 +318,7 @@ support:
 pages:
   - title: _(About)
     slug: about
-    name: overview-done
+    name: overview-winners
     start_page: true
   - title: _(FAQ)
     slug: faq
@@ -346,7 +347,7 @@ pages:
   # - title: _(Finalists)
   #   slug: finalists
   #   name: finalists
-  - title: _(2017 Winners)
+  - title: _(2017 Challenge Winners)
     slug: winners
     name: winners
 
