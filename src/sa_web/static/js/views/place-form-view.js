@@ -68,7 +68,6 @@ var Shareabouts = Shareabouts || {};
         }
       });
 
-
       return this;
     },
     remove: function() {
