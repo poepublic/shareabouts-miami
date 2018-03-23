@@ -152,6 +152,19 @@ The 'place' section of the config file starts like this:
 If `adding_supported` is set to false, users cannot add places, and can
 only comment on or support the places you provide.
 
+You can also give `adding_supported` a `from` and an `until` attribute. This is
+useful if you want the map to "go live" at a certain date/time, and remain so
+until another date/time. For example:
+
+    place:
+      adding_supported:
+        from: 2017-03-07 09:00 -0500
+        until: 2017-04-04 09:00 -0400
+
+Note the timezone specification at the end of each date/time. If you're not
+sure about your timezone, just ask Google ("what time zone am i in" and "is it
+daylight savings?").
+
 The `location_item_name` attribute is used when the `geocoding_enabled` flag
 is set to true in the map config. When a user is adding a new place to the
 map, the location of the place will be reverse-geocoded every time they move
@@ -331,10 +344,10 @@ would like to be translatable with `{{#_}}` and `{{/_}}`. For example:
 
     <h2>{{#_}}About{{/_}}</h2>
 
-To generate a translation template, run the following from your flavor
+To generate a translation template, run the following from the *src*
 directory:
 
-    <project_src_root>/manage.py flavormessages --locale en_US
+    ./manage.py flavormessages --locale en
 
 Do this for each language you want your map to be available in. For the
 locale, use a locale name as specified in Django's documentation:
@@ -343,9 +356,9 @@ https://docs.djangoproject.com/en/dev/topics/i18n/#term-locale-name
 Once your messages files are generated, fill in any translations that should
 be made.  If you leave a translation blank, the original string will be used.
 
-To apply your translations, run the following from your flavor directory:
+To apply your translations, run the following from your *src* directory:
 
-    <project_src_root>/manage.py compilemessages
+    ./manage.py compilemessages
 
 That's it! The compilemessages task is run automatically for the DotCloud
 deployments. For Heroku, you'll have to check the resulting *.mo* files in to

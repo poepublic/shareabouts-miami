@@ -1,0 +1,96 @@
+<script>
+/*
+  E.g.:
+
+  map.addControl(L.control.legend({
+    layers: {
+      'bus-lines': NS.busLinesLayer,
+      'rail-lines': NS.railLinesLayer,
+      'bike-lanes': NS.bikeLanesLayer
+    },
+    toggles: {
+      'bus-lines': document.getElementById('leaflet-layer-toggle-bus-lines'),
+      'rail-lines': document.getElementById('leaflet-layer-toggle-rail-lines'),
+      'bike-lanes': document.getElementById('leaflet-layer-toggle-bike-lanes')
+    }
+  }
+  }));
+
+*/
+
+L.Control.Legend = L.Control.extend({
+    options: {
+      layers: {},
+      toggles: {},
+      position: 'bottomleft',
+      template: null,
+      templateData: {}
+    },
+
+    onAdd: function (map) {
+      this.map = map;
+
+      var self = this;
+      var controlDiv = L.DomUtil.create('div', 'leaflet-control-legend');
+      var controlUI = L.DomUtil.create('div', 'leaflet-control-legend-interior', controlDiv);
+      controlUI.title = 'Legend';
+
+      L.DomEvent
+        .addListener(controlDiv, 'click', L.DomEvent.stopPropagation)
+        .addListener(controlUI, 'click', L.DomEvent.stopPropagation)
+        .addListener(controlUI, 'click', L.DomEvent.preventDefault)
+        .addListener(controlUI, 'click', function () { self.toggleLegend(); });
+
+      map.on('click', function() {
+        self.toggleLegend(false);
+      });
+
+      this.options.templateData.layerStates = {};
+      this.options.templateData.layerNames = [];
+      var layerName;
+      for (layerName in this.options.layers) {
+        this.options.templateData.layerNames.push(layerName);
+        this.options.templateData.layerStates[layerName] =
+          map.hasLayer(this.options.layers[layerName]);
+      }
+
+      this.legendWidget = L.DomUtil.create('div', 'leaflet-control-legend-popup hidden', controlDiv);
+
+      return controlDiv;
+    },
+
+    toggleLegend: function(on, undefined) {
+      var self = this;
+      var layerKey, toggleUI, toggleFunc
+
+      this.legendWidget.innerHTML = (this.options.template || Handlebars.templates['legend-popup'])(this.options.templateData);
+
+      var toggleLayer = function(ui, layerName) {
+        return function() {
+          self.options.templateData.layerStates[layerName] = ui.checked;
+          if (ui.checked) {
+            self.map.addLayer(self.options.layers[layerName]);
+          } else {
+            self.map.removeLayer(self.options.layers[layerName]);
+          }
+        };
+      }
+
+      for (layerKey in this.options.toggles) {
+        toggleUI = this.options.toggles[layerKey];
+        toggleFunc = toggleLayer(toggleUI, layerKey);
+        L.DomEvent.addListener(toggleUI, 'change', toggleFunc);
+      }
+
+      if (on !== undefined) {
+        this.legendWidget.classList.toggle('hidden', !on);
+      } else {
+        this.legendWidget.classList.toggle('hidden');
+      }
+    }
+});
+
+L.control.legend = function (options) {
+    return new L.Control.Legend(options);
+};
+</script>

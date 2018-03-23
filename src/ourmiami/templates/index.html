@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block site-title %}
-<a href="/"><img id="site-logo" src="{{ config.static_url }}css/images/MF_challange.png"></a>
+<a href="/page/about"><img id="site-logo" src="{{ config.static_url }}css/images/MF_challange.png"></a>
 {% endblock %}
 
 
@@ -79,11 +79,21 @@
   Analytics, custom JS, and such go here
  -->
 {% block includes %}
+{% include '_legend_widget.html' %}
 <script src="{{STATIC_URL}}js/views/rating-view.js"></script>
 <script src="{{STATIC_URL}}js/views/ratings-summary-view.js"></script>
 <script>
 (function(S) {
   S.bootstrapped.datasetUrl = '{{DATASET_ROOT|slice:":-1"}}';
+
+  $(function() {
+    // Scroll panel to the top on show.
+    // TODO: move this diirectly into AppView.showPanel
+    $(S).on('panelshow', function() {
+      var $content = app.appView.$panel.find('article');
+      $content.scrollTop(0);
+    })
+  })
 
   /*
    * Patch AppView.initialize to construct a ratings summary view.
@@ -502,6 +512,17 @@ Handlebars.registerHelper('toLowerCase', function(s) {
   if (s.toLowerCase) return s.toLowerCase();
 });
 
+// Initialize the legend, if one is configured.
+// TODO: Move this into sa_web.
+var originalMapViewInitialize = Shareabouts.MapView.prototype.initialize;
+Shareabouts.MapView.prototype.initialize = function() {
+  originalMapViewInitialize.apply(this, arguments);
+
+  // Add the legend toggle widget
+  this.map.addControl(L.control.legend({
+    position: 'topright'
+  }));
+};
 </script>
 
 {% if settings.GOOGLE_ANALYTICS_ID %}
@@ -517,9 +538,9 @@ Handlebars.registerHelper('toLowerCase', function(s) {
 {% endblock %}
 
 {% block cdn_load %}
-{% if settings.SENTRY_DSN %}
-<script src="https://cdn.ravenjs.com/3.0.4/raven.min.js"></script>
-<script>Raven.config('{{ settings.SENTRY_DSN }}').install()</script>
+{% if settings.RAVEN_CONFIG.public_dsn %}
+<script src="https://cdn.ravenjs.com/3.12.0/raven.min.js"></script>
+<script>Raven.config('{{ settings.RAVEN_CONFIG.public_dsn }}').install()</script>
 <script>
   $(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
     var statusText = thrownError || jqXHR.statusText;
