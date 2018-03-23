@@ -1,0 +1,355 @@
+app:
+  title: OurMiami
+  name: OurMiami
+  meta_description: _('The Miami Foundation and our partners created the Our Miami Public Space Challenge to discover the best ideas for improving, creating, and activating local public spaces.')
+
+map:
+  geolocation_enabled: true
+  geolocation_onload: false
+  options:
+    center:
+      lat: 25.79571825588276
+      lng: -80.24002075195312
+    zoom: 12
+    minZoom: 10
+    maxZoom: 18
+  layers:
+    # First version of custom tiles
+    # - url: https://api.mapbox.com/styles/v1/miamipsc/ciz9puq2a00502rmuot3sxl0a/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
+
+    # Second version of custom tiles
+    - url: https://api.mapbox.com/styles/v1/miamipsc/ciztt89db005c2rlrv5k9dzrv/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
+
+    # Light, bare style
+    # - url: https://api.mapbox.com/styles/v1/miamipsc/ciyn6joil007l2smg79w5j53b/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
+
+    # Plain Mapbox tiles
+    #- url: https://api.mapbox.com/styles/v1/miamipsc/cizrpvslt001f2snsjc6i6xn4/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
+
+      attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+
+place_types:
+
+  ParksAndNaturalAreas:
+    label: _(Parks & Natural Areas)
+    rules:
+      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+        style:
+          fillColor: '#C3CE2F'
+          fillOpacity: 1
+          radius: 6
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && !{{layer.focused}}'
+        style:
+          fillColor: '#C3CE2F'
+          fillOpacity: 1
+          radius: 5
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-ParksAndNaturalAreas.png
+          shadowUrl: /static/css/images/marker-shadow.png
+          iconSize: [45, 54]
+          shadowSize: [41, 41]
+          iconAnchor: [22, 54]
+  GreenwaysAndBlueways:
+    label: _(Greenways & Blueways)
+    rules:
+      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+        style:
+          fillColor: '#1490C1'
+          fillOpacity: 1
+          radius: 6
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && !{{layer.focused}}'
+        style:
+          fillColor: '#1490C1'
+          fillOpacity: 1
+          radius: 5
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-GreenwaysAndBlueways.png
+          shadowUrl: /static/css/images/marker-shadow.png
+          iconSize: [45, 54]
+          shadowSize: [41, 41]
+          iconAnchor: [22, 54]
+  SafeRoutesToParks:
+    label: _(Safe Routes to Parks)
+    rules:
+      - condition: '"{{location_type}}" === "SafeRoutesToParks" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+        style:
+          fillColor: '#F4C040'
+          fillOpacity: 1
+          radius: 6
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "SafeRoutesToParks" && !{{layer.focused}}'
+        style:
+          fillColor: '#F4C040'
+          fillOpacity: 1
+          radius: 5
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "SafeRoutesToParks" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-SafeRoutesToParks.png
+          shadowUrl: /static/css/images/marker-shadow.png
+          iconSize: [50, 60]
+          shadowSize: [41, 41]
+          iconAnchor: [25, 60]
+  PublicSpaces:
+    label: _(Public Spaces)
+    rules:
+      - condition: '"{{location_type}}" === "PublicSpaces" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+        style:
+          fillColor: '#AA93CE'
+          fillOpacity: 1
+          radius: 6
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "PublicSpaces" && !{{layer.focused}}'
+        style:
+          fillColor: '#AA93CE'
+          fillOpacity: 1
+          radius: 5
+          color: 'black'
+          opacity: 1
+          weight: 2
+      - condition: '"{{location_type}}" === "PublicSpaces" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-PublicSpaces.png
+          shadowUrl: /static/css/images/marker-shadow.png
+          iconSize: [45, 54]
+          shadowSize: [41, 41]
+          iconAnchor: [22, 54]
+
+activity:
+  enabled: true
+  interval: 30000
+
+place:
+  adding_supported:
+    from: '2018-03-04 08:30 -0400'
+    until: '2018-05-03 00:00 -0400'
+  add_button_label: _(Add an idea)
+  # Labels for the buttons that toggle the map and list views
+  show_list_button_label: _(List Ideas)
+  show_map_button_label: _(Show the Map)
+  action_text: _(suggested)
+  title: _(Tell us more...)
+  action_text: _(suggested)
+  anonymous_name: _(Someone)
+  submit_button_label: _(Post it to the map)
+  items:
+    - prompt: _(* The title of my project is...)
+      type: textarea
+      name: title
+      optional: false
+      label: _(The title of my project is...)
+      attrs:
+        - key: placeholder
+          value: _(Help us with a great name to identify your project.)
+        - key: required
+          value: required
+        - key: maxlength
+          value: 100
+    - prompt: _(* My idea to improve this place...)
+      type: textarea
+      name: description
+      optional: false
+      label: _(My idea to improve this place...)
+      attrs:
+        - key: placeholder
+          value: _(Think low cost, block focused, short term, street scale or smaller.)
+        - key: required
+          value: required
+        - key: maxlength
+          value: 750
+    - prompt: _(* So that people could...)
+      type: textarea
+      name: details
+      optional: false
+      label: _(So that people could...)
+      attrs:
+        - key: placeholder
+          value: _(Tell us why this idea would help make our Miami better.)
+        - key: required
+          value: required
+        - key: maxlength
+          value: 750
+    - prompt: _(* My project will improve...)
+      label: _(Project type)
+      type: radiogroup
+      options:
+        - label: _(Parks & Natural Areas)
+          value: ParksAndNaturalAreas
+        - label: _(Greenways & Blueways)
+          value: GreenwaysAndBlueways
+        - label: _(Safe Routes to Parks)
+          value: SafeRoutesToParks
+        - label: _(Public Spaces)
+          value: PublicSpaces
+      attrs:
+      - key: required
+        value: required
+      name: location_type
+    - prompt: _(The approximate address or location of my project is...)
+      type: text
+      name: address
+      optional: false
+      label: _(The approximate address or location of my project is...)
+      attrs:
+        - key: placeholder
+          value: _(Let us know where you mean.)
+        - key: maxlength
+          value: 160
+    - prompt: _(Show us with a picture)
+      inputfile_label: _(Upload an image)
+      type: file
+      name: my_image
+      attrs:
+        - key: accept
+          value: image/*
+    - prompt: _(Add a link)
+      type: text
+      name: infolink
+      attrs:
+        - key: placeholder
+          value: _(Add a related link (an example or more info))
+        - key: size
+          value: 30
+    - type: hidden
+      name: private-conf
+      attrs:
+        - key: value
+          value: "Not sent"
+    - prompt: _(* Your Name)
+      label: _(Suggested by)
+      type: text
+      name: submitter_name
+      attrs:
+        - key: placeholder
+          value: _(Person/Org to be credited for idea publicly)
+        - key: size
+          value: 30
+        - key: required
+          value: required
+    - prompt: _(Your organization)
+      label: _(Organization)
+      type: text
+      name: organization
+      attrs:
+        - key: placeholder
+          value: _(Your organization)
+        - key: size
+          value: 30
+    - prompt: _(* Your email)
+      type: email
+      optional: false
+      name: private-email
+      attrs:
+        - key: placeholder
+          value: _(Your email will not be shown publicly)
+        - key: size
+          value: 30
+        - key: required
+          value: required
+    - prompt: _(Your phone number)
+      type: text
+      name: private-phone
+      attrs:
+        - key: placeholder
+          value: _(Your number will not be shown publicly)
+        - key: size
+          value: 30
+
+survey:
+  submission_type: comments
+  adding_supported:
+    from: '2017-03-07 08:30 -0500'
+    until: '2017-05-02 00:00 -0400'
+
+  # Response config
+  show_responses: true
+  response_name: _(comment)
+  response_plural_name: _(comments)
+  action_text: _(commented on)
+  anonymous_name: _(Someone)
+
+  # Survey form config
+  title: _(Leave a Comment)
+  form_link_text: _(Leave a Comment)
+  submit_btn_text: _(Comment)
+  items:
+    - prompt: _(Comment)
+      label: _(Comment)
+      type: textarea
+      name: comment
+      attrs:
+        - key: required
+    - prompt: _(Your Name)
+      type: text
+      name: submitter_name
+
+support:
+  submission_type: support
+  adding_supported:
+    from: '2017-03-07 08:30 -0500'
+    until: '2017-05-02 00:00 -0400'
+  submit_btn_text: _(Like This!)
+  response_name: _(like)
+  response_plural_name: _(likes)
+  action_text: liked
+  anonymous_name: _(Someone)
+
+pages:
+  - title: _(About)
+    slug: about
+    name: overview
+    start_page: true
+  - title: _(FAQ)
+    slug: faq
+    name: faq
+  - title: _(Workshops & Resources)
+    slug: resources
+    name: resources
+  - title: Filter Ideas
+    slug: filter-type
+    pages:
+      - title: All
+        external: true
+        url: /filter/all
+      - title: _(Parks & Natural Areas)
+        url: /filter/ParksAndNaturalAreas
+        external: true
+      - title: _(Greenways & Blueways)
+        url: /filter/GreenwaysAndBlueways
+        external: true
+      - title: _(Safe Routes to Parks)
+        url: /filter/SafeRoutesToParks
+        external: true
+      - title: _(Public Spaces)
+        url: /filter/PublicSpaces
+        external: true
+  # - title: _(Finalists)
+  #   slug: finalists
+  #   name: finalists
+  # - title: _(2016 Winners)
+  #   slug: winners
+  #   name: winners
+
+notifications:
+  on_new_place: true
+  submitter_email_field: private-email
