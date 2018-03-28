@@ -129,6 +129,23 @@
     }
   }
 
+  var appViewLoadPlaces = Shareabouts.AppView.prototype.loadPlaces;
+  Shareabouts.AppView.prototype.loadPlaces = function(placeParams) {
+    var self = this;
+    $.ajax({
+      url: '{{STATIC_URL}}data/past_winners.geojson',
+      dataType: 'json',
+      success: function(data) {
+        // On success, add in the past winners.
+        self.collection.add(data, {parse: true});
+      },
+      done: function() {
+        // Regardless of success, load the rest of the data.
+        appViewLoadPlaces.call(self, placeParams);
+      }
+    })
+  }
+
   /*
    * Patch initializers to construct a rating view.
    */
