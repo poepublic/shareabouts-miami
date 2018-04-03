@@ -139,7 +139,7 @@
         // On success, add in the past winners.
         self.collection.add(data, {parse: true});
       },
-      done: function() {
+      complete: function() {
         // Regardless of success, load the rest of the data.
         appViewLoadPlaces.call(self, placeParams);
       }
