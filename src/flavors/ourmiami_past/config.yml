@@ -167,3 +167,5 @@ pages:
   - title: _(2018 Public Space Challenge)
     slug: challenge
     name: challenge
+    external: true
+    url: https://www.publicspacechallenge.org/
