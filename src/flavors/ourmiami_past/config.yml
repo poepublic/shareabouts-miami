@@ -110,14 +110,135 @@ place:
   action_text: _(suggested)
   anonymous_name: _(Someone)
   submit_button_label: _(Post it to the map)
-  items: []
+  items:
+    - prompt: _(* The title of my project is...)
+      type: textarea
+      name: title
+      optional: false
+      label: _(The title of my project is...)
+      attrs:
+        - key: placeholder
+          value: _(Help us with a great name to identify your project.)
+        - key: required
+          value: required
+        - key: maxlength
+          value: 100
+    - prompt: _(* My idea to improve this place...)
+      type: textarea
+      name: description
+      optional: false
+      label: _(My idea to improve this place...)
+      attrs:
+        - key: placeholder
+          value: _(Think low-cost, block-focused, short-term, street-scale or smaller.)
+        - key: required
+          value: required
+        - key: maxlength
+          value: 750
+    - prompt: _(* So that people could...)
+      type: textarea
+      name: details
+      optional: false
+      label: _(So that people could...)
+      attrs:
+        - key: placeholder
+          value: _(Tell us why this idea would help make our Miami better.)
+        - key: required
+          value: required
+        - key: maxlength
+          value: 750
+    - prompt: _(* My project will improve...)
+      label: _(Project type)
+      type: radiogroup
+      options:
+        - label: _(Parks & Natural Areas)
+          value: ParksAndNaturalAreas
+        - label: _(Greenways & Blueways)
+          value: GreenwaysAndBlueways
+        - label: _(Safe Routes to Parks)
+          value: SafeRoutesToParks
+        - label: _(Public Spaces)
+          value: PublicSpaces
+      attrs:
+      - key: required
+        value: required
+      name: location_type
+    - prompt: _(The approximate address or location of my project is...)
+      type: text
+      name: address
+      optional: false
+      label: _(The approximate address or location of my project is...)
+      attrs:
+        - key: placeholder
+          value: _(Let us know where you mean.)
+        - key: maxlength
+          value: 160
+    - prompt: _(Show us with a picture)
+      inputfile_label: _(Upload an image)
+      type: file
+      name: my_image
+      attrs:
+        - key: accept
+          value: image/*
+    - prompt: _(Add a link)
+      type: text
+      name: infolink
+      attrs:
+        - key: placeholder
+          value: _(Add a related link (an example or more info))
+        - key: size
+          value: 30
+    - type: hidden
+      name: private-conf
+      attrs:
+        - key: value
+          value: "Not sent"
+    - prompt: _(* Your Name)
+      label: _(Suggested by)
+      type: text
+      name: submitter_name
+      attrs:
+        - key: placeholder
+          value: _(Person/Org to be credited for idea publicly)
+        - key: size
+          value: 30
+        - key: required
+          value: required
+    - prompt: _(Your organization)
+      label: _(Organization)
+      type: text
+      name: organization
+      attrs:
+        - key: placeholder
+          value: _(Your organization)
+        - key: size
+          value: 30
+    - prompt: _(* Your email)
+      type: email
+      optional: false
+      name: private-email
+      attrs:
+        - key: placeholder
+          value: _(Your email will not be shown publicly)
+        - key: size
+          value: 30
+        - key: required
+          value: required
+    - prompt: _(Your phone number)
+      type: text
+      name: private-phone
+      attrs:
+        - key: placeholder
+          value: _(Your number will not be shown publicly)
+        - key: size
+          value: 30
 
 survey:
   submission_type: comments
   adding_supported: false
 
   # Response config
-  show_responses: true
+  show_responses: false
   response_name: _(comment)
   response_plural_name: _(comments)
   action_text: _(commented on)

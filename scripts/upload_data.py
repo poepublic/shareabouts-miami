@@ -29,10 +29,13 @@ for feature in data['features']:
     fid = feature['properties']['original_id'] = feature.pop('id')
     idea = ideas_by_id.get(fid)
 
+    feature['properties']['original_submitter'] = feature['properties'].pop('submitter')
+    feature['properties']['original_attachments'] = feature['properties'].pop('attachments')
+    feature['properties']['original_submission_sets'] = feature['properties'].pop('submission_sets')
+
     if idea:
         url = idea['properties']['url']
-        request_with_retries('patch', url, session=session, data=json.dumps(feature))
+        request_with_retries('put', url, session=session, data=json.dumps(feature))
     else:
         url = WINNERS_URL
-        feature['properties'].pop('submitter')
         request_with_retries('post', url, session=session, data=json.dumps(feature))
