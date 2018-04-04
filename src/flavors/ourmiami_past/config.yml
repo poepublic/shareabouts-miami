@@ -141,39 +141,29 @@ support:
 pages:
   - title: _(About)
     slug: about
-    name: overview-winners
+    name: overview
     start_page: true
-  - title: _(FAQ)
-    slug: faq
-    name: faq
-  - title: _(Workshops & Resources)
-    slug: resources
-    name: resources
   - title: Filter Ideas
     slug: filter-type
     pages:
       - title: All
         external: true
         url: /filter/all
-      - title: _(Parks & Natural Areas)
-        url: /filter/ParksAndNaturalAreas
+      - title: _(2017)
+        url: /filter/Winner2017
         external: true
-      - title: _(Greenways & Blueways)
-        url: /filter/GreenwaysAndBlueways
+      - title: _(2016)
+        url: /filter/Winner2016
         external: true
-      - title: _(Safe Routes to Parks)
-        url: /filter/SafeRoutesToParks
+      - title: _(2015)
+        url: /filter/Winner2015
         external: true
-      - title: _(Public Spaces)
-        url: /filter/PublicSpaces
+      - title: _(2014)
+        url: /filter/Winner2014
         external: true
-  # - title: _(Finalists)
-  #   slug: finalists
-  #   name: finalists
-  - title: _(2017 Challenge Winners)
-    slug: winners
-    name: winners
-
-notifications:
-  on_new_place: true
-  submitter_email_field: private-email
+      - title: _(2013)
+        url: /filter/Winner2013
+        external: true
+  - title: _(2018 Public Space Challenge)
+    slug: challenge
+    name: challenge

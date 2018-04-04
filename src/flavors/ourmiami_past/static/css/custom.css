@@ -437,7 +437,8 @@ form .signed-in-as {
 #current-filter-type.publicspaces { color: #AA93CE; }
 
 .menu-item-finalists .btn.btn-block,
-.menu-item-winners .btn.btn-block {
+.menu-item-winners .btn.btn-block,
+.menu-item-challenge .btn.btn-block, {
   font-weight: bold;
 }
 
@@ -1255,7 +1256,8 @@ dl.faq dd {
   }
 
   .menu-item-finalists .btn.btn-block,
-  .menu-item-winners .btn.btn-block {
+  .menu-item-winners .btn.btn-block,
+  .menu-item-challenge .btn.btn-block {
     background-image: url(/static/css/images/finalist-star.png);
     background-repeat: no-repeat;
     background-position: 5px 4px;
@@ -1264,7 +1266,8 @@ dl.faq dd {
   }
 
   .menu-item-finalists .btn:hover,
-  .menu-item-winners .btn:hover {
+  .menu-item-winners .btn:hover,
+  .menu-item-challenge .btn:hover {
     background-image: url(/static/css/images/finalist-star-hover.png);
   }
 
