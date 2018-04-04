@@ -238,7 +238,7 @@ place:
       label: _(My idea to improve this place...)
       attrs:
         - key: placeholder
-          value: _(Think low cost, block focused, short term, street scale or smaller.)
+          value: _(Think low-cost, block-focused, short-term, street-scale or smaller.)
         - key: required
           value: required
         - key: maxlength
