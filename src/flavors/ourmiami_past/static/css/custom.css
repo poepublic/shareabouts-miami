@@ -407,17 +407,8 @@ form .signed-in-as {
   background-color: transparent;
 }
 
-.access li ul li:nth-child(2) a::before {
+.access li ul li a::before {
   background-color: #C3CE2F;  /* ParksAndNaturalAreas */
-}
-.access li ul li:nth-child(3) a::before {
-  background-color: #1490C1;  /* GreenwaysAndBlueways */
-}
-.access li ul li:nth-child(4) a::before {
-  background-color: #F4C040;  /* SafeRoutesToParks */
-}
-.access li ul li:nth-child(5) a::before {
-  background-color: #AA93CE;  /* PublicSpaces */
 }
 
 #current-filter-type {
