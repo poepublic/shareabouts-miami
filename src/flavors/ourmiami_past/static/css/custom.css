@@ -429,7 +429,7 @@ form .signed-in-as {
 
 .menu-item-finalists .btn.btn-block,
 .menu-item-winners .btn.btn-block,
-.menu-item-challenge .btn.btn-block, {
+.menu-item-challenge .btn.btn-block {
   font-weight: bold;
 }
 
