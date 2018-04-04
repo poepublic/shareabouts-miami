@@ -103,7 +103,7 @@ place:
   adding_supported: false
   add_button_label: _(Add an idea)
   # Labels for the buttons that toggle the map and list views
-  show_list_button_label: _(List Ideas)
+  show_list_button_label: _(List Past Winners)
   show_map_button_label: _(Show the Map)
   action_text: _(suggested)
   title: _(Tell us more...)
@@ -264,7 +264,7 @@ pages:
     slug: about
     name: overview
     start_page: true
-  - title: Filter Ideas
+  - title: Filter Past Winners
     slug: filter-type
     pages:
       - title: All
