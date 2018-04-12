@@ -1,0 +1,16 @@
+    <form class="user-review" action="#" method="post" class="btn btn-block btn-small">
+      <input type="hidden" name="user_token" value="{{{ user_token }}}">
+      <input type="hidden" name="visible" value="true">
+
+      <div class="stars-wrapper">
+        <p class="user-review-prompt">Rate This Project</p>
+
+        <div class="stars">
+          <input class="evaluation" type="radio" name="review" value="yes"   {{#is user_review.review 'yes'}}  checked{{/is}}>Yes  </button><!--
+       --><input class="evaluation" type="radio" name="review" value="maybe" {{#is user_review.review 'maybe'}}checked{{/is}}>Maybe</button><!--
+       --><input class="evaluation" type="radio" name="review" value="no"    {{#is user_review.review 'no'}}   checked{{/is}}>No   </button>
+        </div>
+
+        <input type="text" name="review_notes" value="{{ user_review.review_notes }}">
+      </div>
+    </form>

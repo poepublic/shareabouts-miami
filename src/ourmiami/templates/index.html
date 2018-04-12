@@ -47,6 +47,16 @@
 {% endblock %}
 
 {% block post_auth_nav %}
+<div class="place-list-reviews-summary-container hidden">
+  <div class="place-list-reviews-summary-toggle">
+    <a href="#">
+      Reviews Summary
+      <small class="reviews-summary-toggle-note hidden">(Click to toggle)</small>
+    </a>
+  </div>
+  <div class="place-list-reviews-summary-wrapper"></div>
+</div>
+
 <div class="place-list-ratings-summary-container hidden">
   <div class="place-list-ratings-summary-toggle">
     <a href="#">
@@ -80,6 +90,8 @@
  -->
 {% block includes %}
 {% include '_legend_widget.html' %}
+<script src="{{STATIC_URL}}js/views/review-view.js"></script>
+<script src="{{STATIC_URL}}js/views/reviews-summary-view.js"></script>
 <script src="{{STATIC_URL}}js/views/rating-view.js"></script>
 <script src="{{STATIC_URL}}js/views/ratings-summary-view.js"></script>
 <script>
@@ -96,8 +108,27 @@
   })
 
   /*
-   * Patch AppView.initialize to construct a ratings summary view.
+   * Patch AppView.initialize to construct reviews and ratings summary views.
    */
+  var initializeReviewsSummaryView = function() {
+    // Only initialize the view if the user is in a judging group.
+    if (S.Config.userStaffGroup && S.Config.userStaffGroup.length > 0) {
+      $('.place-list-reviews-summary-container').removeClass('hidden');
+      this.reviewsSummaryView = new Shareabouts.ReviewsSummaryView({
+        el: '.place-list-reviews-summary-wrapper',
+        collection: this.collection,  // PlaceCollection
+        userToken: S.Config.userToken,
+        userStaffGroups: S.Config.userStaffGroup,
+        categories: [
+          {'option': 'yes', 'label': 'Yes'},
+          {'option': 'no', 'label': 'No'},
+          {'option': 'maybe', 'label': 'Maybe'},
+          {'option': 'none', 'label': 'Unreviewed'}
+        ]
+      });
+    }
+  }
+
   var initializeRatingsSummaryView = function() {
     // Only initialize the view if the user is in a judging group.
     if (S.Config.userJudgeGroup && S.Config.userJudgeGroup.length > 0) {
@@ -262,10 +293,24 @@
     }
   };
 
+  Shareabouts.getStaffGroup = function(user) {
+    var groups = user ? user.groups : null;
+
+    return _.chain(groups)
+      .where({'dataset': S.bootstrapped.datasetUrl})
+      .pluck('name')
+      .filter(function(g) { return /^staff/.test(g); })
+      .value();
+  };
+
   Shareabouts.getJudgeGroup = function(user) {
-    var judgeGroups = user ? _.where(user.groups,
-      {'dataset': S.bootstrapped.datasetUrl}) : null;
-    return _.pluck(judgeGroups, 'name');
+    var groups = user ? user.groups : null;
+
+    return _.chain(groups)
+      .where({'dataset': S.bootstrapped.datasetUrl})
+      .pluck('name')
+      .filter(function(g) { return /^judge/.test(g); })
+      .value();
   };
 
   var appInitialize = Shareabouts.App.prototype.initialize;
@@ -468,11 +513,13 @@
     getPlaceReview = function(place) {
       if (!place.submissionSets.reviews) {return; }
 
+      var numericReview = {'yes': 1, 'maybe': 0, 'no': -1};
       var reviewModel = place.submissionSets.reviews.findWhere(
         {'user_token': userToken});
 
       if (!_.isUndefined(reviewModel)) {
-        return reviewModel.get('review');
+        var reviewVal = reviewModel.get('review');
+        return numericReview[reviewVal];
       }
     };
 
