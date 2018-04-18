@@ -8,6 +8,11 @@
     | <a href="#" class="support-sort">{{#_}}Most {{ support_label_plural }}{{/_}}</a>
     | <a href="#" class="survey-sort">{{#_}}Most {{ survey_label_plural }}{{/_}}</a>
 
+    {{#isStaff}}
+     | <a href="#" class="review-sort">{{#_}}Reviewed first{{/_}}</a>
+     | <a href="#" class="review-reverse-sort">{{#_}}Unreviewed first{{/_}}</a>
+    {{/isStaff}}
+
     {{#isJudging}}
      | <a href="#" class="rating-sort">{{#_}}Highest rated{{/_}}</a>
      | <a href="#" class="rating-reverse-sort">{{#_}}Unrated first{{/_}}</a>

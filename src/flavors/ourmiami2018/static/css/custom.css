@@ -720,7 +720,8 @@ a.shareabouts-logo:hover {
 -------------------------------------------------------------- */
 
 .rating {}
-.user-rating {
+.user-rating,
+.user-review {
   float: right;
   margin-bottom: 0.75em;
   text-align: center;
@@ -731,6 +732,7 @@ a.shareabouts-logo:hover {
   border: 2px solid #7C4199;
 }
 .user-rating-prompt,
+.user-review-prompt,
 .optout-prompt {
   background-color: #7C4199;
   color: #fff;
@@ -794,7 +796,8 @@ input[name="optout_reason"]:disabled {
 }
 
 
-.place-list-ratings-summary-container {
+.place-list-ratings-summary-container,
+.place-list-reviews-summary-container {
   display: none;
 }
 
@@ -807,7 +810,8 @@ input[name="optout_reason"]:disabled {
   font-style: normal;
 }
 
-.ratings-chart-rating-total {
+.ratings-chart-rating-total,
+.reviews-chart-review-total {
   font-size: 0.8em;
   font-weight: bold;
 }
@@ -881,14 +885,17 @@ dl.faq dd {
 }
 
 @media only screen and (min-width: 60em) {
-  .place-list-ratings-summary-container {
+  .place-list-ratings-summary-container,
+  .place-list-reviews-summary-container {
     display: block;
   }
 
-  .place-list-ratings-summary-wrapper {
+  .place-list-ratings-summary-wrapper,
+  .place-list-reviews-summary-wrapper {
     display: none;
   }
-  .open .place-list-ratings-summary-wrapper {
+  .open .place-list-ratings-summary-wrapper,
+  .open .place-list-reviews-summary-wrapper {
     /* Position */
     left: 2.5%;
     position: absolute;
@@ -907,13 +914,15 @@ dl.faq dd {
     background-color: white;
   }
 
-  .ratings-chart-title {
+  .ratings-chart-title,
+  .reviews-chart-title {
     font-size: 1.5em;
     margin: 0 0 0.3em 1em;
     display: block;
   }
 
-  .ratings-chart-segment {
+  .ratings-chart-segment,
+  .reviews-chart-segment {
     display: inline-block;
     vertical-align: top;
     height: 2em;
@@ -927,7 +936,8 @@ dl.faq dd {
   .saferoutestoparks-segment { background-color: #F4C040; }
   .publicspaces-segment { background-color: #AA93CE; }
 
-  .ratings-chart-bar {
+  .ratings-chart-bar,
+  .reviews-chart-bar {
     /*width: 30em;*/
     display: inline-block;
     height: 0.8em;
@@ -937,7 +947,8 @@ dl.faq dd {
     margin-left: 0.5em;
   }
 
-  .ratings-chart-rating-label {
+  .ratings-chart-rating-label,
+  .reviews-chart-review-label {
     font-style: italic;
     font-size: 0.8em;
     text-align: right;
@@ -945,17 +956,16 @@ dl.faq dd {
     display: inline-block;
   }
 
-  .ratings-chart-main {
+  .ratings-chart-main,
+  .reviews-chart-main {
     position: relative;
     overflow: hidden;
     display: inline-block;
     vertical-align: top;
   }
 
-  .ratings-chart-bars-wrapper {
-  }
-
-  .ratings-chart-ticks-wrapper {
+  .ratings-chart-ticks-wrapper,
+  .reviews-chart-ticks-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -964,7 +974,8 @@ dl.faq dd {
     pointer-events: none;
   }
 
-  .ratings-chart-tick {
+  .ratings-chart-tick,
+  .reviews-chart-tick {
     width: 3em;
     box-sizing: border-box;
     border-right: 1px solid silver;
@@ -972,10 +983,12 @@ dl.faq dd {
     height: 100%;
     display: inline-block;
   }
-  .ratings-chart-tick-labels-wrapper {
+  .ratings-chart-tick-labels-wrapper,
+  .reviews-chart-tick-labels-wrapper {
     margin-left: 6.2em;
   }
-  .ratings-chart-tick-label {
+  .ratings-chart-tick-label,
+  .reviews-chart-tick-label {
     font-size: 0.6667em;
     font-style: italic;
     color: gray;
@@ -984,19 +997,23 @@ dl.faq dd {
     text-align: center;
   }
 
-  .ratings-chart-legend {
+  .ratings-chart-legend,
+  .reviews-chart-legend {
     display: inline-block;
   }
-  .ratings-legend-labels-wrapper {
+  .ratings-legend-labels-wrapper,
+  .reviews-legend-labels-wrapper {
     list-style: none;
     font-size: 0.8em;
     margin: 0;
     margin-top: 0;
   }
-  .ratings-legend-labels-wrapper li {
+  .ratings-legend-labels-wrapper li,
+  .reviews-legend-labels-wrapper li {
     padding-bottom: 0.2em;
   }
-  .ratings-legend-labels-wrapper li:before {
+  .ratings-legend-labels-wrapper li:before,
+  .reviews-legend-labels-wrapper li:before {
     content: ' ';
     display: inline-block;
     height: 0.9em;
@@ -1014,7 +1031,13 @@ dl.faq dd {
   .ratings-legend-label-saferoutestoparks:before { background-color: #F4C040; }
   .ratings-legend-label-publicspaces:before { background-color: #AA93CE; }
 
-  .place-list-ratings-summary-toggle a {
+  .reviews-legend-label-parksandnaturalareas:before { background-color: #C3CE2F; }
+  .reviews-legend-label-greenwaysandblueways:before { background-color: #1490C1; }
+  .reviews-legend-label-saferoutestoparks:before { background-color: #F4C040; }
+  .reviews-legend-label-publicspaces:before { background-color: #AA93CE; }
+
+  .place-list-ratings-summary-toggle a,
+  .place-list-reviews-summary-toggle a {
     display: block;
     box-sizing: border-box;
     float: right;
@@ -1037,17 +1060,20 @@ dl.faq dd {
     text-indent: 100em;  /* Hide the text; overridden at 74em */
     padding: 0.5em 1.5em 0.5em 3.5em;
   }
-  .place-list-ratings-summary-toggle a:hover {
+  .place-list-ratings-summary-toggle a:hover,
+  .place-list-reviews-summary-toggle a:hover {
     background-color: #D9ED17;
     background-image: url(/static/css/images/chart-menu-black.png);
   }
-  .open .place-list-ratings-summary-toggle a {
+  .open .place-list-ratings-summary-toggle a,
+  .open .place-list-reviews-summary-toggle a {
     color: white;
     background-color: #02ACD7;
     background-image: url(/static/css/images/chart-menu-white.png);
   }
 
-  .ratings-summary-toggle-note {
+  .ratings-summary-toggle-note,
+  .reviews-summary-toggle-note {
     line-height: 1em;
     margin-top: -1.6em;
     display: block;
@@ -1055,7 +1081,8 @@ dl.faq dd {
     text-transform: lowercase;
   }
 
-  .ratings-count-wrapper {
+  .ratings-count-wrapper,
+  .reviews-count-wrapper {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -1066,12 +1093,14 @@ dl.faq dd {
     border-bottom: 1px solid #bbc0c4;
   }
 
-  .ratings-count-wrapper span {
+  .ratings-count-wrapper span,
+  .reviews-count-wrapper span {
     display: block;
     text-align: center;
   }
 
-  .ratings-count {
+  .ratings-count,
+  .reviews-count {
     font-size: 2.5em;
   }
 
@@ -1277,12 +1306,15 @@ dl.faq dd {
 }
 @media only screen and (min-width: 74em) {
   .ratings-count-wrapper,
-  .ratings-chart-wrapper {
+  .ratings-chart-wrapper,
+  .reviews-count-wrapper,
+  .reviews-chart-wrapper {
     display: inline-block;
     vertical-align: top;
   }
 
-  .ratings-count-wrapper {
+  .ratings-count-wrapper,
+  .reviews-count-wrapper {
     padding-bottom: 0;
     margin-bottom: 0;
     width: 14em;
@@ -1290,7 +1322,8 @@ dl.faq dd {
     border-right: 1px solid #BBC0C4;
   }
 
-  .place-list-ratings-summary-toggle a {
+  .place-list-ratings-summary-toggle a,
+  .place-list-reviews-summary-toggle a {
     width: auto;
     text-indent: 0;
     background-position: 1em 50%;

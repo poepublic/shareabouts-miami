@@ -3,12 +3,12 @@
       <input type="hidden" name="visible" value="true">
 
       <div class="stars-wrapper">
-        <p class="user-review-prompt">Rate This Project</p>
+        <p class="user-review-prompt">Should this project be included for judging?</p>
 
         <div class="stars">
-          <input class="evaluation" type="radio" name="review" value="yes"   {{#is user_review.review 'yes'}}  checked{{/is}}>Yes  </button><!--
-       --><input class="evaluation" type="radio" name="review" value="maybe" {{#is user_review.review 'maybe'}}checked{{/is}}>Maybe</button><!--
-       --><input class="evaluation" type="radio" name="review" value="no"    {{#is user_review.review 'no'}}   checked{{/is}}>No   </button>
+          <input class="evaluation" type="radio" name="review" value="yes"   {{#is user_review.review 'yes'}}  checked{{/is}}>Yes   <!--
+       --><input class="evaluation" type="radio" name="review" value="maybe" {{#is user_review.review 'maybe'}}checked{{/is}}>Maybe <!--
+       --><input class="evaluation" type="radio" name="review" value="no"    {{#is user_review.review 'no'}}   checked{{/is}}>No    
         </div>
 
         <input type="text" name="review_notes" value="{{ user_review.review_notes }}">

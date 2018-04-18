@@ -8,7 +8,7 @@ var Shareabouts = Shareabouts || {};
   S.ReviewView = Backbone.View.extend({
     events: {
       'change .evaluation': 'onEvaluationChange',
-      'change input[name=review]': 'onReviewChange',
+      'change input[name=review_notes]': 'onReviewChange',
       'submit .user-review': 'onFormSubmit'
     },
 
@@ -95,10 +95,12 @@ var Shareabouts = Shareabouts || {};
     },
 
     onEvaluationChange: function(evt) {
-      var review = evt.target.getAttribute('data-review-value');
+      if (evt.target.checked) {
+        var review = evt.target.getAttribute('data-review-value');
 
-      S.Util.log('USER', 'place', 'review-btn-click', this.collection.options.placeModel.getLoggingDetails(), review);
-      this.$('input[name=review]').val(review).trigger('change');
+        S.Util.log('USER', 'place', 'review-btn-click', this.collection.options.placeModel.getLoggingDetails(), review);
+        this.saveReview();
+      }
     },
 
     onReviewChange: function(evt) {
@@ -107,7 +109,6 @@ var Shareabouts = Shareabouts || {};
 
     saveReview: function() {
       var self = this,
-          review = this.$('input[name=review]').val(),
           evalButtons = this.el.getElementsByClassName('evaluation'),
           notesWidget = $('[name=review_notes]'),
           $form, attrs,
@@ -116,8 +117,8 @@ var Shareabouts = Shareabouts || {};
           userReview = this.getReview();
 
       // Disable the evaluation widgets while we save; they'll be enabled again on complete
-      _.map(evalButtons, function(button) { button.disabled = true; });
-      notesWidget.each(function(i, widget) { widget.disabled = false; });
+      // _.map(evalButtons, function(button) { button.disabled = true; });
+      // notesWidget.each(function(i, widget) { widget.disabled = false; });
 
       $form = this.$('form');
       attrs = S.Util.getAttrs($form);

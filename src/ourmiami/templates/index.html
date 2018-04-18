@@ -119,12 +119,12 @@
         collection: this.collection,  // PlaceCollection
         userToken: S.Config.userToken,
         userStaffGroups: S.Config.userStaffGroup,
-        categories: [
-          {'option': 'yes', 'label': 'Yes'},
-          {'option': 'no', 'label': 'No'},
-          {'option': 'maybe', 'label': 'Maybe'},
-          {'option': 'none', 'label': 'Unreviewed'}
-        ]
+        categories: _.map(
+          S.Config.placeTypes,
+          function(config, key) {
+            return {'option': key, 'label': config.label};
+          }
+        )
       });
     }
   }
@@ -321,6 +321,7 @@
     // Set up the user's judging group, if there is one
     if (S.bootstrapped.currentUser) {
       S.Config.userJudgeGroup = S.getJudgeGroup(S.bootstrapped.currentUser);
+      S.Config.userStaffGroup = S.getStaffGroup(S.bootstrapped.currentUser);
     }
 
     // Add a route handler for filtering by category
@@ -647,12 +648,20 @@ Handlebars.registerHelper('newLineToBr', function(str) {
   }
 });
 
-Handlebars.registerHelper('isJudging', function(options) {
-  var groups = Shareabouts.bootstrapped.currentUser ? Shareabouts.bootstrapped.currentUser.groups : [],
-      datasetUrl = Shareabouts.bootstrapped.datasetUrl,
-      judgingGroup = _.find(groups, function(group) { return group.dataset.indexOf(datasetUrl) === 0; });
+Handlebars.registerHelper('isStaff', function(options) {
+  var staffGroup = Shareabouts.getStaffGroup(Shareabouts.bootstrapped.currentUser);
 
-  if (!_.isUndefined(judgingGroup)) {
+  if (staffGroup && staffGroup.length > 0) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+Handlebars.registerHelper('isJudging', function(options) {
+  var judgingGroup = Shareabouts.getJudgeGroup(Shareabouts.bootstrapped.currentUser);
+
+  if (judgingGroup && judgingGroup.length > 0) {
     return options.fn(this);
   } else {
     return options.inverse(this);
