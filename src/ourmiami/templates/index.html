@@ -47,6 +47,16 @@
 {% endblock %}
 
 {% block post_auth_nav %}
+<div class="place-list-reviews-summary-container hidden">
+  <div class="place-list-reviews-summary-toggle">
+    <a href="#">
+      Reviews Summary
+      <small class="reviews-summary-toggle-note hidden">(Click to toggle)</small>
+    </a>
+  </div>
+  <div class="place-list-reviews-summary-wrapper"></div>
+</div>
+
 <div class="place-list-ratings-summary-container hidden">
   <div class="place-list-ratings-summary-toggle">
     <a href="#">
@@ -80,6 +90,8 @@
  -->
 {% block includes %}
 {% include '_legend_widget.html' %}
+<script src="{{STATIC_URL}}js/views/review-view.js"></script>
+<script src="{{STATIC_URL}}js/views/reviews-summary-view.js"></script>
 <script src="{{STATIC_URL}}js/views/rating-view.js"></script>
 <script src="{{STATIC_URL}}js/views/ratings-summary-view.js"></script>
 <script>
@@ -96,8 +108,27 @@
   })
 
   /*
-   * Patch AppView.initialize to construct a ratings summary view.
+   * Patch AppView.initialize to construct reviews and ratings summary views.
    */
+  var initializeReviewsSummaryView = function() {
+    // Only initialize the view if the user is in a judging group.
+    if (S.Config.userStaffGroup && S.Config.userStaffGroup.length > 0) {
+      $('.place-list-reviews-summary-container').removeClass('hidden');
+      this.reviewsSummaryView = new Shareabouts.ReviewsSummaryView({
+        el: '.place-list-reviews-summary-wrapper',
+        collection: this.collection,  // PlaceCollection
+        userToken: S.Config.userToken,
+        userStaffGroups: S.Config.userStaffGroup,
+        categories: _.map(
+          S.Config.placeTypes,
+          function(config, key) {
+            return {'option': key, 'label': config.label};
+          }
+        )
+      });
+    }
+  }
+
   var initializeRatingsSummaryView = function() {
     // Only initialize the view if the user is in a judging group.
     if (S.Config.userJudgeGroup && S.Config.userJudgeGroup.length > 0) {
@@ -120,18 +151,31 @@
   var appViewInitialize = Shareabouts.AppView.prototype.initialize;
   Shareabouts.AppView.prototype.initialize = function() {
     appViewInitialize.call(this);
+    initializeReviewsSummaryView.call(this);
     initializeRatingsSummaryView.call(this);
 
     // All the app-view's subviews are rendered in initialize (yeah, does't seem
     // right, but now's not the time to fix it).
-    if (this.ratingsSummaryView) {
-      this.ratingsSummaryView.render();
-    }
+    if (this.reviewsSummaryView) { this.reviewsSummaryView.render(); }
+    if (this.ratingsSummaryView) { this.ratingsSummaryView.render(); }
   }
 
   /*
-   * Patch initializers to construct a rating view.
+   * Patch initializers to construct review and rating views.
    */
+  var initializeReviewView = function() {
+    this.model.submissionSets['reviews'] = this.model.submissionSets['reviews'] ||
+      new S.SubmissionCollection(null, {
+        submissionType: 'reviews',
+        placeModel: this.model
+      });
+
+    this.reviewView = new Shareabouts.ReviewView({
+      collection: this.model.submissionSets['reviews'],
+      userToken: S.Config.userToken
+    });
+  }
+
   var initializeRatingView = function() {
     this.model.submissionSets['ratings'] = this.model.submissionSets['ratings'] ||
       new S.SubmissionCollection(null, {
@@ -148,24 +192,35 @@
   var placeDetailInitialize = Shareabouts.PlaceDetailView.prototype.initialize;
   Shareabouts.PlaceDetailView.prototype.initialize = function() {
     placeDetailInitialize.call(this);
+    initializeReviewView.call(this)
     initializeRatingView.call(this)
   }
 
   var placeListItemInitialize = Shareabouts.PlaceListItemView.prototype.initialize;
   Shareabouts.PlaceListItemView.prototype.initialize = function() {
     placeListItemInitialize.call(this);
+    initializeReviewView.call(this);
     initializeRatingView.call(this);
   }
 
   /*
-   * Patch render to render ratings and ioby data.
+   * Patch render to render reviews, ratings and ioby data.
    */
   var placeRender = Shareabouts.PlaceDetailView.prototype.render;
   Shareabouts.PlaceDetailView.prototype.render = function() {
     var view = placeRender.call(this),
         iobyId = this.model.get('ioby_id'),
+        staffGroup = Shareabouts.getStaffGroup(Shareabouts.bootstrapped.currentUser);
         judgeGroup = Shareabouts.getJudgeGroup(Shareabouts.bootstrapped.currentUser);
 
+    if (staffGroup && staffGroup.length > 0) {
+      // Render the review view, as we do the support and survey views
+      this.$('.review').html(this.reviewView.render().$el);
+      // Fetch for submissions and automatically update the element
+      this.model.submissionSets['reviews'].fetchAllPages();
+    }
+
+    // Render the associated data from ioby
     if (judgeGroup && judgeGroup.length > 0) {
       // Render the rating view, as we do the support and survey views
       this.$('.rating').html(this.ratingView.render().$el);
@@ -173,7 +228,6 @@
       this.model.submissionSets['ratings'].fetchAllPages();
     }
 
-    // Render the associated data from ioby
     if (iobyId) {
       $.ajax({
         url: 'https://free-ec2.scraperwiki.com/b5pr75y/fd06f5327055496/sql/',
@@ -195,9 +249,11 @@
   }
 
   var placeListItemOnRender = Shareabouts.PlaceListItemView.prototype.onRender;
+  Shareabouts.PlaceListItemView.prototype.regions['review'] = '.review'
   Shareabouts.PlaceListItemView.prototype.regions['rating'] = '.rating'
   Shareabouts.PlaceListItemView.prototype.onRender = function(evt) {
     placeListItemOnRender.call(this, evt);
+    this.review.show(this.reviewView);
     this.rating.show(this.ratingView);
   }
 
@@ -206,6 +262,7 @@
     var view = placeRenderList.call(this);
     this.collection.each(function(model) {
       // Delegate the events so that the subviews still work
+      this.views[model.cid].reviewView.delegateEvents();
       this.views[model.cid].ratingView.delegateEvents();
     }, this);
     return view;
@@ -236,10 +293,24 @@
     }
   };
 
+  Shareabouts.getStaffGroup = function(user) {
+    var groups = user ? user.groups : null;
+
+    return _.chain(groups)
+      .where({'dataset': S.bootstrapped.datasetUrl})
+      .pluck('name')
+      .filter(function(g) { return /^staff/.test(g); })
+      .value();
+  };
+
   Shareabouts.getJudgeGroup = function(user) {
-    var judgeGroups = user ? _.where(user.groups,
-      {'dataset': S.bootstrapped.datasetUrl}) : null;
-    return _.pluck(judgeGroups, 'name');
+    var groups = user ? user.groups : null;
+
+    return _.chain(groups)
+      .where({'dataset': S.bootstrapped.datasetUrl})
+      .pluck('name')
+      .filter(function(g) { return /^judge/.test(g); })
+      .value();
   };
 
   var appInitialize = Shareabouts.App.prototype.initialize;
@@ -250,6 +321,7 @@
     // Set up the user's judging group, if there is one
     if (S.bootstrapped.currentUser) {
       S.Config.userJudgeGroup = S.getJudgeGroup(S.bootstrapped.currentUser);
+      S.Config.userStaffGroup = S.getStaffGroup(S.bootstrapped.currentUser);
     }
 
     // Add a route handler for filtering by category
@@ -265,6 +337,12 @@
         this.clearLocationTypeFilter();
       }
     }, this);
+
+    // Handle the show/hide of the reviews summary
+    $('.place-list-reviews-summary-toggle').on('click', function(evt) {
+      evt.preventDefault();
+      $('.place-list-reviews-summary-container').toggleClass('open');
+    });
 
     // Handle the show/hide of the ratings summary
     $('.place-list-ratings-summary-toggle').on('click', function(evt) {
@@ -398,6 +476,86 @@
     });
   };
 
+
+  Shareabouts.PlaceListView.prototype.ui['reviewReverse'] = '.review-reverse-sort';
+  Shareabouts.PlaceListView.prototype.events['click @ui.reviewReverse'] = 'handleReviewReverseSort';
+  Shareabouts.PlaceListView.prototype.handleReviewReverseSort = function(evt) {
+    evt.preventDefault();
+
+    this.sortBy = 'reviewReverse';
+    this.sort();
+
+    this.updateSortLinks();
+  };
+
+  Shareabouts.PlaceListView.prototype.reviewReverseSort = function(a, b) {
+    return Shareabouts.PlaceListView.prototype.reviewSort.call(this, a, b, true);
+  };
+
+  Shareabouts.PlaceListView.prototype.ui['review'] = '.review-sort';
+  Shareabouts.PlaceListView.prototype.events['click @ui.review'] = 'handleReviewSort';
+  Shareabouts.PlaceListView.prototype.handleReviewSort = function(evt) {
+    evt.preventDefault();
+
+    this.sortBy = 'review';
+    this.sort();
+
+    this.updateSortLinks();
+  };
+
+  Shareabouts.PlaceListView.prototype.reviewSort = function(a, b, reverse) {
+    var userToken = Shareabouts.Config.userToken,
+        LOWER = 1, HIGHER = -1, SAME = 0,
+        getPlaceReview,
+        userStaffGroup = Shareabouts.Config.userStaffGroup,
+        aStaffGroup, bStaffGroup,
+        aReview, bReview;
+
+    getPlaceReview = function(place) {
+      if (!place.submissionSets.reviews) {return; }
+
+      var numericReview = {'yes': 1, 'maybe': 0, 'no': -1};
+      var reviewModel = place.submissionSets.reviews.findWhere(
+        {'user_token': userToken});
+
+      if (!_.isUndefined(reviewModel)) {
+        var reviewVal = reviewModel.get('review');
+        return numericReview[reviewVal];
+      }
+    };
+
+    // Ideas out of the staff group are always at the bottom.
+    // NOTE: All ideas will belong to some staff group, and there will probably
+    //       only be one staff group, so this won't be as relevant as for judge
+    //       groups. We'll leave it anyway.
+    aStaffGroup = a.get('staffGroup');
+    if (!_.contains(userStaffGroup, aStaffGroup)) {
+      return LOWER;
+    }
+
+    bStaffGroup = b.get('staffGroup')
+    if (!_.contains(userStaffGroup, bStaffGroup)) {
+      return HIGHER;
+    }
+
+    // Ideas that haven't been rated yet should be interpreted like a review
+    // of -Inf.
+    aReview = getPlaceReview(a);
+    if (_.isUndefined(aReview)) {
+      return (reverse ? HIGHER : LOWER);
+    }
+
+    bReview = getPlaceReview(b);
+    if (_.isUndefined(bReview)) {
+      return (reverse ? LOWER : HIGHER);
+    }
+
+    if (aReview === bReview) { return SAME; }
+    if (aReview < bReview) { return (reverse ? HIGHER : LOWER); }
+    if (aReview > bReview) { return (reverse ? LOWER : HIGHER); }
+  }
+
+
   Shareabouts.PlaceListView.prototype.ui['ratingReverse'] = '.rating-reverse-sort';
   Shareabouts.PlaceListView.prototype.events['click @ui.ratingReverse'] = 'handleRatingReverseSort';
   Shareabouts.PlaceListView.prototype.handleRatingReverseSort = function(evt) {
@@ -490,12 +648,20 @@ Handlebars.registerHelper('newLineToBr', function(str) {
   }
 });
 
-Handlebars.registerHelper('isJudging', function(options) {
-  var groups = Shareabouts.bootstrapped.currentUser ? Shareabouts.bootstrapped.currentUser.groups : [],
-      datasetUrl = Shareabouts.bootstrapped.datasetUrl,
-      judgingGroup = _.find(groups, function(group) { return group.dataset.indexOf(datasetUrl) === 0; });
+Handlebars.registerHelper('isStaff', function(options) {
+  var staffGroup = Shareabouts.getStaffGroup(Shareabouts.bootstrapped.currentUser);
 
-  if (!_.isUndefined(judgingGroup)) {
+  if (staffGroup && staffGroup.length > 0) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+Handlebars.registerHelper('isJudging', function(options) {
+  var judgingGroup = Shareabouts.getJudgeGroup(Shareabouts.bootstrapped.currentUser);
+
+  if (judgingGroup && judgingGroup.length > 0) {
     return options.fn(this);
   } else {
     return options.inverse(this);

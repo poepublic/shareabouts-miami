@@ -1,0 +1,47 @@
+<span class="reviews-chart-title">Internal review distribution</span>
+
+<div class="reviews-chart-main">
+  <div class="reviews-chart-ticks-wrapper">
+    <div class="reviews-chart-tick"></div><!--
+ --><div class="reviews-chart-tick"></div><!--
+ --><div class="reviews-chart-tick"></div><!--
+ --><div class="reviews-chart-tick"></div><!--
+ --><div class="reviews-chart-tick"></div><!--
+ --><div class="reviews-chart-tick"></div><!--
+ --><div class="reviews-chart-tick"></div>
+  </div>
+
+  <div class="reviews-chart-bars-wrapper">
+    {{#each reviews}}
+    <div class="reviews-chart-bar-wrapper">
+      <span class="reviews-chart-review-label" data-review="{{option}}">{{label}}</span>
+      <div class="reviews-chart-bar" data-review="{{option}}">
+        {{~#each ../categories~}}
+        <span class="reviews-chart-segment {{toLowerCase option}}-segment"
+          data-category="{{option}}" data-category-label="{{label}}"></span>
+        {{~/each~}} {{! categories }}
+      </div>
+      <span class="reviews-chart-review-total" data-review="{{option}}"></span>
+    </div>
+    {{/each}} {{! reviews }}
+  </div>
+
+  <div class="reviews-chart-tick-labels-wrapper">
+    <div class="reviews-chart-tick-label">3</div><!--
+ --><div class="reviews-chart-tick-label">6</div><!--
+ --><div class="reviews-chart-tick-label">9</div><!--
+ --><div class="reviews-chart-tick-label">12</div><!--
+ --><div class="reviews-chart-tick-label">15</div><!--
+ --><div class="reviews-chart-tick-label">18</div><!--
+ --><div class="reviews-chart-tick-label">21</div>
+  </div>
+</div>
+
+<div class="reviews-chart-legend">
+<ul class="reviews-legend-labels-wrapper">
+  <li class="reviews-legend-label-parksandnaturalareas">Parks &amp; Natural Areas</li>
+  <li class="reviews-legend-label-greenwaysandblueways">Greenways &amp; Blueways</li>
+  <li class="reviews-legend-label-saferoutestoparks">Safe Routes to Parks</li>
+  <li class="reviews-legend-label-publicspaces">Public Spaces</li>
+</ul>
+</div>
