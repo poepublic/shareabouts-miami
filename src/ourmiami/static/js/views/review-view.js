@@ -58,9 +58,10 @@ var Shareabouts = Shareabouts || {};
     },
 
     getReview: function() {
-      var reviews = this.collection,
+      var userToken = this.options.userToken,
+          reviews = this.collection,
           ReviewModel = reviews.model,
-          model = this.collection.last();
+          model = this.collection.findWhere({'user_token': userToken});
 
       if (!this.userReview || (model && this.userReview !== model)) {
         this.unbindReview();

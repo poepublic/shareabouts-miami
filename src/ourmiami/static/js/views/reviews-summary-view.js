@@ -92,6 +92,7 @@ var Shareabouts = Shareabouts || {};
       var total = 0;
       var byReview = {};
       var byReviewCategory = {};
+      var userToken = this.options.userToken;
 
       // Initialize the object for reviews by category.
       reviewOptions.forEach(function(rev) {
@@ -106,19 +107,19 @@ var Shareabouts = Shareabouts || {};
       // many reviews fall into each category (location_type).
       this.collection.forEach(function(place) {
         if (!place.submissionSets['reviews']) return;
+        place.submissionSets['reviews'].forEach(function(review) {
+          var rev, cat;
 
-        var review = place.submissionSets['reviews'].first();
-        var rev, cat;
+          if (review.get('user_token') === userToken) {
+            cat = place.get('location_type');
+            rev = review.get('review');
+            if (!rev) return;
 
-        if (review) {
-          cat = place.get('location_type');
-          rev = review.get('review');
-          if (!rev) return;
-
-          ++total;
-          byReview[rev] += 1;
-          byReviewCategory[rev][cat] += 1;
-        }
+            ++total;
+            byReview[rev] += 1;
+            byReviewCategory[rev][cat] += 1;
+          }
+        });
       });
 
       return {total: total, byReview: byReview, byReviewCategory: byReviewCategory};
