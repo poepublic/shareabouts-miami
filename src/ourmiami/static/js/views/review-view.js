@@ -108,7 +108,7 @@ var Shareabouts = Shareabouts || {};
       this.saveReview();
     },
 
-    saveReview: function() {
+    saveReview: _.debounce(function() {
       var self = this,
           evalButtons = this.el.getElementsByClassName('evaluation'),
           notesWidget = $('[name=review_notes]'),
@@ -143,7 +143,7 @@ var Shareabouts = Shareabouts || {};
           S.Util.log('USER', 'place', 'fail-to-review', self.collection.options.placeModel.getLoggingDetails());
         }
       });
-    }
+    }, 1000)
   });
 
 })(Shareabouts, jQuery, Shareabouts.Util.console);

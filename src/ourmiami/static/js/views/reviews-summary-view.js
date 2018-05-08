@@ -93,6 +93,7 @@ var Shareabouts = Shareabouts || {};
       var byReview = {};
       var byReviewCategory = {};
       var userToken = this.options.userToken;
+      var seenPlaces = {};
 
       // Initialize the object for reviews by category.
       reviewOptions.forEach(function(rev) {
@@ -109,12 +110,20 @@ var Shareabouts = Shareabouts || {};
         if (!place.submissionSets['reviews']) return;
         place.submissionSets['reviews'].forEach(function(review) {
           var rev, cat;
+          var placeUrl = review.get('place');
 
           if (review.get('user_token') === userToken) {
+            // Get the category and URL of the review.
             cat = place.get('location_type');
             rev = review.get('review');
             if (!rev) return;
 
+            // Each place should only have one review per user. The newest one
+            // will be first, so ignore any that we've already seen.
+            if (seenPlaces[placeUrl]) { return; }
+            seenPlaces[placeUrl] = true;
+
+            // Update the totals
             ++total;
             byReview[rev] += 1;
             byReviewCategory[rev][cat] += 1;
