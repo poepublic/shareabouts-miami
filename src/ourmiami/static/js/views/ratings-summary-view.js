@@ -93,6 +93,7 @@ var Shareabouts = Shareabouts || {};
       var byRating = {};
       var byRatingCategory = {};
       var userToken = this.options.userToken;
+      var seenPlaces = {};
 
       // Initialize the object for ratings by category.
       ratingOptions.forEach(function(rat) {
@@ -109,12 +110,20 @@ var Shareabouts = Shareabouts || {};
         if (!place.submissionSets['ratings']) return;
         place.submissionSets['ratings'].forEach(function(rating) {
           var rat, cat;
+          var placeUrl = rating.get('place');
 
           if (rating.get('user_token') === userToken) {
+            // Get the category and URL of the rating.
             cat = place.get('location_type');
             rat = (rating.get('optout') ? 'opt-out' : rating.get('rating'));
             if (!rat) return;
 
+            // Each place should only have one rating per judge. The newest one
+            // will be first, so ignore any that we've already seen.
+            if (seenPlaces[placeUrl]) { return; }
+            seenPlaces[placeUrl] = true;
+
+            // Update the totals
             ++total;
             byRating[rat] += 1;
             byRatingCategory[rat][cat] += 1;
