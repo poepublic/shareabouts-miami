@@ -40,9 +40,14 @@
     <dd style="display: inline-block; margin-left: 1rem;">May 3, 11:59 p.m. ET</dd>
   </dl>
 {{else}}
-  <p style="font-weight: bold;">The idea submission phase for the 2018 Public
-    Space Challenge is closed. Like and comment on your favorite ideas until Sunday, June
-    3rd! We&#39;ll announce the finalists in June.</p>
+  {{#if config.survey.adding_supported}}
+    <p style="font-weight: bold;">The idea submission phase for the 2018 Public
+      Space Challenge is closed. Like and comment on your favorite ideas until Sunday, June
+      3rd! We&#39;ll announce the finalists in June.</p>
+  {{else}}
+    <p style="font-weight: bold">The idea submission phase for the 2018 Public
+      Space Challenge is closed. We&#39;ll announce the finalists in June.</p>
+  {{/if}}
 {{/if}}
 
 <p>Check out all of the <a href="https://pastwinners.publicspacechallenge.org/">past winners</a>, then read more about <a href="http://miamifoundation.org/your-challenge-one-simple-idea-to-transform-a-public-space/">simple ideas that won the Challenge</a> over the years.</p>
