@@ -40,10 +40,7 @@ def html_escape(s):
 
     return s
 
-# Output the page header
-print(f'''<h3>Meet the 2018 Challenge Finalists</h3>''')
-print(f'''''')
-
+ideas = []
 for row in finalist_data:
     fid = str(row['ID'])
     idea = ideas_by_id.get(fid)
@@ -52,6 +49,16 @@ for row in finalist_data:
         print(f'Idea with ID {fid!r} not found.', file=stderr)
         continue
 
+    ideas.append(idea)
+
+# Output the page header
+print(f'''<h3>Meet the 2018 Challenge Finalists</h3>''')
+print(f'''''')
+
+def alphanum(s):
+    return ''.join(c for c in s if c.isalnum())
+
+for idea in sorted(ideas, key=lambda idea: alphanum(idea['properties']['title']).lower()):
     idea_id = idea['id']
     title = html_escape(idea['properties']['title']).strip().replace('\r\n', ': ').replace('\n', ': ')
     submitter = html_escape(idea['properties']['submitter'].get('name') if idea['properties']['submitter'] else idea['properties'].get('submitter_name')).strip()
