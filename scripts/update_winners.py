@@ -15,7 +15,8 @@ from request_utils import download_all_pages, request_with_retries
 from sys import stderr, stdin
 
 
-data = csv.DictReader(stdin)
+reader = csv.DictReader(stdin)
+data = list(reader)
 
 USERNAME = os.environ['USERNAME']
 PASSWORD = os.environ['PASSWORD']
