@@ -1,4 +1,6 @@
 """
+For uploading data to the site listing all-time winners.
+
 Usage:
 
     USERNAME='...' PASSWORD='...' python upload_data.py < data.geojson
