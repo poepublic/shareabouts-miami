@@ -890,6 +890,11 @@ dl.faq dd {
     display: block;
   }
 
+  .place-list-ratings-summary-container.hidden,
+  .place-list-reviews-summary-container.hidden {
+    display: none;
+  }
+
   .place-list-ratings-summary-wrapper,
   .place-list-reviews-summary-wrapper {
     display: none;
