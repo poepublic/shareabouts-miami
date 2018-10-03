@@ -28,11 +28,12 @@ session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': '
 PSC_YEAR = 2018
 IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places'
 
+print('Downloading ideas...')
 pages = download_all_pages(IDEAS_URL)
 ideas_by_id = {idea['id']: idea for ideas in pages for idea in ideas['features']}
 for row in data:
-    idea_id = row['ID']
-    idea = ideas_by_id.get(idea_id)
+    idea_id = int(row['ID'])
+    idea = ideas_by_id[idea_id]
     idea_props = idea['properties']
 
     idea_update = {'ff': 2, 'pscyear': PSC_YEAR}
@@ -56,6 +57,7 @@ for row in data:
 
     # Upload the updated idea.
     url = idea_props['url']
+    print(f'Updating {url}\n  with {json.dumps(idea_update, sort_keys=True)}')
     request_with_retries('patch', url, session=session,
         data=json.dumps({'type': 'Feature', 'properties': idea_update})
     )
