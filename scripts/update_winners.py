@@ -25,6 +25,7 @@ session = requests.Session()
 session.auth = (USERNAME, PASSWORD)
 session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': 'true'}
 
+PSC_YEAR = 2018
 IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places'
 
 pages = download_all_pages(IDEAS_URL)
@@ -32,29 +33,29 @@ ideas_by_id = {idea['id']: idea for ideas in pages for idea in ideas['features']
 for row in data:
     idea_id = row['ID']
     idea = ideas_by_id.get(idea_id)
-    props = idea['properties']
+    idea_props = idea['properties']
+
+    idea_update = {'ff': 2, 'pscyear': PSC_YEAR}
 
     # Save the original title and submitter if they're not already saved.
-    if 'original_title' not in props:
-        props['original_title'] = props['title']
+    if 'original_title' not in idea_props:
+        idea_update['original_title'] = idea_props['title']
 
-    if 'original_submitter' not in props:
-        props['original_submitter'] = props['submitter'] or props['submitter_name']
+    if 'original_submitter' not in idea_props:
+        idea_update['original_submitter'] = idea_props['submitter'] or idea_props['submitter_name']
 
     # Set the new title and submitter name. Only set the submitter name if it's
     # different than the current one.
-    props['title'] = row['New Project Title']
+    idea_update['title'] = row['New Project Title']
 
-    if props['submitter'] is None:
-        props['submitter_name'] = idea['New Submitter']
-    elif props['submitter']['name'] != idea['New Submitter']:
-        props['submitter'] = None
-        props['submitter_name'] = idea['New Submitter']
+    if idea_props['submitter'] is None:
+        idea_update['submitter_name'] = row['New Submitter']
+    elif idea_props['submitter']['name'] != row['New Submitter']:
+        idea_update['submitter'] = None
+        idea_update['submitter_name'] = row['New Submitter']
 
     # Upload the updated idea.
-    if idea:
-        url = idea['properties']['url']
-        request_with_retries('put', url, session=session, data=json.dumps(idea))
-    else:
-        url = IDEAS_URL
-        request_with_retries('post', url, session=session, data=json.dumps(idea))
+    url = idea_props['url']
+    request_with_retries('patch', url, session=session,
+        data=json.dumps({'type': 'Feature', 'properties': idea_update})
+    )

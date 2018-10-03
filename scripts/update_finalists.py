@@ -43,5 +43,4 @@ for count, row in enumerate(finalist_data):
     print(f'Marking #{count + 1} - {url}', file=stderr)
     request_with_retries('patch', url, session=session,
         data=json.dumps({'type': 'Feature', 'properties': {'ff': 1, 'pscyear': PSC_YEAR}}),
-        headers={'Content-type': 'application/json', 'X-Shareabouts-silent': 'true'},
     )
