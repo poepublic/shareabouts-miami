@@ -58,7 +58,8 @@ print(f'''''')
 def alphanum(s):
     return ''.join(c for c in s if c.isalnum())
 
-for idea in sorted(ideas, key=lambda idea: alphanum(idea['properties']['title']).lower()):
+#for idea in sorted(ideas, key=lambda idea: alphanum(idea['properties']['title']).lower()):
+for idea in ideas:
     idea_id = idea['id']
     title = html_escape(idea['properties']['title']).strip().replace('\r\n', ': ').replace('\n', ': ')
     submitter = html_escape(idea['properties']['submitter'].get('name') if idea['properties']['submitter'] else idea['properties'].get('submitter_name')).strip()
