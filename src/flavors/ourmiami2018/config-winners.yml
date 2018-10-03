@@ -34,21 +34,23 @@ place_types:
   ParksAndNaturalAreas:
     label: _(Parks & Natural Areas)
     rules:
-      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
-        style:
-          fillColor: '#C3CE2F'
-          fillOpacity: 1
-          radius: 6
-          color: 'black'
-          opacity: 1
-          weight: 2
+      - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/dot-star.png
+          iconSize: [20, 20]
+          iconAnchor: [10, 10]
+      - condition: '"{{ff}}" === "2" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-star.png
+          iconSize: [40, 40]
+          iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && !{{layer.focused}}'
         style:
           fillColor: '#C3CE2F'
-          fillOpacity: 0.7
+          fillOpacity: 0.5
           radius: 3
           color: 'black'
-          opacity: 0.3
+          opacity: 0.1
           weight: 2
       - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && {{layer.focused}}'
         icon:
@@ -60,21 +62,23 @@ place_types:
   GreenwaysAndBlueways:
     label: _(Greenways & Blueways)
     rules:
-      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
-        style:
-          fillColor: '#1490C1'
-          fillOpacity: 1
-          radius: 6
-          color: 'black'
-          opacity: 1
-          weight: 2
+      - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/dot-star.png
+          iconSize: [20, 20]
+          iconAnchor: [10, 10]
+      - condition: '"{{ff}}" === "2" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-star.png
+          iconSize: [40, 40]
+          iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && !{{layer.focused}}'
         style:
           fillColor: '#1490C1'
-          fillOpacity: 0.7
+          fillOpacity: 0.5
           radius: 3
           color: 'black'
-          opacity: 0.3
+          opacity: 0.1
           weight: 2
       - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && {{layer.focused}}'
         icon:
@@ -86,21 +90,23 @@ place_types:
   SafeRoutesToParks:
     label: _(Safe Routes to Parks)
     rules:
-      - condition: '"{{location_type}}" === "SafeRoutesToParks" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
-        style:
-          fillColor: '#F4C040'
-          fillOpacity: 1
-          radius: 6
-          color: 'black'
-          opacity: 1
-          weight: 2
+      - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/dot-star.png
+          iconSize: [20, 20]
+          iconAnchor: [10, 10]
+      - condition: '"{{ff}}" === "2" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-star.png
+          iconSize: [40, 40]
+          iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "SafeRoutesToParks" && !{{layer.focused}}'
         style:
           fillColor: '#F4C040'
-          fillOpacity: 0.7
+          fillOpacity: 0.5
           radius: 3
           color: 'black'
-          opacity: 0.3
+          opacity: 0.1
           weight: 2
       - condition: '"{{location_type}}" === "SafeRoutesToParks" && {{layer.focused}}'
         icon:
@@ -112,21 +118,23 @@ place_types:
   PublicSpaces:
     label: _(Public Spaces)
     rules:
-      - condition: '"{{location_type}}" === "PublicSpaces" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
-        style:
-          fillColor: '#AA93CE'
-          fillOpacity: 1
-          radius: 6
-          color: 'black'
-          opacity: 1
-          weight: 2
+      - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/dot-star.png
+          iconSize: [20, 20]
+          iconAnchor: [10, 10]
+      - condition: '"{{ff}}" === "2" && {{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-star.png
+          iconSize: [40, 40]
+          iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "PublicSpaces" && !{{layer.focused}}'
         style:
           fillColor: '#AA93CE'
-          fillOpacity: 0.7
+          fillOpacity: 0.5
           radius: 3
           color: 'black'
-          opacity: 0.3
+          opacity: 0.1
           weight: 2
       - condition: '"{{location_type}}" === "PublicSpaces" && {{layer.focused}}'
         icon:
@@ -347,7 +355,7 @@ pages:
   # - title: _(Finalists)
   #   slug: finalists
   #   name: finalists
-  - title: _(2017 Challenge Winners)
+  - title: _(2018 Challenge Winners)
     slug: winners
     name: winners
 
