@@ -1,0 +1,1365 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,800italic,400,800);
+
+/* =Typography
+-------------------------------------------------------------- */
+
+body, select, input, textarea {
+  font-family: 'Open Sans', sans-serif;
+}
+#colophon .shareabouts-logo {
+  color: #02AEDE;
+}
+#colophon .openplans-logo,
+#colophon .poepublic-logo {
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  color: #666;
+}
+
+/* Links */
+a, a:active, a:visited {
+  color: #00afdb;
+}
+a:hover {
+  color: #0087a8;
+}
+
+#sign-in-btn {
+  color: #00afdb;
+}
+#sign-in-btn:hover {
+  color: #0087a8;
+}
+a.why-sign-in {
+  display: none;
+}
+
+.drag-marker-instructions {
+  background-color: #7C4199;
+  color: #fff;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+/* Buttons */
+.btn,
+.btn:visited,
+.btn:link {
+  font-weight: 400;
+  background-color: #dbef16;
+  color: #000;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.btn:hover {
+  background-color: #00afdb;
+  color: #fff;
+}
+#add-place,
+#add-place:hover {
+  font-weight: 800;
+  box-shadow: -3px 3px 10px rgba(85, 85, 85, 0.5);
+}
+.submit-btn {
+  font-size: 1.25em;
+  padding: 0.5em 1em;
+}
+.user-support label {
+  color: #000;
+  font-weight: 400;
+}
+.user-support:hover label {
+  background-color: #00afdb;
+  color: #fff;
+}
+.user-support.disabled:hover,
+.user-support.disabled:hover label {
+  background-color: #dbef16;
+  color: #000;
+}
+
+/* Forms */
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+textarea {
+  border: 3px solid #fff;
+  background-color: #ebebeb;
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.25);
+  border-radius: 6px;
+  color: #181818;
+}
+input[type=date]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+textarea:focus {
+  background-color: #777;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5) inset;
+  color: #fff;
+  outline: 0;
+}
+.place-form textarea {
+  height: 7.5em;
+}
+textarea#place-title {
+  height: 4.25em;
+}
+label {
+  color: #555;
+  font-weight: 800;
+}
+#place-submitter_name + .or-sign-in {
+  font-size: 0.75em;
+}
+#place-submitter_name + .or-sign-in > .twitter-btn {
+  margin-left: 0.375em;
+}
+
+form .signed-in-as {
+  width: 100%;
+}
+
+.textarea-container {
+  display: block;
+  position: relative;
+}
+.remaining-characters {
+  position: absolute;
+  bottom: 100%;
+  right: 1em;
+  font-size: 0.75em;
+  font-weight: 800;
+  line-height: 1.5;
+  background: #fff url("http://ourmiami.org/wp-content/themes/engage/img/bg-border-lined-dots.png") left top repeat;
+  margin-bottom: -3px;
+  padding: 4px 8px 2px 8px;
+  border-radius: 4px 4px 0 0;
+}
+.remaining-characters.warning {
+  background-color: Crimson;
+  color: #fff;
+  text-shadow: 0 0 3px #7C4199;
+}
+
+#add-place-btn-container {
+  background: #fff;
+  border-bottom: 0;
+}
+
+.radio-label-text,
+.checkbox-label-text {
+  border: none;
+  background-color: #ebebeb;
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.25);
+  border-radius: 6px;
+  color: #181818;
+  transition-property: background-color, background-image, color, box-shadow;
+}
+
+.radio-label-text:hover,
+.checkbox-label-text:hover {
+  background-color: #777;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5) inset;
+  color: #fff;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+}
+
+:checked + .radio-label-text,
+.radio-label-text.checked,
+:checked + .checkbox-label-text,
+.checkbox-label-text.checked {
+  background-color: #DBEF16;
+  border: none;
+}
+
+.place-location_type-field .radio-group {
+  border: 3px solid white;
+  font-size: 0;
+}
+
+.place-location_type-field .label-text {
+  box-sizing: content-box;
+  min-height: 2.5em;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-right: 2%;
+  margin-bottom: 0.5em;
+
+  text-align: center;
+  vertical-align: top;
+  font-size: 0.75rem;
+}
+
+/* Small */
+.place-location_type-field .label-text {
+  width: 47%;
+  padding-top: 80px;
+
+  background-size: 50px 60px;
+  background-position: 50% 10px;
+  background-repeat: no-repeat;
+}
+
+.place-location_type-field label:nth-child(even) .label-text {
+  margin-right: 0;
+}
+
+/* Medium */
+@media only screen and (min-width: 32rem) {
+  .place-location_type-field .label-text {
+    width: 21.5%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 2%;
+  }
+
+  .place-location_type-field label:last-child .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Bigger than a tablet */
+@media only screen and (min-width: 60rem) {
+  .place-location_type-field .label-text {
+    width: 47%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Pretty big */
+@media only screen and (min-width: 72rem) {
+  .place-location_type-field .label-text {
+    width: 21.5%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 2%;
+  }
+
+  .place-location_type-field label:last-child .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Full-sized in 2017 */
+@media only screen and (min-width: 80rem) {
+  .place-location_type-field .label-text {
+    width: 47%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 0;
+  }
+}
+
+/* Way big in 2017 */
+@media only screen and (min-width: 100rem) {
+  .place-location_type-field .label-text {
+    width: 21.5%;
+  }
+
+  .place-location_type-field label:nth-child(even) .label-text {
+    margin-right: 2%;
+  }
+
+  .place-location_type-field label:last-child .label-text {
+    margin-right: 0;
+  }
+}
+
+/* BG Images */
+[value="ParksAndNaturalAreas"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-ParksAndNaturalAreas.png");
+}
+[value="GreenwaysAndBlueways"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-GreenwaysAndBlueways.png");
+}
+[value="SafeRoutesToParks"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-SafeRoutesToParks.png");
+}
+[value="PublicSpaces"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-PublicSpaces.png");
+}
+
+[value="ParksAndNaturalAreas"]:checked + .label-text {
+  background-color: #C3CE2F;
+  background-image: url("/static/css/images/markers/noborder-ParksAndNaturalAreas.png");
+}
+[value="GreenwaysAndBlueways"]:checked + .label-text {
+  background-color: #1490C1;
+  background-image: url("/static/css/images/markers/noborder-GreenwaysAndBlueways.png");
+}
+[value="SafeRoutesToParks"]:checked + .label-text {
+  background-color: #F4C040;
+  background-image: url("/static/css/images/markers/noborder-SafeRoutesToParks.png");
+}
+[value="PublicSpaces"]:checked + .label-text {
+  background-color: #AA93CE;
+  background-image: url("/static/css/images/markers/noborder-PublicSpaces.png");
+}
+
+.preload-icons {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* =Header
+-------------------------------------------------------------- */
+
+#site-header {
+  color: #181818;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(85, 85, 85, 0.5), inset 0 -3px 0 #00afdb, inset 0 3px 0 #dbef16;
+}
+.ie8 #site-header {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
+#site-title {
+  height: 2.5em;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#site-title a {
+  height: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#site-logo {
+  height: 100%;
+  width: auto;
+}
+.ie8 #site-title a {
+  width: 4em;
+}
+.ie8 #site-logo {
+}
+
+/* Navigation */
+#nav-btn {
+  font-family: "Helvetica Neue", Arial !important;
+  background: #eee;
+  color: #bbb;
+  text-shadow: none;
+}
+.access a:visited,
+.access a:active,
+.access a:link {
+  background: #dbef16;
+  color: #181818;
+}
+
+/* icons in filter menu */
+.access li ul li a {
+  background: #fff url() 5px center no-repeat scroll !important;
+  text-align: left !important;
+  padding: 10px 10px 10px 30px !important;
+}
+.access li ul li a:hover {
+  background-color: #dbef16 !important;
+}
+
+.access li ul li a::before {
+  position: absolute;
+  left: 0.5em;
+
+  display: block;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+
+  border: 3px solid black;
+  border-radius: 0.5rem;
+
+  content: ' ';
+}
+
+.access li ul li:first-child a::before {
+  border: none;
+  background-color: transparent;
+}
+
+.access li ul li:nth-child(2) a::before {
+  background-color: #C3CE2F;  /* ParksAndNaturalAreas */
+}
+.access li ul li:nth-child(3) a::before {
+  background-color: #1490C1;  /* GreenwaysAndBlueways */
+}
+.access li ul li:nth-child(4) a::before {
+  background-color: #F4C040;  /* SafeRoutesToParks */
+}
+.access li ul li:nth-child(5) a::before {
+  background-color: #AA93CE;  /* PublicSpaces */
+}
+
+#current-filter-type {
+  position: absolute;
+  width: 100%;
+  margin-top: -0.4em;
+  font-size: 0.6rem;
+  font-weight: bold;
+  background-color: white;
+  border-top: 1px solid black;
+}
+
+#current-filter-type.unfiltered { background: none; border: none; }
+#current-filter-type.parksandnaturalareas { color: #C3CE2F; }
+#current-filter-type.greenwaysandblueways { color: #1490C1; }
+#current-filter-type.saferoutestoparks { color: #F4C040; }
+#current-filter-type.publicspaces { color: #AA93CE; }
+
+.menu-item-finalists .btn.btn-block,
+.menu-item-winners .btn.btn-block {
+  font-weight: bold;
+}
+
+
+/* =The Ticker
+-------------------------------------------------------------- */
+
+#ticker {
+  background: #fff url("http://ourmiami.org/wp-content/themes/engage/img/background.png") center bottom repeat scroll;
+  box-shadow: -5px 0 10px rgba(85, 85, 85, 0.5);
+}
+.recent-points a {
+  color: #00afdb;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
+}
+.recent-points a:hover {
+  color: #fff;
+  background: #00afdb;
+  border-color: rgba(0,0,0,0.1);
+}
+.recent-points small,
+.recent-points .submitter,
+.recent-points .action {
+  color: #777;
+}
+.recent-points small {
+  font-size: 0.75em;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.recent-points a:hover small,
+.recent-points a:hover .submitter,
+.recent-points a:hover .action {
+  color: #fff;
+}
+
+
+/* =Content: Pages & Places
+-------------------------------------------------------------- */
+
+#content {
+  box-shadow: 0 -0.325em 0.325em rgba(0,0,0,0.25);
+}
+
+/* Close Button */
+a.close-btn {
+  box-shadow: 0 -0.325em 0.325em rgba(0,0,0,0.25);
+}
+
+/* ioby stuff */
+.ioby-details {
+  background: url("http://ourmiami.org/wp-content/themes/engage/img/bg-border-lined-dots.png") left top repeat;
+  margin-bottom: 1.5em;
+}
+.ioby-project-title {
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 5px 10px 5px;
+  position: relative;
+  top: 5px;
+  font-size: 0.875em;
+}
+.ioby-project-title .ioby-logo-small {
+  height: 1.5em;
+  width: auto;
+  float: right;
+  margin: 0 0 0 0.5em;
+}
+a.ioby-project-link {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  margin: 5px 5px 0 5px;
+  background-color: #00afdb;
+  color: #fff;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  top: -5px;
+}
+a.ioby-project-link:hover {
+  background-color: #0087a8;
+  color: #fff;
+}
+.ioby-funding-info {
+  margin: 0;
+  padding: 0 5px;
+  text-transform: uppercase;
+}
+.ioby-funding-info > span {
+  float: left;
+  min-width: 50%;
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 0 5px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Place Details */
+h1.my-idea-is {
+  font-size: 1.375em;
+  margin-bottom: 0.75em;
+}
+.place-list h1.my-idea-is {
+  margin-bottom: 0.375em;
+  margin-right: 6em;
+}
+.place-label {
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+.place-value-infolink > a {
+  word-wrap: break-word;
+}
+
+/* List View */
+#list-search {
+  border: 0;
+}
+.list-search-form input.submit-btn {
+  font-size: 1em;
+  padding-right: 0.75em;
+  padding-left: 0.75em;
+}
+
+.place-list .place-items {
+  margin-right: 8em;
+}
+
+
+/* =Footer
+-------------------------------------------------------------- */
+
+#colophon {
+  background-color: #f4f6f8;
+  color: #555;
+  box-shadow: inset 0 5px 10px rgba(85, 85, 85, 0.25);
+}
+a.shareabouts-logo {
+  color: #00aaff;
+}
+a.shareabouts-logo:hover {
+  color: #007fbf;
+  border-bottom: 1px solid #00aaff;
+}
+#powered-by a.openplans-logo {
+  color: #ff9a52;
+}
+#powered-by a.openplans-logo:hover {
+  color: #ff8b38;
+  border-bottom: 1px solid #ffb885;
+}
+.footer-logos {
+  display: block;
+  text-align: center;
+}
+.footer-logo {
+  display: block;
+  margin: 1em auto;
+}
+.footer-logo img {
+  height: 3em;
+  width: auto;
+}
+.footer-logo .prompt {
+  display: none;
+}
+
+
+/* =Leaflet Cegend Control
+-------------------------------------------------------------- */
+
+.leaflet-control-legend-interior
+{
+  background-image: url(images/layers-empty.png);
+  width: 27px;
+  height: 27px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: block;
+  padding: 3px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+  cursor: auto;
+  text-align: center;
+  background-color: #FFFFFF;
+}
+
+.leaflet-control-legend-interior:hover
+{
+  background-color: #F4F4F4;
+  cursor: pointer;
+}
+
+.leaflet-control-legend-popup
+{
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+  cursor: auto;
+  font-family: "ff-scala-sans-web", "calluna-sans", "Verdana", sans-serif;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 60rem) {
+  .leaflet-control-legend-popup {
+    right: auto;
+    left: 40px;
+  }
+}
+
+.leaflet-control-legend-popup .legend-visualization {
+  width: 2em;
+  vertical-align: middle;
+  margin: 0.25em 0.5em 0.25em 0;
+  display: inline-block;
+}
+
+.leaflet-control-legend-popup > div {
+  white-space: nowrap;
+  line-height: 2.5em;
+  color: black;
+}
+
+.layer-toggle-container {
+  width: 2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.layer-toggle-container {
+  margin: 0;
+  margin-right: 0.25rem;
+}
+
+.layer-toggle-container input {
+  opacity: 0;
+  width: 1px;
+  height: 5em;
+  position: absolute;
+  top: -5em;
+}
+
+.layer-toggle-container label {
+  font-size: 1rem;
+  padding: 0.1rem 0 0.15rem 0.20rem;
+  line-height: 0.8rem;
+  margin: 0;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  text-align: center;
+  width: 0.8rem;
+}
+
+.layer-toggle-container input + label span {
+  opacity: 0;
+}
+
+.layer-toggle-container input:checked + label {
+  border-color: black;
+}
+.layer-toggle-container input:checked + label span {
+  opacity: 1;
+}
+
+
+/* =Rating, Voting, Judges
+-------------------------------------------------------------- */
+
+.rating {}
+.user-rating,
+.user-review {
+  float: right;
+  margin-bottom: 0.75em;
+  text-align: center;
+  width: 10em;
+}
+.stars-wrapper,
+.optout-reason {
+  border: 2px solid #7C4199;
+}
+.user-rating-prompt,
+.user-review-prompt,
+.optout-prompt {
+  background-color: #7C4199;
+  color: #fff;
+  padding: 5px;
+  margin: 0;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+.optout-label {
+  font-weight: normal;
+}
+/*
+input[name="optout"]:checked ~ .stars-wrapper {
+  display: none;
+}
+input[name="optout"]:not(:checked) ~ .optout-reason {
+  display: none;
+}
+*/
+.stars {
+  padding: 5px;
+}
+button.star {
+  border: 0;
+  background: transparent;
+  padding: 0.125em;
+  margin: 0;
+  color: #ccc;
+}
+button.star.is-full {
+  color: #F5C400;
+}
+button.star.is-empty {}
+button.star.is-full:hover {
+  color: #F5A400;
+}
+button.star.is-empty:hover {
+  color: #F5C400;
+}
+
+@-webkit-keyframes pulse {
+	0% { color: rgba(0,0,0,0.2); }
+	50% { color: rgba(0,0,0,0.1); }
+	100% { color: rgba(0,0,0,0.2); }
+}
+@keyframes pulse {
+	0% { color: rgba(0,0,0,0.2); }
+	50% { color: rgba(0,0,0,0.1); }
+	100% { color: rgba(0,0,0,0.2); }
+}
+button.star.is-empty:disabled,
+button.star.is-full:disabled,
+input[name="optout_reason"]:disabled {
+  color: #ddd;
+  -webkit-animation: pulse 1s infinite ease-in-out;
+          animation: pulse 1s infinite ease-in-out;
+}
+
+.show-for-medium-up {
+  display: none;
+}
+
+
+.place-list-ratings-summary-container,
+.place-list-reviews-summary-container {
+  display: none;
+}
+
+.ratings-chart-rating-label[data-rating="1"],
+.ratings-chart-rating-label[data-rating="2"],
+.ratings-chart-rating-label[data-rating="3"],
+.ratings-chart-rating-label[data-rating="4"],
+.ratings-chart-rating-label[data-rating="5"] {
+  color: #F5C400;
+  font-style: normal;
+}
+
+.ratings-chart-rating-total,
+.reviews-chart-review-total {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+
+/* =FAQ
+------------------------------------------------------------- */
+
+dl.faq dt {
+  font-weight: bold;
+}
+
+dl.faq dd {
+  margin-left: 0.5em;
+}
+
+.workshops {
+  margin: 2em 0;
+}
+
+.workshops td {
+  display: block;
+  padding-left: 2rem;
+}
+
+.workshops td:nth-child(1) {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.workshops td:nth-child(1) a {
+  margin-left: -2rem;
+  padding-left: 2rem;
+  background-image: url(/static/css/images/blue-calendar-128.png);
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+}
+
+.workshops td:nth-child(2) {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.workshops td:nth-child(3) {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+
+
+/* =Media Queries
+-------------------------------------------------------------- */
+
+@media only screen and (max-width: 60em) {
+  .access li:last-child > a:hover,
+  .access li:last-child > a:focus {
+    background-color: #dbef16;
+    color: #000;
+  }
+}
+
+@media only screen and (min-height: 440px) and (max-width: 60em) {
+}
+
+@media only screen and (min-height: 568px) and (max-width: 60em) {
+}
+
+@media only screen and (min-width: 768px) and (max-width: 60em) {
+}
+
+@media only screen and (min-width: 60em) {
+  .place-list-ratings-summary-container,
+  .place-list-reviews-summary-container {
+    display: block;
+  }
+
+  .place-list-ratings-summary-container.hidden,
+  .place-list-reviews-summary-container.hidden {
+    display: none;
+  }
+
+  .place-list-ratings-summary-wrapper,
+  .place-list-reviews-summary-wrapper {
+    display: none;
+  }
+  .open .place-list-ratings-summary-wrapper,
+  .open .place-list-reviews-summary-wrapper {
+    /* Position */
+    left: 2.5%;
+    position: absolute;
+    top: 5em;
+    z-index: 1;
+
+    /* Box */
+    border: 3px solid #00AFDB;
+    border-width: 0 3px 3px 3px;
+    box-shadow: 0 5px 10px rgba(85, 85, 85, 0.5);
+    box-sizing: border-box;
+    display: block;
+    padding: 1em;
+    width: 95%;
+
+    background-color: white;
+  }
+
+  .ratings-chart-title,
+  .reviews-chart-title {
+    font-size: 1.5em;
+    margin: 0 0 0.3em 1em;
+    display: block;
+  }
+
+  .ratings-chart-segment,
+  .reviews-chart-segment {
+    display: inline-block;
+    vertical-align: top;
+    height: 2em;
+    width: 0%;
+    transition: width 0.2s linear;
+    -webkit-transition: width 0.2s linear;
+  }
+
+  .parksandnaturalareas-segment { background-color: #C3CE2F; }
+  .greenwaysandblueways-segment { background-color: #1490C1; }
+  .saferoutestoparks-segment { background-color: #F4C040; }
+  .publicspaces-segment { background-color: #AA93CE; }
+
+  .ratings-chart-bar,
+  .reviews-chart-bar {
+    /*width: 30em;*/
+    display: inline-block;
+    height: 0.8em;
+    /*border: 1px solid #BCC1C5;*/
+    border-radius: 0.2em;
+    overflow: hidden;
+    margin-left: 0.5em;
+  }
+
+  .ratings-chart-rating-label,
+  .reviews-chart-review-label {
+    font-style: italic;
+    font-size: 0.8em;
+    text-align: right;
+    width: 5em;
+    display: inline-block;
+  }
+
+  .ratings-chart-main,
+  .reviews-chart-main {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .ratings-chart-ticks-wrapper,
+  .reviews-chart-ticks-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7.6em;
+    margin-left: 4.8em;
+    pointer-events: none;
+  }
+
+  .ratings-chart-tick,
+  .reviews-chart-tick {
+    width: 3em;
+    box-sizing: border-box;
+    border-right: 1px solid silver;
+    border-right-color: rgba(0, 0, 0, 0.15);
+    height: 100%;
+    display: inline-block;
+  }
+  .ratings-chart-tick-labels-wrapper,
+  .reviews-chart-tick-labels-wrapper {
+    margin-left: 6.2em;
+  }
+  .ratings-chart-tick-label,
+  .reviews-chart-tick-label {
+    font-size: 0.6667em;
+    font-style: italic;
+    color: gray;
+    display: inline-block;
+    width: 4.5em;
+    text-align: center;
+  }
+
+  .ratings-chart-legend,
+  .reviews-chart-legend {
+    display: inline-block;
+  }
+  .ratings-legend-labels-wrapper,
+  .reviews-legend-labels-wrapper {
+    list-style: none;
+    font-size: 0.8em;
+    margin: 0;
+    margin-top: 0;
+  }
+  .ratings-legend-labels-wrapper li,
+  .reviews-legend-labels-wrapper li {
+    padding-bottom: 0.2em;
+  }
+  .ratings-legend-labels-wrapper li:before,
+  .reviews-legend-labels-wrapper li:before {
+    content: ' ';
+    display: inline-block;
+    height: 0.9em;
+    width: 1em;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: -2em;
+    margin-right: 1em;
+    box-sizing: border-box;
+    border: 1px solid silver;
+    border-color: rgba(0,0,0,0.15);
+  }
+  .ratings-legend-label-parksandnaturalareas:before { background-color: #C3CE2F; }
+  .ratings-legend-label-greenwaysandblueways:before { background-color: #1490C1; }
+  .ratings-legend-label-saferoutestoparks:before { background-color: #F4C040; }
+  .ratings-legend-label-publicspaces:before { background-color: #AA93CE; }
+
+  .reviews-legend-label-parksandnaturalareas:before { background-color: #C3CE2F; }
+  .reviews-legend-label-greenwaysandblueways:before { background-color: #1490C1; }
+  .reviews-legend-label-saferoutestoparks:before { background-color: #F4C040; }
+  .reviews-legend-label-publicspaces:before { background-color: #AA93CE; }
+
+  .place-list-ratings-summary-toggle a,
+  .place-list-reviews-summary-toggle a {
+    display: block;
+    box-sizing: border-box;
+    float: right;
+    margin-right: 1em;
+    margin-top: -5px;
+    height: 4.6em;
+    width: 5em;
+
+    color: black;
+    background-color: transparent;
+    background-image: url(/static/css/images/chart-menu-black.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+    line-height: 3.6em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-indent: 100em;  /* Hide the text; overridden at 74em */
+    padding: 0.5em 1.5em 0.5em 3.5em;
+  }
+  .place-list-ratings-summary-toggle a:hover,
+  .place-list-reviews-summary-toggle a:hover {
+    background-color: #D9ED17;
+    background-image: url(/static/css/images/chart-menu-black.png);
+  }
+  .open .place-list-ratings-summary-toggle a,
+  .open .place-list-reviews-summary-toggle a {
+    color: white;
+    background-color: #02ACD7;
+    background-image: url(/static/css/images/chart-menu-white.png);
+  }
+
+  .ratings-summary-toggle-note,
+  .reviews-summary-toggle-note {
+    line-height: 1em;
+    margin-top: -1.6em;
+    display: block;
+    font-weight: normal;
+    text-transform: lowercase;
+  }
+
+  .ratings-count-wrapper,
+  .reviews-count-wrapper {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.5em;
+
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #bbc0c4;
+  }
+
+  .ratings-count-wrapper span,
+  .reviews-count-wrapper span {
+    display: block;
+    text-align: center;
+  }
+
+  .ratings-count,
+  .reviews-count {
+    font-size: 2.5em;
+  }
+
+  .hide-for-medium-up {
+    display: none;
+  }
+
+  .show-for-medium-up {
+    display: initial;
+  }
+
+  #site-header {
+    color: #181818;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(85, 85, 85, 0.5), inset 0 -3px 0 #00afdb, inset 0 3px 0 #dbef16;
+  }
+  #site-title {
+    height: 4em;
+  }
+  .access li:nth-child(3) > a {
+    display: block;
+  }
+  .access a:visited,
+  .access a:active,
+  .access a:link,
+  .access .btn {
+    background: #fff;
+    color: #181818;
+    text-align: left;
+  }
+  .access a:hover {
+    background: #dbef16;
+  }
+  .access li:hover > ul {
+    box-shadow: -5px 5px 10px rgba(85, 85, 85, 0.5);
+    min-width: 26em;
+  }
+  .sign-in-menu {
+    color: #ccc;
+    background: #333;
+    box-shadow: -5px 5px 10px rgba(85, 85, 85, 0.5);
+  }
+  .sign-in-menu:before {
+    border-bottom-color: #333;
+  }
+  #current-filter-type {
+    background: none;
+    border: none;
+  }
+  #content {
+    box-shadow: -0.375em 0 0.325em rgba(0,0,0,0.25);
+  }
+  a.close-btn {
+    box-shadow: -0.375em 0.325em 0.125em rgba(0,0,0,0.25);
+  }
+  #colophon {
+    box-shadow: 0 -5px 10px rgba(85, 85, 85, 0.5);
+    height: 3.75em;
+    padding: 0.5em;
+  }
+  #powered-by a.openplans-logo {
+    line-height: 3.75em;
+  }
+  #map-container,
+  #content {
+    bottom: 3.75em; /* match height of #colophon */
+  }
+  #colophon {
+    background-color: #f4f6f8;
+    color: #555;
+    box-shadow: inset 0 5px 10px rgba(85, 85, 85, 0.25);
+  }
+  .footer-logos {
+    float: left;
+    display: block;
+    text-align: left;
+    height: 100%;
+  }
+  .footer-logo {
+    float: left;
+    position: relative;
+    height: 100%;
+    margin: 0;
+  }
+  .ie8 .footer-logo:first-child {
+    max-width: 10em;
+  }
+  .ie8 .footer-logo {
+    max-width: 7.25em;
+  }
+  .footer-logo:hover .prompt {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    font-size: 0.75em;
+    white-space: nowrap;
+    background: #f4f6f8;
+    margin-bottom: 0.5em;
+    padding: 0.5em 0.75em;
+  }
+  .footer-logo img {
+    width: auto;
+    height: 100%;
+    margin: 0 0.75em;
+  }
+  .footer-logo .miamiherald-logo,
+  .footer-logo .ioby-logo {
+    display: none;
+  }
+  .place-form textarea {
+    height: 15em;
+  }
+
+  a.why-sign-in,
+  a.why-sign-in:hover {
+    display: block;
+    position: absolute;
+    right: 2.25em;
+    bottom: 0.875em;
+    color: #555;
+    font-size: 0.625em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  a.why-sign-in span {
+    display: none;
+  }
+  a.why-sign-in:hover span {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 25em;
+    cursor: default;
+    background: #fff;
+    font-size: 1.375em;
+    text-transform: none;
+    text-decoration: none;
+    box-shadow: -0.125em 0.125em 0.5em rgba(0,0,0,0.25);
+    padding: 1.5em;
+    border-radius: 0.25em;
+  }
+
+  /* List View Button */
+  .list-toggle-nav {
+    font-size: 1em;
+    float: left;
+  }
+  .list-toggle-btn,
+  .list-toggle-btn:visited,
+  .list-toggle-btn:link {
+    background-color: #7C4199;
+    color: #fff;
+    font-weight: 800;
+    min-width: 11.5em;
+  }
+  .list-toggle-btn:hover {
+    background-color: #00aaff;
+    color: #fff;
+  }
+  .show-the-map:before {
+    content: '\27A4';
+    margin: 0 0.375em;
+    display: inline-block;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 30% 60%;
+        -ms-transform-origin: 30% 60%;
+            transform-origin: 30% 60%;
+
+  }
+  .show-the-list:before {
+    content: '\2630';
+    margin: 0 0.375em;
+    text-shadow: -0.25em -1px 0 #7C4199, -0.25em 1px 0 #7C4199, -0.375em 0 0 #fff;
+  }
+  .list-toggle-btn:hover .show-the-list:before {
+    text-shadow: -0.25em -1px 0 #00aaff, -0.25em 1px 0 #00aaff, -0.375em 0 0 #fff;
+  }
+
+  .menu-item-finalists .btn.btn-block,
+  .menu-item-winners .btn.btn-block {
+    background-image: url(/static/css/images/finalist-star.png);
+    background-repeat: no-repeat;
+    background-position: 5px 4px;
+    background-size: 21px;
+    padding-left: 30px;
+  }
+
+  .menu-item-finalists .btn:hover,
+  .menu-item-winners .btn:hover {
+    background-image: url(/static/css/images/finalist-star-hover.png);
+  }
+
+}
+
+@media only screen and (min-width: 64em) {
+  .footer-logo .ioby-logo {
+    display: block;
+  }
+}
+@media only screen and (min-width: 74em) {
+  .ratings-count-wrapper,
+  .ratings-chart-wrapper,
+  .reviews-count-wrapper,
+  .reviews-chart-wrapper {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .ratings-count-wrapper,
+  .reviews-count-wrapper {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 14em;
+    border-bottom: none;
+    border-right: 1px solid #BBC0C4;
+  }
+
+  .place-list-ratings-summary-toggle a,
+  .place-list-reviews-summary-toggle a {
+    width: auto;
+    text-indent: 0;
+    background-position: 1em 50%;
+  }
+
+  .footer-logo .miamiherald-logo {
+    display: block;
+  }
+}
+
+/* High Resolution Displays */
+@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+}
+
+
+/* hiding auth */
+
+/*
+.drag-marker-instructions + h4 {
+  display: none;
+}
+
+#auth-nav-container {
+  display: none;
+}
+
+#place-submitter_name + .or-sign-in {
+  display: none;
+}
+
+.why-sign-in {
+  display: none;
+}
+*/
