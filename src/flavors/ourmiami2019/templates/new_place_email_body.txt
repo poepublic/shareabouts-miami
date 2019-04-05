@@ -1,0 +1,29 @@
+Thank you for submitting your Public Space Challenge idea!
+
+Here is a link to your idea on the map: <http://{{ request.get_host }}/place/{{ place.id }}>
+
+What now?
+
+
+SHARE your idea with your friends on social media. Be sure to check out and comment on other ideas while you're at it.
+
+EXPLORE Miami Dade County’s Parks and Open Space Master Plan at <http://www.miamidade.gov/parksmasterplan/>. It’s an important part of the long-term vision for Miami’s public spaces.
+
+SUBMIT another idea. You can submit as many ideas as you’d like until the May 3rd deadline.
+
+
+After the idea submission period closes on May 3rd, local experts and placemaking professionals will help us select a group of finalists. For more details on the Challenge and how that works, visit our FAQs at http://{{ request.get_host }}/page/faq.
+
+If you have any questions, feel free to reach out to me at <mailto:jdeleon@miamifoundation.org>.
+
+Thanks for your help in making Greater Miami even better!
+
+Jordan De Leon
+Programs Associate
+The Miami Foundation
+
+----------
+
+Thanks to our partners:
+* The Miami Foundation <http://ourmiami.org/>,
+* Target <http://www.target.com/>, and
