@@ -18,6 +18,7 @@ YEARS = [
     ('2015', 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2015/places'),
     ('2016', 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2016/places'),
     ('2017', 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2017/places'),
+    ('2018', 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places'),
 ]
 
 WINNERS_2013 = {
