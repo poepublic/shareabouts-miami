@@ -95,6 +95,19 @@ place_types:
           iconUrl: /static/css/images/markers/marker-star.png
           iconSize: [40, 40]
           iconAnchor: [20, 20]
+  Winner2018:
+    label: _(2018 Winner)
+    rules:
+      - condition: '!{{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/dot-star.png
+          iconSize: [20, 20]
+          iconAnchor: [10, 10]
+      - condition: '{{layer.focused}}'
+        icon:
+          iconUrl: /static/css/images/markers/marker-star.png
+          iconSize: [40, 40]
+          iconAnchor: [20, 20]
 
 activity:
   enabled: false
@@ -270,6 +283,9 @@ pages:
       - title: All
         external: true
         url: /filter/all
+      - title: _(2018)
+        url: /filter/Winner2018
+        external: true
       - title: _(2017)
         url: /filter/Winner2017
         external: true
@@ -285,7 +301,7 @@ pages:
       - title: _(2013)
         url: /filter/Winner2013
         external: true
-  - title: _(2018 Public Space Challenge)
+  - title: _(2019 Public Space Challenge)
     slug: challenge
     external: true
     url: https://www.publicspacechallenge.org/
