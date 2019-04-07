@@ -149,9 +149,7 @@ activity:
   interval: 30000
 
 place:
-  adding_supported:
-    from: '2017-03-07 08:30 -0500'
-    until: '2017-04-07 00:00 -0400'
+  adding_supported: false
   add_button_label: _(Add an idea)
   # Labels for the buttons that toggle the map and list views
   show_list_button_label: _(List Ideas)
