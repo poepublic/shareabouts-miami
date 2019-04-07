@@ -206,9 +206,9 @@ activity:
   interval: 30000
 
 place:
-  adding_supported:
-    from: '2018-04-17 09:00 -0400'
-    until: '2018-05-17 00:00 -0400'
+  adding_supported: true
+    # from: '2018-04-17 09:00 -0400'
+    # until: '2018-05-17 00:00 -0400'
   add_button_label: _(Add an idea)
   # Labels for the buttons that toggle the map and list views
   show_list_button_label: _(List Ideas)
@@ -259,14 +259,14 @@ place:
       label: _(Project type)
       type: radiogroup
       options:
-        - label: _(Parks & Natural Areas)
-          value: ParksAndNaturalAreas
-        - label: _(Greenways & Blueways)
-          value: GreenwaysAndBlueways
-        - label: _(Safe Routes to Parks)
-          value: SafeRoutesToParks
-        - label: _(Public Spaces)
-          value: PublicSpaces
+        - label: _(Walking)
+          value: pedestrian
+        - label: _(Biking)
+          value: biking
+        - label: _(Streets & Sidewalks)
+          value: streetsidewalk
+        - label: _(Public Transit)
+          value: transit
       attrs:
       - key: required
         value: required

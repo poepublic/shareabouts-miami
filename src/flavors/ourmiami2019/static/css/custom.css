@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,800italic,400,800);
 
+/*
+biking: #c4ed52
+pedestrian: #a0b4c6
+streetsidewalk: #ffd614
+transit: #b75ab8
+border: #414f5c
+*/
+
 /* =Typography
 -------------------------------------------------------------- */
 
@@ -292,34 +300,34 @@ form .signed-in-as {
 }
 
 /* BG Images */
-[value="ParksAndNaturalAreas"] + .label-text {
-  background-image: url("/static/css/images/markers/marker-ParksAndNaturalAreas.png");
+[value="pedestrian"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-pedestrian.png");
 }
-[value="GreenwaysAndBlueways"] + .label-text {
-  background-image: url("/static/css/images/markers/marker-GreenwaysAndBlueways.png");
+[value="biking"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-biking.png");
 }
-[value="SafeRoutesToParks"] + .label-text {
-  background-image: url("/static/css/images/markers/marker-SafeRoutesToParks.png");
+[value="streetsidewalk"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-streetsidewalk.png");
 }
-[value="PublicSpaces"] + .label-text {
-  background-image: url("/static/css/images/markers/marker-PublicSpaces.png");
+[value="transit"] + .label-text {
+  background-image: url("/static/css/images/markers/marker-transit.png");
 }
 
-[value="ParksAndNaturalAreas"]:checked + .label-text {
-  background-color: #C3CE2F;
-  background-image: url("/static/css/images/markers/noborder-ParksAndNaturalAreas.png");
+[value="pedestrian"]:checked + .label-text {
+  background-color: #A0B4C6;
+  background-image: url("/static/css/images/markers/marker-pedestrian.png");
 }
-[value="GreenwaysAndBlueways"]:checked + .label-text {
-  background-color: #1490C1;
-  background-image: url("/static/css/images/markers/noborder-GreenwaysAndBlueways.png");
+[value="biking"]:checked + .label-text {
+  background-color: #C4ED52;
+  background-image: url("/static/css/images/markers/marker-biking.png");
 }
-[value="SafeRoutesToParks"]:checked + .label-text {
-  background-color: #F4C040;
-  background-image: url("/static/css/images/markers/noborder-SafeRoutesToParks.png");
+[value="streetsidewalk"]:checked + .label-text {
+  background-color: #FFD614;
+  background-image: url("/static/css/images/markers/marker-streetsidewalk.png");
 }
-[value="PublicSpaces"]:checked + .label-text {
-  background-color: #AA93CE;
-  background-image: url("/static/css/images/markers/noborder-PublicSpaces.png");
+[value="transit"]:checked + .label-text {
+  background-color: #B75AB8;
+  background-image: url("/static/css/images/markers/marker-transit.png");
 }
 
 .preload-icons {
@@ -408,16 +416,16 @@ form .signed-in-as {
 }
 
 .access li ul li:nth-child(2) a::before {
-  background-color: #C3CE2F;  /* ParksAndNaturalAreas */
+  background-color: #A0B4C6;  /* pedestrian */
 }
 .access li ul li:nth-child(3) a::before {
-  background-color: #1490C1;  /* GreenwaysAndBlueways */
+  background-color: #C4ED52;  /* biking */
 }
 .access li ul li:nth-child(4) a::before {
-  background-color: #F4C040;  /* SafeRoutesToParks */
+  background-color: #FFD614;  /* streetsidewalk */
 }
 .access li ul li:nth-child(5) a::before {
-  background-color: #AA93CE;  /* PublicSpaces */
+  background-color: #B75AB8;  /* transit */
 }
 
 #current-filter-type {
