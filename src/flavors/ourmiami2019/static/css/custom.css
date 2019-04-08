@@ -315,19 +315,19 @@ form .signed-in-as {
 
 [value="pedestrian"]:checked + .label-text {
   background-color: #A0B4C6;
-  background-image: url("/static/css/images/markers/marker-pedestrian.png");
+  background-image: url("/static/css/images/markers/noborder-pedestrian.png");
 }
 [value="biking"]:checked + .label-text {
   background-color: #C4ED52;
-  background-image: url("/static/css/images/markers/marker-biking.png");
+  background-image: url("/static/css/images/markers/noborder-biking.png");
 }
 [value="streetsidewalk"]:checked + .label-text {
   background-color: #FFD614;
-  background-image: url("/static/css/images/markers/marker-streetsidewalk.png");
+  background-image: url("/static/css/images/markers/noborder-streetsidewalk.png");
 }
 [value="transit"]:checked + .label-text {
   background-color: #B75AB8;
-  background-image: url("/static/css/images/markers/marker-transit.png");
+  background-image: url("/static/css/images/markers/noborder-transit.png");
 }
 
 .preload-icons {
