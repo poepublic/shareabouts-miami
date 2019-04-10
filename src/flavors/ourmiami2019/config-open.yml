@@ -202,7 +202,7 @@ place_types:
           iconAnchor: [22, 54]
 
 activity:
-  enabled: true
+  enabled: false
   interval: 30000
 
 place:
