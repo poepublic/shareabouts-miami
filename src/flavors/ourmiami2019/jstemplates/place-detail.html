@@ -5,6 +5,11 @@
 {{#is ff '2'}}
 <p><strong>This project is a {{ pscyear }} Public Space Challenge winner!</strong></p>
 {{/is}}
+
+        {{#if is_new }}
+          {{> place-form-submission-confirmation }}
+        {{/if}}
+
         {{> place-detail-promotion-bar }}
 
         <header class="place-header clearfix">
