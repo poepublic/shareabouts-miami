@@ -1371,3 +1371,7 @@ dl.faq dd {
   display: none;
 }
 */
+
+.place-comment-field .remaining-characters {
+  display: none;
+}
