@@ -206,9 +206,9 @@ activity:
   interval: 30000
 
 place:
-  adding_supported: true
-    # from: '2018-04-17 09:00 -0400'
-    # until: '2018-05-17 00:00 -0400'
+  adding_supported:
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-05-17 00:00 -0400'
   add_button_label: _(Add an idea)
   # Labels for the buttons that toggle the map and list views
   show_list_button_label: _(List Ideas)
@@ -344,8 +344,8 @@ place:
 survey:
   submission_type: comments
   adding_supported:
-    from: '2018-04-04 09:00 -0400'
-    until: '2018-06-04 00:00 -0400'
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-05-17 00:00 -0400'
 
   # Response config
   show_responses: true
@@ -372,8 +372,8 @@ survey:
 support:
   submission_type: support
   adding_supported:
-    from: '2018-04-04 09:00 -0400'
-    until: '2018-06-04 00:00 -0400'
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-05-17 00:00 -0400'
   submit_btn_text: _(Like This!)
   response_name: _(like)
   response_plural_name: _(likes)
