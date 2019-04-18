@@ -18,7 +18,8 @@ map:
     # - url: https://api.mapbox.com/styles/v1/miamipsc/ciz9puq2a00502rmuot3sxl0a/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
 
     # Second version of custom tiles
-    - url: https://api.mapbox.com/styles/v1/miamipsc/cjue1ils20hec1fs17esm5bf6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
+    - type: mapbox
+      style: mapbox://styles/miamipsc/cjue1ils20hec1fs17esm5bf6
 
     # Light, bare style
     # - url: https://api.mapbox.com/styles/v1/miamipsc/ciyn6joil007l2smg79w5j53b/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWlhbWlwc2MiLCJhIjoiY2l5N3RjY202MDA4ajJ3cW05ZGg1eDloOCJ9.7Q8BG1yF7iHPASyYFp0hsg
