@@ -208,7 +208,8 @@
    */
   var placeRender = Shareabouts.PlaceDetailView.prototype.render;
   Shareabouts.PlaceDetailView.prototype.render = function() {
-    var view = placeRender.call(this),
+    var args = Array.prototype.slice.call(arguments),
+        view = placeRender.apply(this, args),
         iobyId = this.model.get('ioby_id'),
         staffGroup = Shareabouts.getStaffGroup(Shareabouts.bootstrapped.currentUser);
         judgeGroup = Shareabouts.getJudgeGroup(Shareabouts.bootstrapped.currentUser);

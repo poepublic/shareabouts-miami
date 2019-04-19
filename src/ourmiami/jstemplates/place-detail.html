@@ -1,10 +1,15 @@
 {{#is ff '1'}}
-<p><strong>This project was a 2014 Public Space Challenge finalist!</strong></p>
+<p><strong>This project is a {{ pscyear }} Public Space Challenge finalist!</strong></p>
 {{/is}}
 
 {{#is ff '2'}}
-<p><strong>This project is a 2014 Public Space Challenge winner!</strong></p>
+<p><strong>This project is a {{ pscyear }} Public Space Challenge winner!</strong></p>
 {{/is}}
+
+        {{#if is_new }}
+          {{> place-form-submission-confirmation }}
+        {{/if}}
+
         {{> place-detail-promotion-bar }}
 
         <header class="place-header clearfix">
@@ -49,10 +54,10 @@
             <img src="{{ file }}" class="place-value place-value-{{ name }}" alt="{{ name }}">
           </div>
           {{/ attachments }}
-          {{#each_place_item "title" "submitter_name" "location_type" "infolink"}}
+          {{#each_place_item "title" "submitter_name" "location_type" "infolink" "address" "organization"}}
           <div class="place-item place-item-{{ name }}">
             <span class="place-label place-label-{{ name }}">{{ label }}</span>
-            <p class="place-value place-value-{{ name }}">{{ newLineToBr value }}</p>
+            <p class="place-value place-value-{{ name }}">{{nlToBr value }}</p>
           </div>
           {{/each_place_item }}
           <div class="place-item place-item-infolink">
@@ -63,5 +68,5 @@
         <div class="ioby-details"></div>
 
         {{#if survey_config}}
-        <section class="survey"></section>
+        <section class="survey" id="survey"></section>
         {{/if}}
