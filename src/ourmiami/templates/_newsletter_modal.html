@@ -1,0 +1,33 @@
+<div class="fullscreen-modal" id="newsletter-modal">
+  <div class="modal-content">
+    <div class="copy">
+      <h2>Thank you for your input!</h2>
+      <p>Click here to <a class="newsletter-link" href="https://visitor.r20.constantcontact.com/manage/optin?v=0010YFcABXlzqUjbvxIAQ4yZV0X95Kg5tQcOjTntt4gJGALFs0OV6oNb7IuOcf1_dQmxwPlw0IpP2o9AyUGW4LLtQ%3D%3D" target="_blank">join The Miami Foundation’s mailing list</a>
+        to receive a quarterly newsletter about public space news, events and opportunities
+        in our community.</p>
+
+      <label><input type="checkbox" class="newsletter-optout-checkbox"> Don't show me this again</label>
+      <a class="close-btn" href="#">✕</a>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>
+
+<script>
+function setNewsletterOptoutFlag(onOrOff) {
+  if (onOrOff) {
+    Shareabouts.Util.cookies.save('newsletter-optout', 'yes')
+  } else {
+    Shareabouts.Util.cookies.destroy('newsletter-optout')
+  }
+}
+
+$('.newsletter-optout-checkbox').on('change', function(evt) {
+  var checkbox = evt.currentTarget
+  setNewsletterOptoutFlag(checkbox.checked)
+})
+
+$('.newsletter-link').on('click', function(evt) {
+  setNewsletterOptoutFlag(true)
+})
+</script>

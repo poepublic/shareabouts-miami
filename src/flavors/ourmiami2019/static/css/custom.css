@@ -1375,3 +1375,59 @@ dl.faq dd {
 .place-comment-field .remaining-characters {
   display: none;
 }
+
+.fullscreen-modal {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  box-sizing: border-box;
+  box-shadow: 0 3px 7px rgba(0,0,0,.25);
+  width: 96%;
+  max-width: 40rem;
+  transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out
+}
+
+.fullscreen-modal:target {
+  opacity: 1;
+  top: 50%;
+  visibility: visible
+}
+
+.fullscreen-modal .btn { float: right }
+
+.fullscreen-modal .copy,
+.fullscreen-modal .header,
+.fullscreen-modal .footer {
+  padding: 1rem;
+}
+
+.modal-content {
+  border-top: 3px solid #dbef16;
+  border-bottom: 3px solid #00afdb;
+  background: white;
+  position: relative;
+  z-index: 20;
+  border-radius: 3px;
+  transform: translate(-50%, -50%);
+}
+
+.modal-content h2 {
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.fullscreen-modal .overlay {
+  background-color: #000;
+  background: rgba(0,0,0,.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10
+}
