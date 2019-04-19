@@ -1391,6 +1391,7 @@ dl.faq dd {
   -webkit-transition: all .4s ease-in-out
 }
 
+.fullscreen-modal.open,
 .fullscreen-modal:target {
   opacity: 1;
   top: 50%;

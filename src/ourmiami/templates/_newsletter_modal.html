@@ -7,13 +7,21 @@
         in our community.</p>
 
       <label><input type="checkbox" class="newsletter-optout-checkbox"> Don't show me this again</label>
-      <a class="close-btn" href="#">✕</a>
     </div>
+    <a class="newsletter-modal-close-btn close-btn" href="#">✕</a>
   </div>
   <div class="overlay"></div>
 </div>
 
 <script>
+function showNewsletterModal(show) {
+  if (show) {
+    $('#newsletter-modal').addClass('open')
+  } else {
+    $('#newsletter-modal').removeClass('open')
+  }
+}
+
 function setNewsletterOptoutFlag(onOrOff) {
   if (onOrOff) {
     Shareabouts.Util.cookies.save('newsletter-optout', 'yes')
@@ -29,5 +37,11 @@ $('.newsletter-optout-checkbox').on('change', function(evt) {
 
 $('.newsletter-link').on('click', function(evt) {
   setNewsletterOptoutFlag(true)
+})
+
+$('.newsletter-modal-close-btn').on('click', function(evt) {
+  evt.preventDefault()
+  showNewsletterModal(false)
+  return false;
 })
 </script>
