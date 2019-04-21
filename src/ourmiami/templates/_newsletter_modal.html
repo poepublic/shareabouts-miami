@@ -30,6 +30,10 @@ function setNewsletterOptoutFlag(onOrOff) {
   }
 }
 
+function optedOutOfNewsletter(onOrOff) {
+  return !!Shareabouts.Util.cookies.get('newsletter-optout')
+}
+
 $('.newsletter-optout-checkbox').on('change', function(evt) {
   var checkbox = evt.currentTarget
   setNewsletterOptoutFlag(checkbox.checked)

@@ -193,6 +193,16 @@
   var placeDetailInitialize = Shareabouts.PlaceDetailView.prototype.initialize;
   Shareabouts.PlaceDetailView.prototype.initialize = function() {
     placeDetailInitialize.call(this);
+
+    // Listen for new comments or support by this user. Offer to stay engaged.
+    function onUserEngage(model, collection, evt) {
+      if (model.get('user_token') == this.options.userToken && !optedOutOfNewsletter()) {
+        showNewsletterModal(true)
+      }
+    }
+    this.model.submissionSets[this.surveyType].on('add', onUserEngage.bind(this))
+    this.model.submissionSets[this.supportType].on('add', onUserEngage.bind(this))
+
     initializeReviewView.call(this)
     initializeRatingView.call(this)
   }
