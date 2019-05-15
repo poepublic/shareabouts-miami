@@ -1,6 +1,6 @@
 app:
-  title: OurMiami
-  name: OurMiami
+  title: The Miami Public Space Challenge
+  name: The Miami Public Space Challenge
   meta_description: _('The Miami Foundation and our partners created the Our Miami Public Space Challenge to discover the best ideas for improving, creating, and activating local public spaces.')
 
 map:
