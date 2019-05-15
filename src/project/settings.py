@@ -170,6 +170,7 @@ INSTALLED_APPS = (
     # Project apps
     'ourmiami',
     'sa_web',
+    'sa_login',
     'proxy',
 )
 
