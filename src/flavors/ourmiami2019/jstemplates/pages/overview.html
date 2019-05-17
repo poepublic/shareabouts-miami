@@ -27,14 +27,48 @@
 
 {{#if config.place.adding_supported}}
   <p><a href="/place/new" data-internal="" class="btn btn-block"><strong>Share your idea!</strong></a></p>
+{{/if}}
 
-  <p>The Miami Foundation’s Public Space Challenge is back! This year, we’re investing $250,000 in
-    your ideas to create, activate or improve how we move around our community. Think bus stops,
-    bike lanes, water ways, streets, sidewalks, crosswalks or wayfinding signs and how you can
-    make them more safe, fun and easier to use. The way you do that is totally up to you!</p>
+<p>The Miami Foundation’s Public Space Challenge is back! This year, we’re investing $250,000 in
+  your ideas to create, activate or improve how we move around our community. Think bus stops,
+  bike lanes, water ways, streets, sidewalks, crosswalks or wayfinding signs and how you can
+  make them more safe, fun and easier to use. The way you do that is totally up to you!</p>
 
-  <p>Any individual, for-profit, nonprofit or group is welcome apply. No idea is too small or too big. All
-    ideas must be in Miami-Dade County.</p>
+<p>Any individual, for-profit, nonprofit or group is welcome apply. No idea is too small or too big. All
+  ideas must be in Miami-Dade County.</p>
+
+{{#if config.place.adding_supported}}
+  <p><a href="https://corporate.target.com/corporate-responsibility/" target="_blank">Target</a>
+    will contribute funding to support winning ideas that encourage thriving and connected
+    communities.</p>
+
+  <dl style="margin-bottom: 1.5em;">
+    <dt style="display: inline-block; font-weight: bold;">Submissions open:</dt>
+    <dd style="display: inline-block; margin-left: 1rem;">April 17, 9:00 a.m. ET</dd>
+    <br>
+    <dt style="display: inline-block; font-weight: bold;">Submissions close:</dt>
+    <dd style="display: inline-block; margin-left: 1rem;">May 16, 11:59 p.m. ET</dd>
+  </dl>
+
+  <b>Learn about how the Challenge is evolving in 2019 on the <a href="https://miamifoundation.org/the-challenge-is-back-help-improve-the-way-miami-moves/" target="_blank">Foundation Blog</a></b>
+
+  <p>There are four categories in this year&#39;s Challenge:</p>
+  <ul class="marker-list" style="margin-top: -1em;">
+    <li style="background-image: url(/static/css/images/markers/circle-pedestrian.png);">Walking</li>
+    <li style="background-image: url(/static/css/images/markers/circle-biking.png);">Biking</li>
+    <li style="background-image: url(/static/css/images/markers/circle-streetsidewalk.png);">Streets &amp; Sidewalks</li>
+    <li style="background-image: url(/static/css/images/markers/circle-transit.png);">Public Transit</li>
+  </ul>
+
+  <p>Check out all of the <a href="https://pastwinners.publicspacechallenge.org/">past winners</a>, then read more about <a href="http://miamifoundation.org/your-challenge-one-simple-idea-to-transform-a-public-space/">simple ideas that won the Challenge</a> over the years.</p>
+{{else}}
+  <p>There are four categories in this year&#39;s Challenge:</p>
+  <ul class="marker-list" style="margin-top: -1em;">
+    <li style="background-image: url(/static/css/images/markers/circle-pedestrian.png);">Walking</li>
+    <li style="background-image: url(/static/css/images/markers/circle-biking.png);">Biking</li>
+    <li style="background-image: url(/static/css/images/markers/circle-streetsidewalk.png);">Streets &amp; Sidewalks</li>
+    <li style="background-image: url(/static/css/images/markers/circle-transit.png);">Public Transit</li>
+  </ul>
 
   <p><a href="https://corporate.target.com/corporate-responsibility/" target="_blank">Target</a>
     will contribute funding to support winning ideas that encourage thriving and connected
@@ -47,7 +81,10 @@
     <dt style="display: inline-block; font-weight: bold;">Submissions close:</dt>
     <dd style="display: inline-block; margin-left: 1rem;">May 16, 11:59 p.m. ET</dd>
   </dl>
-{{else}}
+
+  <p>Check out all of the <a href="https://pastwinners.publicspacechallenge.org/" target="_blank">past winners</a>, and learn about how the Challenge is evolving in 2019 on the
+    <a href="https://miamifoundation.org/the-challenge-is-back-help-improve-the-way-miami-moves/" target="_blank">Foundation Blog</a>.
+
   {{#if config.survey.adding_supported}}
     <!-- <p style="font-weight: bold;">The idea submission phase for the 2018 Public
       Space Challenge is closed. Like and comment on your favorite ideas until Sunday, June
@@ -57,15 +94,3 @@
       Space Challenge is closed. We&#39;ll announce the finalists in June.</p> -->
   {{/if}}
 {{/if}}
-
-<b>Learn about how the Challenge is evolving in 2019 on the <a href="https://miamifoundation.org/the-challenge-is-back-help-improve-the-way-miami-moves/" target="_blank">Foundation Blog</a></b>
-
-<p>There are four categories in this year&#39;s Challenge:</p>
-<ul class="marker-list" style="margin-top: -1em;">
-  <li style="background-image: url(/static/css/images/markers/circle-pedestrian.png);">Walking</li>
-  <li style="background-image: url(/static/css/images/markers/circle-biking.png);">Biking</li>
-  <li style="background-image: url(/static/css/images/markers/circle-streetsidewalk.png);">Streets &amp; Sidewalks</li>
-  <li style="background-image: url(/static/css/images/markers/circle-transit.png);">Public Transit</li>
-</ul>
-
-<p>Check out all of the <a href="https://pastwinners.publicspacechallenge.org/">past winners</a>, then read more about <a href="http://miamifoundation.org/your-challenge-one-simple-idea-to-transform-a-public-space/">simple ideas that won the Challenge</a> over the years.</p>
