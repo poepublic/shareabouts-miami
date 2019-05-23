@@ -39,9 +39,8 @@
 
 <div class="reviews-chart-legend">
 <ul class="reviews-legend-labels-wrapper">
-  <li class="reviews-legend-label-parksandnaturalareas">Parks &amp; Natural Areas</li>
-  <li class="reviews-legend-label-greenwaysandblueways">Greenways &amp; Blueways</li>
-  <li class="reviews-legend-label-saferoutestoparks">Safe Routes to Parks</li>
-  <li class="reviews-legend-label-publicspaces">Public Spaces</li>
+  {{#each categories}}
+    <li class="ratings-legend-label-{{option}}">{{label}}</li>
+  {{/each}}
 </ul>
 </div>

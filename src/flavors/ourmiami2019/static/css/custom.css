@@ -1039,15 +1039,15 @@ dl.faq dd {
     border: 1px solid silver;
     border-color: rgba(0,0,0,0.15);
   }
-  .ratings-legend-label-parksandnaturalareas:before { background-color: #C3CE2F; }
-  .ratings-legend-label-greenwaysandblueways:before { background-color: #1490C1; }
-  .ratings-legend-label-saferoutestoparks:before { background-color: #F4C040; }
-  .ratings-legend-label-publicspaces:before { background-color: #AA93CE; }
+  .ratings-legend-label-biking:before { background-color: #c4ed52; }
+  .ratings-legend-label-pedestrian:before { background-color: #a0b4c6; }
+  .ratings-legend-label-streetsidewalk:before { background-color: #ffd614; }
+  .ratings-legend-label-transit:before { background-color: #b75ab8; }
 
-  .reviews-legend-label-parksandnaturalareas:before { background-color: #C3CE2F; }
-  .reviews-legend-label-greenwaysandblueways:before { background-color: #1490C1; }
-  .reviews-legend-label-saferoutestoparks:before { background-color: #F4C040; }
-  .reviews-legend-label-publicspaces:before { background-color: #AA93CE; }
+  .reviews-legend-label-biking:before { background-color: #c4ed52; }
+  .reviews-legend-label-pedestrian:before { background-color: #a0b4c6; }
+  .reviews-legend-label-streetsidewalk:before { background-color: #ffd614; }
+  .reviews-legend-label-transit:before { background-color: #b75ab8; }
 
   .place-list-ratings-summary-toggle a,
   .place-list-reviews-summary-toggle a {
