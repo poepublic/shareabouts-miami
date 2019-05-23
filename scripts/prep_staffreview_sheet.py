@@ -22,8 +22,8 @@ session = requests.Session()
 session.auth = (USERNAME, PASSWORD)
 session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': 'true'}
 
-IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places?include_private'
-REVIEWS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/reviews'
+IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/places?include_private'
+REVIEWS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/reviews'
 
 idea_pages = download_all_pages(IDEAS_URL, session=session)
 review_pages = download_all_pages(REVIEWS_URL, session=session)
