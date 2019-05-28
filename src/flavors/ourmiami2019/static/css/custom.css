@@ -944,10 +944,10 @@ dl.faq dd {
     -webkit-transition: width 0.2s linear;
   }
 
-  .parksandnaturalareas-segment { background-color: #C3CE2F; }
-  .greenwaysandblueways-segment { background-color: #1490C1; }
-  .saferoutestoparks-segment { background-color: #F4C040; }
-  .publicspaces-segment { background-color: #AA93CE; }
+  .biking-segment { background-color: #c4ed52; }
+  .pedestrian-segment { background-color: #a0b4c6; }
+  .streetsidewalk-segment { background-color: #ffd614; }
+  .transit-segment { background-color: #b75ab8; }
 
   .ratings-chart-bar,
   .reviews-chart-bar {

@@ -20,7 +20,7 @@ session = requests.Session()
 session.auth = (USERNAME, PASSWORD)
 session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': 'true'}
 
-IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places?include_private'
+IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/places?include_private'
 
 # Read the ideas to rate in CSV format from stdin to get the ids of the ideas
 # to rate.
@@ -34,10 +34,10 @@ ideas_by_id = {idea['id']: idea for ideas in pages for idea in ideas['features']
 
 # Assign ideas to the appropriate judging groups
 assignments = {
-    'PublicSpaces': 'judges-1',
-    'GreenwaysAndBlueways': 'judges-2',
-    'ParksAndNaturalAreas': 'judges-2',
-    'SafeRoutesToParks': 'judges-1',
+    'transit': 'judges-1',
+    'streetsidewalk': 'judges-1',
+    'pedestrian': 'judges-2',
+    'biking': 'judges-2',
 }
 
 for idea_id in ids_to_rate:
@@ -46,27 +46,27 @@ for idea_id in ids_to_rate:
     print(f'Idea {idea_id} ({category}) to {assignments[category]}')
     feature['properties']['judgeGroup'] = assignments[category]
 
-# *****************************************************************************
-# NOTE: We're also going to do some custom logic so that the SafeRoutesToParks
-# ideas get evenly distributed to keep the size of the judging groups even.
-# This is definitely NOT something to keep from year to year.
-g1_size = sum(1 for _, feature in ideas_by_id.items() if feature['properties'].get('judgeGroup') == 'judges-1')
-g2_size = sum(1 for _, feature in ideas_by_id.items() if feature['properties'].get('judgeGroup') == 'judges-2')
-print(f'Group sizes: 1 - {g1_size}, 2 - {g2_size}')
-
-for idea_id in ids_to_rate:
-    if g2_size >= g1_size:
-        break
-
-    feature = ideas_by_id[idea_id]
-    category = feature['properties']['location_type']
-    if category == 'SafeRoutesToParks':
-        print(f'Moving {idea_id} ({category}) to judges-2')
-        feature['properties']['judgeGroup'] = 'judges-2'
-        g1_size -= 1
-        g2_size += 1
+# # *****************************************************************************
+# # NOTE: We're also going to do some custom logic so that the SafeRoutesToParks
+# # ideas get evenly distributed to keep the size of the judging groups even.
+# # This is definitely NOT something to keep from year to year.
+# g1_size = sum(1 for _, feature in ideas_by_id.items() if feature['properties'].get('judgeGroup') == 'judges-1')
+# g2_size = sum(1 for _, feature in ideas_by_id.items() if feature['properties'].get('judgeGroup') == 'judges-2')
+# print(f'Group sizes: 1 - {g1_size}, 2 - {g2_size}')
 #
-# *****************************************************************************
+# for idea_id in ids_to_rate:
+#     if g2_size >= g1_size:
+#         break
+#
+#     feature = ideas_by_id[idea_id]
+#     category = feature['properties']['location_type']
+#     if category == 'SafeRoutesToParks':
+#         print(f'Moving {idea_id} ({category}) to judges-2')
+#         feature['properties']['judgeGroup'] = 'judges-2'
+#         g1_size -= 1
+#         g2_size += 1
+# #
+# # *****************************************************************************
 
 # Upload the grouped ideas
 for index, idea_id in enumerate(ids_to_rate):
