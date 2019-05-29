@@ -27,6 +27,12 @@
 
 {{#if config.place.adding_supported}}
   <p><a href="/place/new" data-internal="" class="btn btn-block"><strong>Share your idea!</strong></a></p>
+{{^}}
+  <p><a href="/" data-internal="" class="btn btn-block"><strong>Explore the ideas!</strong></a></p>
+
+  {{#if config.support.adding_supported}}
+    <p>Remember that you can share, support, or comment on the ideas through June 14, 2019.</p>
+  {{/if}}
 {{/if}}
 
 <p>The Miami Foundation’s Public Space Challenge is back! This year, we’re investing $250,000 in
