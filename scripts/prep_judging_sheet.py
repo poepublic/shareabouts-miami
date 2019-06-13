@@ -22,27 +22,29 @@ session = requests.Session()
 session.auth = (USERNAME, PASSWORD)
 session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': 'true'}
 
-IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places?include_private'
-REVIEWS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/ratings'
+IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/places?include_private'
+REVIEWS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/ratings'
 
 idea_pages = download_all_pages(IDEAS_URL, session=session)
 rating_pages = download_all_pages(REVIEWS_URL, session=session)
 
 # Don't include invisible
 header = [
+    'Judge Group',
+    'Category',
     'ID',
     'URL',  # On the miami site
+    '# of Likes',
+    '# of Comments',
     'Title',
-    'Category',
     'Description',
     'Detail',
     'Submitter',  # Fall back to submitter_name
     'Submitter Email',
     'Approximate Address',
-    '# of Likes',
-    '# of Comments',
-    'Judge Group',
 ]
+
+judgements_header = []
 
 ratings_by_idea_url = collections.defaultdict(list)
 seen_judges = set()
@@ -63,18 +65,18 @@ for ideas in idea_pages:
         if 'judgeGroup' not in props:
             continue
 
+        row['Judge Group'] = props['judgeGroup'][-1]
+        row['Category'] = props['location_type']
         row['ID'] = idea['id']
         row['URL'] = f'https://www.publicspacechallenge.org/place/{row["ID"]}'
+        row['# of Likes'] = props['submission_sets'].get('support', {}).get('length', 0)
+        row['# of Comments'] = props['submission_sets'].get('comments', {}).get('length', 0)
         row['Title'] = props['title']
-        row['Category'] = props['location_type']
         row['Description'] = props['description']
         row['Detail'] = props['details']
         row['Submitter'] = props['submitter']['name'] if props['submitter'] else props.get('submitter_name', '')
         row['Submitter Email'] = props['private-email']
         row['Approximate Address'] = props['address']
-        row['# of Likes'] = props['submission_sets'].get('support', {}).get('length', 0)
-        row['# of Comments'] = props['submission_sets'].get('comments', {}).get('length', 0)
-        row['Judge Group'] = props['judgeGroup'][-1]
 
         for rating in ratings_by_idea_url[props['url']]:
             judge = rating['submitter']['username']
@@ -91,14 +93,14 @@ for ideas in idea_pages:
                 total_judged[judge] += 1
 
             if judge not in seen_judges:
-                header.append(f'{judge} Score')
-                header.append(f'{judge} Opt Out')
-                header.append(f'{judge} Opt Out Reason')
+                judgements_header.append(f'{judge} Score')
+                judgements_header.append(f'{judge} Opt Out')
+                judgements_header.append(f'{judge} Opt Out Reason')
                 seen_judges.add(judge)
 
         rows.append(row)
 
-writer = csv.DictWriter(stdout, header)
+writer = csv.DictWriter(stdout, header + list(sorted(judgements_header)))
 writer.writeheader()
 writer.writerows(rows)
 
