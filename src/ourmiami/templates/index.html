@@ -309,6 +309,11 @@
     var groups = user ? user.groups : null;
 
     return _.chain(groups)
+      .map(function(g) {
+        // Trim off any querystring parameters
+        g.dataset = g.dataset.split('?')[0];
+        return g;
+      })
       .where({'dataset': S.bootstrapped.datasetUrl})
       .pluck('name')
       .filter(function(g) { return /^staff/.test(g); })
@@ -319,6 +324,11 @@
     var groups = user ? user.groups : null;
 
     return _.chain(groups)
+      .map(function(g) {
+        // Trim off any querystring parameters
+        g.dataset = g.dataset.split('?')[0];
+        return g;
+      })
       .where({'dataset': S.bootstrapped.datasetUrl})
       .pluck('name')
       .filter(function(g) { return /^judge/.test(g); })
