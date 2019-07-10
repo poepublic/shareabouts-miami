@@ -34,18 +34,18 @@ map:
 
 place_types:
 
-  ParksAndNaturalAreas:
-    label: _(Parks & Natural Areas)
+  pedestrian:
+    label: _(Walking)
     rules:
-      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "pedestrian" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
         style:
-          fillColor: '#C3CE2F'
+          fillColor: '#A0B4C6'
           fillOpacity: 1
           radius: 6
           color: 'black'
           opacity: 1
           weight: 2
-      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "pedestrian" && !{{layer.focused}}'
         style:
           fillColor: '#C3CE2F'
           fillOpacity: 0.7
@@ -53,94 +53,94 @@ place_types:
           color: 'black'
           opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "pedestrian" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-ParksAndNaturalAreas.png
+          iconUrl: /static/css/images/markers/marker-pedestrian.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [45, 54]
           shadowSize: [41, 41]
           iconAnchor: [22, 54]
-  GreenwaysAndBlueways:
-    label: _(Greenways & Blueways)
+  biking:
+    label: _(Biking)
     rules:
-      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "biking" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
         style:
-          fillColor: '#1490C1'
+          fillColor: '#C4ED52'
           fillOpacity: 1
           radius: 6
           color: 'black'
           opacity: 1
           weight: 2
-      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "biking" && !{{layer.focused}}'
         style:
-          fillColor: '#1490C1'
+          fillColor: '#C3CE2F'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
           opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "biking" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-GreenwaysAndBlueways.png
+          iconUrl: /static/css/images/markers/marker-biking.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [45, 54]
           shadowSize: [41, 41]
           iconAnchor: [22, 54]
-  SafeRoutesToParks:
-    label: _(Safe Routes to Parks)
+  streetsidewalk:
+    label: _(Streets & Sidewalks)
     rules:
-      - condition: '"{{location_type}}" === "SafeRoutesToParks" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "streetsidewalk" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
         style:
-          fillColor: '#F4C040'
+          fillColor: '#FFD614'
           fillOpacity: 1
           radius: 6
           color: 'black'
           opacity: 1
           weight: 2
-      - condition: '"{{location_type}}" === "SafeRoutesToParks" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "streetsidewalk" && !{{layer.focused}}'
         style:
-          fillColor: '#F4C040'
+          fillColor: '#C3CE2F'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
           opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "SafeRoutesToParks" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "streetsidewalk" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-SafeRoutesToParks.png
+          iconUrl: /static/css/images/markers/marker-streetsidewalk.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [50, 60]
           shadowSize: [41, 41]
           iconAnchor: [25, 60]
-  PublicSpaces:
-    label: _(Public Spaces)
+  transit:
+    label: _(Public Transit)
     rules:
-      - condition: '"{{location_type}}" === "PublicSpaces" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "transit" && ("{{ff}}" === "1" || "{{ff}}" === "2") && !{{layer.focused}}'
         style:
-          fillColor: '#AA93CE'
+          fillColor: '#B75AB8'
           fillOpacity: 1
           radius: 6
           color: 'black'
           opacity: 1
           weight: 2
-      - condition: '"{{location_type}}" === "PublicSpaces" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "transit" && !{{layer.focused}}'
         style:
-          fillColor: '#AA93CE'
+          fillColor: '#C3CE2F'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
           opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "PublicSpaces" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "transit" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-PublicSpaces.png
+          iconUrl: /static/css/images/markers/marker-transit.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [45, 54]
           shadowSize: [41, 41]
           iconAnchor: [22, 54]
 
 activity:
-  enabled: true
+  enabled: false
   interval: 30000
 
 place:
@@ -195,14 +195,14 @@ place:
       label: _(Project type)
       type: radiogroup
       options:
-        - label: _(Parks & Natural Areas)
-          value: ParksAndNaturalAreas
-        - label: _(Greenways & Blueways)
-          value: GreenwaysAndBlueways
-        - label: _(Safe Routes to Parks)
-          value: SafeRoutesToParks
-        - label: _(Public Spaces)
-          value: PublicSpaces
+        - label: _(Walking)
+          value: pedestrian
+        - label: _(Biking)
+          value: biking
+        - label: _(Streets & Sidewalks)
+          value: streetsidewalk
+        - label: _(Public Transit)
+          value: transit
       attrs:
       - key: required
         value: required
@@ -315,7 +315,7 @@ support:
 pages:
   - title: _(About)
     slug: about
-    name: overview-closed
+    name: overview
     start_page: true
   - title: _(FAQ)
     slug: faq
@@ -329,17 +329,17 @@ pages:
       - title: All
         external: true
         url: /filter/all
-      - title: _(Parks & Natural Areas)
-        url: /filter/ParksAndNaturalAreas
+      - title: _(Walking)
+        url: /filter/pedestrian
         external: true
-      - title: _(Greenways & Blueways)
-        url: /filter/GreenwaysAndBlueways
+      - title: _(Biking)
+        url: /filter/biking
         external: true
-      - title: _(Safe Routes to Parks)
-        url: /filter/SafeRoutesToParks
+      - title: _(Streets & Sidewalks)
+        url: /filter/streetsidewalk
         external: true
-      - title: _(Public Spaces)
-        url: /filter/PublicSpaces
+      - title: _(Public Transit)
+        url: /filter/transit
         external: true
   - title: _(Finalists)
     slug: finalists
