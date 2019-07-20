@@ -279,7 +279,9 @@ place:
 
 survey:
   submission_type: comments
-  adding_supported: false
+  adding_supported:
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-08-15 00:00 -0400'
 
   # Response config
   show_responses: true
@@ -305,7 +307,9 @@ survey:
 
 support:
   submission_type: support
-  adding_supported: false
+  adding_supported:
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-08-15 00:00 -0400'
   submit_btn_text: _(Like This!)
   response_name: _(like)
   response_plural_name: _(likes)
