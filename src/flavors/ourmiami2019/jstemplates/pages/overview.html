@@ -29,9 +29,12 @@
   <p><a href="/place/new" data-internal="" class="btn btn-block"><strong>Share your idea!</strong></a></p>
 {{^}}
   <p><a href="/" data-internal="" class="btn btn-block"><strong>Explore the ideas!</strong></a></p>
-
-  <p>The 2019 Public Space Challenge submission period is now closed. {{#if config.support.adding_supported}}Remember that you can share, support, or comment on the ideas through July 19.{{/if}}</p>
-  <p>Finalists will be notified by June 26, and will be invited to submit a full project proposal to the Foundation.</p>
+  {{#if config.support.adding_supported}}
+    <p>The 2019 Public Space Challenge submission period is now closed. Remember that you can share, support, or comment on the ideas through July 19.</p>
+    <p>Finalists will be notified by June 26, and will be invited to submit a full project proposal to the Foundation.</p>
+  {{^}}
+    <p>The 2019 Public Space Challenge submission period is now closed and finalists have been selected. Winners will be notified and announced in mid-September.</p>
+  {{/if}}
   <hr>
 {{/if}}
 
