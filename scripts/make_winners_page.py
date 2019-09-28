@@ -1,7 +1,11 @@
 """
 Usage:
 
-    USERNAME='...' PASSWORD='...' python upload_data.py < data.geojson
+    USERNAME='...' PASSWORD='...' python3 make_winners_page.py \
+        < [year]winners.csv \
+        > ../src/flavors/ourmiami[year]/jstemplates/pages/winners.html
+
+The only required columns in the winners.csv file is 'ID'.
 
 """
 
@@ -21,7 +25,7 @@ session = requests.Session()
 session.auth = (USERNAME, PASSWORD)
 session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': 'true'}
 
-IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places'
+IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/places'
 
 # Read the finalists in CSV format from stdin.
 reader = csv.DictReader(stdin)
@@ -52,7 +56,7 @@ for row in winner_data:
     ideas.append(idea)
 
 # Output the page header
-print(f'''<h3>Meet the 2018 Challenge Winners</h3>''')
+print(f'''<h3>Meet the 2019 Challenge Winners</h3>''')
 print(f'''''')
 
 def alphanum(s):
