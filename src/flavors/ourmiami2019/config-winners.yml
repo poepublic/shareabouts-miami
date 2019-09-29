@@ -49,7 +49,7 @@ place_types:
           iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "pedestrian" && !{{layer.focused}}'
         style:
-          fillColor: '#C3CE2F'
+          fillColor: '#A0B4C6'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
@@ -77,7 +77,7 @@ place_types:
           iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "biking" && !{{layer.focused}}'
         style:
-          fillColor: '#C3CE2F'
+          fillColor: '#C4ED52'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
@@ -105,7 +105,7 @@ place_types:
           iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "streetsidewalk" && !{{layer.focused}}'
         style:
-          fillColor: '#C3CE2F'
+          fillColor: '#FFD614'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
@@ -133,7 +133,7 @@ place_types:
           iconAnchor: [20, 20]
       - condition: '"{{location_type}}" === "transit" && !{{layer.focused}}'
         style:
-          fillColor: '#C3CE2F'
+          fillColor: '#B75AB8'
           fillOpacity: 0.7
           radius: 3
           color: 'black'
