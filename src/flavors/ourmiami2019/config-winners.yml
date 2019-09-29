@@ -2,7 +2,6 @@ app:
   title: The Miami Public Space Challenge
   name: The Miami Public Space Challenge
   meta_description: _('The Miami Foundation and our partners created the Our Miami Public Space Challenge to discover the best ideas for improving, creating, and activating local public spaces.')
-  list_enabled: true
 
 map:
   geolocation_enabled: true
@@ -35,8 +34,8 @@ map:
 
 place_types:
 
-  ParksAndNaturalAreas:
-    label: _(Parks & Natural Areas)
+  pedestrian:
+    label: _(Walking)
     rules:
       - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
         icon:
@@ -48,23 +47,23 @@ place_types:
           iconUrl: /static/css/images/markers/marker-star.png
           iconSize: [40, 40]
           iconAnchor: [20, 20]
-      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "pedestrian" && !{{layer.focused}}'
         style:
           fillColor: '#C3CE2F'
-          fillOpacity: 0.5
+          fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.1
+          opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "ParksAndNaturalAreas" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "pedestrian" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-ParksAndNaturalAreas.png
+          iconUrl: /static/css/images/markers/marker-pedestrian.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [45, 54]
           shadowSize: [41, 41]
           iconAnchor: [22, 54]
-  GreenwaysAndBlueways:
-    label: _(Greenways & Blueways)
+  biking:
+    label: _(Biking)
     rules:
       - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
         icon:
@@ -76,23 +75,23 @@ place_types:
           iconUrl: /static/css/images/markers/marker-star.png
           iconSize: [40, 40]
           iconAnchor: [20, 20]
-      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "biking" && !{{layer.focused}}'
         style:
-          fillColor: '#1490C1'
-          fillOpacity: 0.5
+          fillColor: '#C3CE2F'
+          fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.1
+          opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "GreenwaysAndBlueways" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "biking" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-GreenwaysAndBlueways.png
+          iconUrl: /static/css/images/markers/marker-biking.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [45, 54]
           shadowSize: [41, 41]
           iconAnchor: [22, 54]
-  SafeRoutesToParks:
-    label: _(Safe Routes to Parks)
+  streetsidewalk:
+    label: _(Streets & Sidewalks)
     rules:
       - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
         icon:
@@ -104,23 +103,23 @@ place_types:
           iconUrl: /static/css/images/markers/marker-star.png
           iconSize: [40, 40]
           iconAnchor: [20, 20]
-      - condition: '"{{location_type}}" === "SafeRoutesToParks" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "streetsidewalk" && !{{layer.focused}}'
         style:
-          fillColor: '#F4C040'
-          fillOpacity: 0.5
+          fillColor: '#C3CE2F'
+          fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.1
+          opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "SafeRoutesToParks" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "streetsidewalk" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-SafeRoutesToParks.png
+          iconUrl: /static/css/images/markers/marker-streetsidewalk.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [50, 60]
           shadowSize: [41, 41]
           iconAnchor: [25, 60]
-  PublicSpaces:
-    label: _(Public Spaces)
+  transit:
+    label: _(Public Transit)
     rules:
       - condition: '"{{ff}}" === "2" && !{{layer.focused}}'
         icon:
@@ -132,17 +131,17 @@ place_types:
           iconUrl: /static/css/images/markers/marker-star.png
           iconSize: [40, 40]
           iconAnchor: [20, 20]
-      - condition: '"{{location_type}}" === "PublicSpaces" && !{{layer.focused}}'
+      - condition: '"{{location_type}}" === "transit" && !{{layer.focused}}'
         style:
-          fillColor: '#AA93CE'
-          fillOpacity: 0.5
+          fillColor: '#C3CE2F'
+          fillOpacity: 0.7
           radius: 3
           color: 'black'
-          opacity: 0.1
+          opacity: 0.3
           weight: 2
-      - condition: '"{{location_type}}" === "PublicSpaces" && {{layer.focused}}'
+      - condition: '"{{location_type}}" === "transit" && {{layer.focused}}'
         icon:
-          iconUrl: /static/css/images/markers/marker-PublicSpaces.png
+          iconUrl: /static/css/images/markers/marker-transit.png
           shadowUrl: /static/css/images/marker-shadow.png
           iconSize: [45, 54]
           shadowSize: [41, 41]
@@ -289,8 +288,8 @@ place:
 survey:
   submission_type: comments
   adding_supported:
-    from: '2017-03-07 08:30 -0500'
-    until: '2017-05-02 00:00 -0400'
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-08-15 00:00 -0400'
 
   # Response config
   show_responses: true
@@ -317,8 +316,8 @@ survey:
 support:
   submission_type: support
   adding_supported:
-    from: '2017-03-07 08:30 -0500'
-    until: '2017-05-02 00:00 -0400'
+    from: '2019-04-16 09:00 -0400'
+    until: '2019-08-15 00:00 -0400'
   submit_btn_text: _(Like This!)
   response_name: _(like)
   response_plural_name: _(likes)
@@ -328,7 +327,7 @@ support:
 pages:
   - title: _(About)
     slug: about
-    name: overview-winners
+    name: overview
     start_page: true
   - title: _(FAQ)
     slug: faq
@@ -342,22 +341,22 @@ pages:
       - title: All
         external: true
         url: /filter/all
-      - title: _(Parks & Natural Areas)
-        url: /filter/ParksAndNaturalAreas
+      - title: _(Walking)
+        url: /filter/pedestrian
         external: true
-      - title: _(Greenways & Blueways)
-        url: /filter/GreenwaysAndBlueways
+      - title: _(Biking)
+        url: /filter/biking
         external: true
-      - title: _(Safe Routes to Parks)
-        url: /filter/SafeRoutesToParks
+      - title: _(Streets & Sidewalks)
+        url: /filter/streetsidewalk
         external: true
-      - title: _(Public Spaces)
-        url: /filter/PublicSpaces
+      - title: _(Public Transit)
+        url: /filter/transit
         external: true
   # - title: _(Finalists)
   #   slug: finalists
   #   name: finalists
-  - title: _(2018 Challenge Winners)
+  - title: _(2019 Winners)
     slug: winners
     name: winners
 

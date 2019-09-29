@@ -345,12 +345,12 @@ pages:
       - title: _(Public Transit)
         url: /filter/transit
         external: true
-  # - title: _(Finalists)
-  #   slug: finalists
-  #   name: finalists
-  - title: _(2019 Winners)
-    slug: winners
-    name: winners
+  - title: _(Finalists)
+    slug: finalists
+    name: finalists
+  # - title: _(2019 Winners)
+  #   slug: winners
+  #   name: winners
 
 notifications:
   on_new_place: true

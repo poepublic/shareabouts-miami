@@ -5,6 +5,10 @@ Usage:
 
     USERNAME='...' PASSWORD='...' python upload_data.py < winners.csv
 
+The only required columns in the winners.csv file is 'ID'. Optional columns are:
+- New Project Title
+- New Submitter
+
 """
 
 import csv
@@ -25,8 +29,8 @@ session = requests.Session()
 session.auth = (USERNAME, PASSWORD)
 session.headers = {'content-type': 'application/json', 'x-shareabouts-silent': 'true'}
 
-PSC_YEAR = 2018
-IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2018/places'
+PSC_YEAR = 2019
+IDEAS_URL = 'https://shareaboutsapi.poepublic.com/api/v2/ourmiami/datasets/psc2019/places'
 
 print('Downloading ideas...')
 pages = download_all_pages(IDEAS_URL)
@@ -36,20 +40,28 @@ for row in data:
     idea = ideas_by_id[idea_id]
     idea_props = idea['properties']
 
-    idea_update = {'ff': 2, 'pscyear': PSC_YEAR}
+    idea_update = {'ff': '2', 'pscyear': PSC_YEAR}
 
     # Save the original title and submitter if they're not already saved.
     if 'original_title' not in idea_props:
         idea_update['original_title'] = idea_props['title']
+    if 'original_description' not in idea_props:
+        idea_update['original_description'] = idea_props['description']
+    if 'original_details' not in idea_props:
+        idea_update['original_details'] = idea_props['details']
 
     if 'original_submitter' not in idea_props:
         idea_update['original_submitter'] = idea_props['submitter'] or idea_props['submitter_name']
 
     # Set the new title and submitter name. Only set the submitter name if it's
     # different than the current one.
-    idea_update['title'] = row['New Project Title']
+    if row.get('New Project Title'): idea_update['title'] = row['New Project Title']
+    if row.get('New Project Description'): idea_update['description'] = row['New Project Description']
+    if row.get('New Project Detail'): idea_update['details'] = row['New Project Detail']
 
-    if idea_props['submitter'] is None:
+    if 'New Submitter' not in row:
+        pass
+    elif idea_props['submitter'] is None:
         idea_update['submitter_name'] = row['New Submitter']
     elif idea_props['submitter']['name'] != row['New Submitter']:
         idea_update['submitter'] = None
